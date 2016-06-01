@@ -1,5 +1,6 @@
-﻿<li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jane Doe<b class="caret"></b></a>
+﻿@using POC.Helper
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Extensions.GetLoggedInUserName()<b class="caret"></b></a>
     <ul class="dropdown-menu">
         <li>@Html.ActionLink("Log Off", "LogOff", "Auth", null, new { @class = "fa fa-sign-out" })</li>
     </ul>

@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using POC.DataHelper;
 using POC.Models;
 
 namespace POC.Controllers
@@ -13,6 +12,8 @@ namespace POC.Controllers
 
         public ActionResult Login(Login login)
         {
+            // persist the username to session for now
+            Session.Add("loggedinuser", login.Username);
             return RedirectToAction("Index", "Case");
         }
 
