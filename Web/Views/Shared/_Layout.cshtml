@@ -1,40 +1,78 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sentient Clinical System (Mock Up)</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryBootgrid")
+    @Scripts.Render("~/bundles/jquerycookie")
+    @Scripts.Render("~/bundles/toastr")
+    @Scripts.Render("~/bundles/common")
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
+<!-- Page Content -->
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="body-content">
+            @RenderBody()
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Designed By Mind Over Machines</p>
+            </footer>
         </div>
     </div>
+</div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Designed By Mind Over Machines</p>
-        </footer>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-text navbar-product-name">
+                <span>Sentient Clinical Mockup</span>
+            </div>
+        </div>
+        <div class="navbar-header pull-right">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Schedule", "Index", "Schedule")</li>
+                <li>@Html.ActionLink("Case", "Index", "Case")</li>
+                <li>@Html.ActionLink("Reports", "Index", "Report")</li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("User Account", "UserAccounts", "Admin")</li>
+                        <li>@Html.ActionLink("Permissions", "Permissions", "Admin")</li>
+                    </ul>
+                </li>
+                @Html.Partial("_LoginPartial")
+            </ul>
+        </div>
     </div>
-
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+</nav>
+@RenderSection("scripts", required: false)
 </body>
 </html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        sentientPOC.layout.initialize();
+    });
+</script>

@@ -1,0 +1,42 @@
+﻿@model POC.Models.CaseSearchResults
+
+<div class="tab-body-content">
+    <div class="table-responsive">
+        @if (Model.Results.Any())
+        {
+            <table id="case-searchresults-grid" class="table table-condensed table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th data-formatter="button-edit" data-column-id="Id"></th>
+                        <th data-column-id="patientname" data-type="string" class="nowrap">Patient Name</th>
+                        <th data-column-id="casenumber" data-type="string" class="nowrap">Case Number</th>
+                        <th data-column-id="surgeon" data-type="string" class="nowrap">Surgeon</th>
+                        <th data-column-id="neurologist" data-type="string" class="nowrap">Neurologist</th>
+                        <th data-column-id="dateofservice" data-type="string" class="nowrap">Date of Service</th>
+                        <th data-formatter="button-view-chatlog" data-column-id="chatlog" class="nowrap">Chat Log</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var caseRow in Model.Results)
+                    {
+                        <tr>
+                            <td>
+                                @{
+                                    var querystring = "id=" + caseRow.CaseNumber + "&patientId=" + caseRow.Patient.Id;
+                                }
+                                @querystring
+                            </td>
+                            <td class="patient-name" data-patient-name="@caseRow.Patient.FirstName">@caseRow.Patient.FirstName @caseRow.Patient.LastName</td>
+                            <td>@caseRow.CaseNumber</td>
+                            <td>@caseRow.Surgeon</td>
+
+                            <td>@caseRow.StaffNeurologist</td>
+                            <td>@caseRow.DateOfService</td>
+                            <td>@caseRow.CaseNumber</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+         }
+    </div>
+</div>

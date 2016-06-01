@@ -1,0 +1,45 @@
+﻿@model POC.Models.CaseSearchResults
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tab-body-content">
+    <div class="row">
+        <h2>Cases</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-3 col-sm-2">
+                        <select id="caseFilter" class="form-control">
+                            <option value="1">Open Cases</option>
+                            <option value="2">Closed Cases</option>
+                            <option value="3">All Cases</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="btn btn-primary" id="new-case-button" href="@Url.Action("Add", "Case")">Start New Case</a>
+                    </div>
+                    <div class="col-md-3 col-sm-2">
+                        <input class="form-control" id="case-search" name="case-search" type="text" value="" placeholder="Enter search criteria...">
+                    </div>
+                    <div class="col-md-3">
+                        <a class="btn btn-primary" id="search-case-button" href="@Url.Action("Search", "Case")">Search</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="search-results" style="padding: 10px;">
+            @Html.Partial("CaseSearchResults", Model)
+        </div>
+        <div id="search-results-not-found" style="display: none; padding: 10px;">
+            <div class="alert alert-warning" id="nothing-found-message">No cases were found matching the selected filter.</div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        sentientPOC.case.initialize();
+    });
+</script>
