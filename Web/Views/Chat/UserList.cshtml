@@ -1,0 +1,10 @@
+﻿@using POC.Helper
+
+@model IEnumerable<POC.Models.User> 
+@{ 
+    var selectedItems = new List<int>();
+}
+
+    <div>
+        @Html.ListBoxFor(a => selectedItems, Model.GetMvcSelectListFromIEnumarable())
+    </div>
