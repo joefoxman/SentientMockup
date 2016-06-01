@@ -8,7 +8,18 @@ namespace POC.Controllers
     {
         public ActionResult Chat()
         {
-            return PartialView();
+            var users = new List<User>
+            {
+                new User {Id = 1, Description = "Alex"},
+                new User {Id = 2, Description = "Joey"},
+                new User {Id = 3, Description = "David"}
+            };
+            var chatViewModel = new Chat
+            {
+                SelectedUserIds = new List<string>(),
+                Users = users
+            };
+            return PartialView(chatViewModel);
         }
 
         [HttpGet]

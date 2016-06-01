@@ -10,5 +10,10 @@ namespace POC.Helper
         {
             return new SelectList(listToConvert, "Id", "Description");
         }
+
+        public static MultiSelectList MakeMultiSelectList(IEnumerable<User> list)
+        {
+            return new MultiSelectList(list, "Id", "Description");
+        }
     }
 }

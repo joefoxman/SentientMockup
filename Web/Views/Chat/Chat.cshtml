@@ -1,6 +1,12 @@
-﻿<div class="container">
+﻿@using POC.Helper
+
+@model POC.Models.Chat
+
+<div class="container">
     <div id="UserList">
     </div>
+    @Html.ListBoxFor(a => a.SelectedUserIds, Extensions.MakeMultiSelectList(Model.Users), new { @class = "form-control", @multiple = "multiple" })
+
     Room: <input type="text" id="room" />
     <input type="button" id="join" value="Join" />
     <p>Message: <input type="text" id="message" /></p>
@@ -21,17 +27,9 @@
     <script src="~/signalr/hubs"></script>
     <!--SignalR script to update the chat page and send messages.-->
     <script>
-        $(function() {
-            $.ajax({
-                    type: "GET",
-                    url: "/Home/GetUserList"
-                })
-                .error(function(data) {
-                    console.log(data);
-                })
-                .done(function(data) {
-                    $("#UserList").html(data);
-                });
+        $(function () {
+            $("#SelectedUserIds").multiselect({ numberDisplayed: 1 });
+
             // Reference the auto-generated proxy for the hub.
             var chat = $.connection.Chat;
             // Create a function that the hub can call back to display messages.

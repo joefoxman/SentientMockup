@@ -61,6 +61,11 @@
             load: function(event, ui) {
                 dynamicHeightTab($(this));
                 sentientPOC.common.hideWait($("body"));
+
+                var tabName = ui.tab.text().toLowerCase();
+                if (tabName === "chat") {
+                    $("#SelectedUserIds").multiselect();
+                }
             }
         });
     };

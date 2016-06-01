@@ -244,6 +244,7 @@
     <Compile Include="Models\Case.cs" />
     <Compile Include="Models\CaseSearchResult.cs" />
     <Compile Include="Models\CaseSearchResults.cs" />
+    <Compile Include="Models\Chat.cs" />
     <Compile Include="Models\Hardware.cs" />
     <Compile Include="Models\Hospital.cs" />
     <Compile Include="Models\Insurance.cs" />
