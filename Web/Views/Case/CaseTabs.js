@@ -1,12 +1,12 @@
 ﻿sentientPOC.caseTabs = (function () {
-    var dynamicHeightTabRecursiveMarginFind = function (element, tabBodyHeaderHeight) {
-        $(element).children().each(function () {
+    var dynamicHeightTabRecursiveMarginFind = function(element, tabBodyHeaderHeight) {
+        $(element).children().each(function() {
             var extraMarginTop = $(this).css("marginTop").replace('px', '');
-            if (extraMarginTop != undefined) {
+            if (extraMarginTop !== undefined) {
                 tabBodyHeaderHeight = parseInt(tabBodyHeaderHeight) + parseInt(extraMarginTop);
             }
             var extraMarginBottom = $(this).css("marginBottom").replace('px', '');
-            if (extraMarginBottom != undefined) {
+            if (extraMarginBottom !== undefined) {
                 tabBodyHeaderHeight = parseInt(tabBodyHeaderHeight) + parseInt(extraMarginBottom);
             }
             if ($(element).children().length > 0) {
@@ -14,10 +14,10 @@
             }
         });
         return tabBodyHeaderHeight;
-    }
-    var dynamicHeightTab = function (tabs) {
+    };
+    var dynamicHeightTab = function(tabs) {
         var tabBodyHeaderHeight;
-        $(tabs).find(".ui-tabs-panel.ui-widget-content.ui-corner-bottom").each(function (index) {
+        $(tabs).find(".ui-tabs-panel.ui-widget-content.ui-corner-bottom").each(function(index) {
             if ($(this).css("display") !== "none") {
                 var bodyContentHeader = $($(this).find(".tab-body-content-header"));
                 tabBodyHeaderHeight = $(bodyContentHeader).height();
@@ -37,7 +37,7 @@
         $(tabs).css("height", docHeight + "px").css("overflow-y", "hidden");
         $(tabs).find(scrollContentSelector).css("overflow-y", "scroll").css("overflow-x", "hidden");
         $(scrollContentSelector).height(docHeight - (tabsHeight + tabBodyHeaderHeight + tabContentOffset) + "px");
-    }
+    };
 
     var initCaseTabs = function() {
         $(window).resize(function() {

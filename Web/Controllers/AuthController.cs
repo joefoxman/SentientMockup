@@ -1,9 +1,10 @@
 ﻿using System.Web.Mvc;
+using POC.Helper;
 using POC.Models;
 
 namespace POC.Controllers
 {
-    public class AuthController : Controller
+    public class AuthController : ControllerBase
     {
         public ActionResult Index()
         {
@@ -12,8 +13,7 @@ namespace POC.Controllers
 
         public ActionResult Login(Login login)
         {
-            // persist the username to session for now
-            Session.Add("loggedinuser", login.Username);
+            UpdateCookie(Common.ClaimsKeys.UserName.ToDescription(), login.Username);
             return RedirectToAction("Index", "Case");
         }
 

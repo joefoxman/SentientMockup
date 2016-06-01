@@ -9,9 +9,8 @@ namespace POC.Helper
     {
         public static string GetLoggedInUserName()
         {
-            var currentSession = HttpContext.Current.Session;
-            var loggedInUserName = currentSession["loggedinuser"].ToString();
-            return loggedInUserName;
+            var cookie = HttpContext.Current.Request.Cookies[Common.CookieKey];
+            return cookie == null ? string.Empty : cookie.Values[Common.ClaimsKeys.UserName.ToDescription()];
         }
         public static SelectList GetMvcSelectListFromIEnumarable(this IEnumerable<User> listToConvert)
         {

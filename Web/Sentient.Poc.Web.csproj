@@ -231,13 +231,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CaseController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="DataHelper\CaseData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Common.cs" />
     <Compile Include="Helper\Extensions.cs" />
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Hubs\startup.cs" />
@@ -275,6 +278,7 @@
     <Content Include="Views\Auth\LoginLogo.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\UserList.cshtml" />
+    <Content Include="Views\Schedule\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -285,9 +289,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Base\" />
     <Folder Include="Views\Patient\" />
     <Folder Include="Views\Report\" />
-    <Folder Include="Views\Schedule\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
