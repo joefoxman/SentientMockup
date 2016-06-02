@@ -6,5 +6,13 @@
 }
 
     <div>
-        @Html.ListBoxFor(a => selectedItems, Model.GetMvcSelectListFromIEnumarable())
+        @{
+            foreach(var user in Model)
+            {
+                <div>
+                    @Html.CheckBox(user.Id.ToString(), new { htmlAttributes = new { @class = "form-control" } } )
+                    @Html.Label(user.Description, new { htmlAttributes = new { @class = "control-label" } })
+                </div>
+            }
+         }
     </div>

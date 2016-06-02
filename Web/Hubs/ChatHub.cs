@@ -12,11 +12,18 @@ namespace POC.Hubs
     {
         public static ConcurrentDictionary<string, UserData> UserList = new ConcurrentDictionary<string, UserData>();
 
-        public void Send(string name, string message)
+        public void SendToRoom(Guid RoomId, string name, string message)
         {
             // Call the addNewMessageToPage method to update clients.
             var msg = String.Format("{0} : {1}", Context.ConnectionId, message);
-            Clients.All.addNewMessageToPage(name, msg);
+            Clients.Group(RoomId.ToString()).addMessageToRoom(name, message, RoomId);
+        }
+
+        public void SendToAll(string name, string message)
+        {
+            // Call the addNewMessageToPage method to update clients.
+            var msg = String.Format("{0} : {1}", Context.ConnectionId, message);
+            Clients.All.addMessageToAll(name, message);
         }
 
         public void JoinRoom(string name, string room)
@@ -46,16 +53,11 @@ namespace POC.Hubs
             }
         }
 
-        public void SendMessageToRoom(string name, string room, string message)
+        public void StartChat(string users, string roomId)
         {
-            var msg = String.Format("{0} : {1}", Context.ConnectionId, message);
             // broadcast all users in this room
-            var usersInRoom = UserList.Where(a => a.Value.RoomId.Equals(room, StringComparison.OrdinalIgnoreCase) && string.IsNullOrWhiteSpace(a.Value.ConnectionId));
-            var returnUserList = usersInRoom.Aggregate("", (current, user) => current + ";" + user.Value.UserName);
-
-            Clients.All.isUserInRoom(returnUserList.Substring(1), room, name, msg);
-
-            Clients.Group(room).newMessage(name, msg, room);
+            Clients.All.isUserInRoom(users, roomId);
+            
         }
 
         public override Task OnConnected()
@@ -65,6 +67,8 @@ namespace POC.Hubs
 
             return base.OnConnected();
         }
+
+
     }
 
     public class UserData

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using POC.Models;
+using System;
 
 namespace POC.Controllers
 {
@@ -36,5 +37,28 @@ namespace POC.Controllers
             };
             return PartialView("UserList", users);
         }
+        public PartialViewResult StartChat(string users, string roomId)
+        {
+            var discussionViewModel = new POC.Models.Discussion();
+            discussionViewModel.Chatlog = new List<Chatlog>();
+            discussionViewModel.Users = new List<User>();
+            var splitUsers = users.Split(';');
+            foreach(var user in splitUsers)
+            {
+                discussionViewModel.Users.Add(new User { Id = 1, Description = user });
+            }
+
+            discussionViewModel.LoggedInUser = POC.Helper.Extensions.GetLoggedInUserName();
+            if (string.IsNullOrWhiteSpace(roomId))
+            {
+                discussionViewModel.RoomId = Guid.NewGuid();
+            }
+            else
+            {
+                discussionViewModel.RoomId = new Guid(roomId);
+            }
+            return PartialView("Discussion", discussionViewModel);
+        }
+
     }
 }

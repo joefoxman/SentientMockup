@@ -304,6 +304,7 @@
     <Content Include="Scripts\waitMe.min.js" />
     <Content Include="Views\Case\Case.js" />
     <Content Include="Views\Case\CaseTabs.js" />
+    <Content Include="Views\Chat\chat.js" />
     <Content Include="Views\Schedule\events.xml" />
     <Content Include="Views\Schedule\ScheduleTabs.js" />
     <Content Include="Views\Shared\Layout.js" />
@@ -331,6 +332,8 @@
     <Compile Include="Models\CaseSearchResult.cs" />
     <Compile Include="Models\CaseSearchResults.cs" />
     <Compile Include="Models\Chat.cs" />
+    <Compile Include="Models\Chatlog.cs" />
+    <Compile Include="Models\Discussion.cs" />
     <Compile Include="Models\Hardware.cs" />
     <Compile Include="Models\Hospital.cs" />
     <Compile Include="Models\Insurance.cs" />
@@ -365,6 +368,7 @@
     <Content Include="Views\Schedule\Calendar.cshtml" />
     <Content Include="Views\Schedule\Confirmation.cshtml" />
     <Content Include="Views\Schedule\TestCalendar.cshtml" />
+    <Content Include="Views\Chat\Discussion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -7,4 +7,5 @@ namespace POC.Models
         public IEnumerable<User> Users { get; set; }
         public IEnumerable<string> SelectedUserIds { get; set; }  
     }
+
 }
