@@ -37,18 +37,20 @@ namespace POC.Controllers
             };
             return PartialView("UserList", users);
         }
-        public PartialViewResult StartChat(string users, string roomId)
+        public PartialViewResult StartChat(string users, string roomId, string userWhoStartedChat)
         {
-            var discussionViewModel = new POC.Models.Discussion();
-            discussionViewModel.Chatlog = new List<Chatlog>();
-            discussionViewModel.Users = new List<User>();
+            var discussionViewModel = new Discussion
+            {
+                Chatlog = new List<Chatlog>(),
+                Users = new List<User>()
+            };
             var splitUsers = users.Split(';');
             foreach(var user in splitUsers)
             {
                 discussionViewModel.Users.Add(new User { Id = 1, Description = user });
             }
 
-            discussionViewModel.LoggedInUser = POC.Helper.Extensions.GetLoggedInUserName();
+            discussionViewModel.LoggedInUser = Helper.Extensions.GetLoggedInUserName();
             if (string.IsNullOrWhiteSpace(roomId))
             {
                 discussionViewModel.RoomId = Guid.NewGuid();
@@ -57,6 +59,8 @@ namespace POC.Controllers
             {
                 discussionViewModel.RoomId = new Guid(roomId);
             }
+            discussionViewModel.UserWhoStartedChat = userWhoStartedChat;
+
             return PartialView("Discussion", discussionViewModel);
         }
 

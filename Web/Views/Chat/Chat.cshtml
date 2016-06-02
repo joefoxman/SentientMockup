@@ -1,7 +1,9 @@
 ﻿@using POC.Helper
 
 @model POC.Models.Chat
-@{var username = POC.Helper.Extensions.GetLoggedInUserName(); }
+@{
+    var username = Extensions.GetLoggedInUserName();
+}
 
 <!--Script references. -->
 <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
@@ -22,14 +24,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        sentientPOC.chat.initialize(username);
+        sentientPOC.chat.initialize("@username");
     });
-
-    // This optional function html-encodes messages for display in the page.
-    function htmlEncode(value) {
-        var encodedValue = $('<div />').text(value).html();
-        return encodedValue;
-    }
-  
 </script>
 
