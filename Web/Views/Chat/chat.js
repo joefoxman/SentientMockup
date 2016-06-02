@@ -2,7 +2,8 @@
     var initChat = function (username) {
         var chat = $.connection.Chat;
         var windowObjectReference;
-
+        var windowWidth = 400;
+        var windowHeight = 600;
         chat.client.isUserInRoom = function (users, roomId, userStartedChat) {
             var usersSplit = users.split(";");
             var shouldOpenWindow = false;
@@ -15,12 +16,13 @@
                 }
             });
             if (shouldOpenWindow) {
-                window.open("/Chat/StartChat/?users=Joey;David;Alex&roomId=" + roomId, "Chat", "resizable,scrollbars,status");
+                window.open("/Chat/StartChat/?users=Joey;David;Alex", roomId, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
             }
         };
 
         $("#startchat").on("click", function () {
-            windowObjectReference = window.open("/Chat/StartChat/?users=Joey;David;Alex&UserWhoStartedChat=Alex", "Chat", "resizable,scrollbars,status");
+            var randomnumber = Math.floor((Math.random() * 100) + 1);
+            window.open("/Chat/StartChat/?users=Joey;David;Alex&UserWhoStartedChat=" + username, randomnumber, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
         });
 
         // Start the connection.

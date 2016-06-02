@@ -250,6 +250,8 @@
     <Content Include="Content\bootstrap-dialog.less" />
     <Content Include="Content\toastr.less" />
     <Content Include="Content\toastr.scss" />
+    <None Include="Properties\PublishProfiles\signalrchatpoc13 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\signalrchatpoc13 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
