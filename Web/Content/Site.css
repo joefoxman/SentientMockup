@@ -8,6 +8,10 @@ legend {
     color: #377CA8;
 }
 
+.ui-tabs {
+    overflow-x: hidden;    
+}
+
 .modal-header-success {
     color:#fff;
     padding:9px 15px;

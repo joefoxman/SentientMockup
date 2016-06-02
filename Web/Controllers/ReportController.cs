@@ -2,9 +2,8 @@
 
 namespace POC.Controllers
 {
-    public class HomeController : ControllerBase
+    public class ReportController : ControllerBase
     {
-        // GET: Home
         public ActionResult Index()
         {
             return View();

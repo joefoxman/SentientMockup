@@ -4,7 +4,7 @@ using POC.Models;
 
 namespace POC.Controllers
 {
-    public class ChatController : Controller
+    public class ChatController : ControllerBase
     {
         public ActionResult Chat()
         {

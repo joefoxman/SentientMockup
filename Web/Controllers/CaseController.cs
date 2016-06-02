@@ -6,7 +6,7 @@ using POC.Models;
 
 namespace POC.Controllers
 {
-    public class CaseController : Controller
+    public class CaseController : ControllerBase
     {
         public ActionResult Index()
         {   

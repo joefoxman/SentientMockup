@@ -149,8 +149,82 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dhtmlxscheduler.css" />
     <Content Include="Content\Images\sentient-logo.png" />
     <Content Include="Content\Images\tray_icon_notification.png" />
+    <Content Include="Content\imgs\buttons.png" />
+    <Content Include="Content\imgs\but_repeat.gif" />
+    <Content Include="Content\imgs\calendar.gif" />
+    <Content Include="Content\imgs\clock_big.gif" />
+    <Content Include="Content\imgs\clock_small.gif" />
+    <Content Include="Content\imgs\collapse_expand_icon.gif" />
+    <Content Include="Content\imgs\controls.gif" />
+    <Content Include="Content\imgs\databg.png" />
+    <Content Include="Content\imgs\databg_now.png" />
+    <Content Include="Content\imgs\export_ical.png" />
+    <Content Include="Content\imgs\export_pdf.png" />
+    <Content Include="Content\imgs\icon.png" />
+    <Content Include="Content\imgs\images.png" />
+    <Content Include="Content\imgs\loading.gif" />
+    <Content Include="Content\imgs\resize_dots.png" />
+    <Content Include="Content\imgs_dhx_terrace\arrow_left.png" />
+    <Content Include="Content\imgs_dhx_terrace\arrow_right.png" />
+    <Content Include="Content\imgs_dhx_terrace\but_repeat.gif" />
+    <Content Include="Content\imgs_dhx_terrace\calendar.gif" />
+    <Content Include="Content\imgs_dhx_terrace\clock_big.gif" />
+    <Content Include="Content\imgs_dhx_terrace\clock_small.gif" />
+    <Content Include="Content\imgs_dhx_terrace\close_icon.png" />
+    <Content Include="Content\imgs_dhx_terrace\collapse_expand_icon.gif" />
+    <Content Include="Content\imgs_dhx_terrace\controls.png" />
+    <Content Include="Content\imgs_dhx_terrace\databg.png" />
+    <Content Include="Content\imgs_dhx_terrace\databg_now.png" />
+    <Content Include="Content\imgs_dhx_terrace\export_ical.png" />
+    <Content Include="Content\imgs_dhx_terrace\export_pdf.png" />
+    <Content Include="Content\imgs_dhx_terrace\resize_dots.png" />
+    <Content Include="Content\imgs_dhx_terrace\resizing.png" />
+    <Content Include="Content\imgs_flat\agenda_bg.gif" />
+    <Content Include="Content\imgs_flat\arrow_left.png" />
+    <Content Include="Content\imgs_flat\arrow_right.png" />
+    <Content Include="Content\imgs_flat\but_repeat.gif" />
+    <Content Include="Content\imgs_flat\calendar.gif" />
+    <Content Include="Content\imgs_flat\clock.png" />
+    <Content Include="Content\imgs_flat\clock_big.gif" />
+    <Content Include="Content\imgs_flat\clock_small.gif" />
+    <Content Include="Content\imgs_flat\close_icon.png" />
+    <Content Include="Content\imgs_flat\collapse_expand_icon.gif" />
+    <Content Include="Content\imgs_flat\controls.png" />
+    <Content Include="Content\imgs_flat\databg.png" />
+    <Content Include="Content\imgs_flat\databg_now.png" />
+    <Content Include="Content\imgs_flat\export_ical.png" />
+    <Content Include="Content\imgs_flat\export_pdf.png" />
+    <Content Include="Content\imgs_flat\resize_dots.png" />
+    <Content Include="Content\imgs_flat\resizing.png" />
+    <Content Include="Content\imgs_glossy\blue_tab.png" />
+    <Content Include="Content\imgs_glossy\blue_tab_wide.png" />
+    <Content Include="Content\imgs_glossy\buttons.gif" />
+    <Content Include="Content\imgs_glossy\but_repeat.gif" />
+    <Content Include="Content\imgs_glossy\calendar.gif" />
+    <Content Include="Content\imgs_glossy\clock_big.png" />
+    <Content Include="Content\imgs_glossy\clock_small.png" />
+    <Content Include="Content\imgs_glossy\collapse_expand_icon.gif" />
+    <Content Include="Content\imgs_glossy\controlls5.png" />
+    <Content Include="Content\imgs_glossy\databg.png" />
+    <Content Include="Content\imgs_glossy\databg_now.png" />
+    <Content Include="Content\imgs_glossy\event-bg.png" />
+    <Content Include="Content\imgs_glossy\export_ical.png" />
+    <Content Include="Content\imgs_glossy\export_pdf.png" />
+    <Content Include="Content\imgs_glossy\icon.png" />
+    <Content Include="Content\imgs_glossy\left-separator.png" />
+    <Content Include="Content\imgs_glossy\left-time-bg.png" />
+    <Content Include="Content\imgs_glossy\lightbox.png" />
+    <Content Include="Content\imgs_glossy\loading.gif" />
+    <Content Include="Content\imgs_glossy\move.png" />
+    <Content Include="Content\imgs_glossy\multi-days-bg.png" />
+    <Content Include="Content\imgs_glossy\second-top-days-bg.png" />
+    <Content Include="Content\imgs_glossy\top-days-bg.png" />
+    <Content Include="Content\imgs_glossy\top-separator.gif" />
+    <Content Include="Content\imgs_glossy\white_tab.png" />
+    <Content Include="Content\imgs_glossy\white_tab_wide.png" />
     <Content Include="Content\jquery.bootgrid.css" />
     <Content Include="Content\jquery.bootgrid.min.css" />
     <Content Include="Content\Notification.css" />
@@ -184,6 +258,7 @@
     <Content Include="Scripts\bootstrap-switch.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Calendar\dhtmlxscheduler.js" />
     <Content Include="Scripts\Custom\common.js" />
     <Content Include="Scripts\EasyTab\jquery.easytabs.js" />
     <Content Include="Scripts\EasyTab\jquery.easytabs.min.js" />
@@ -224,6 +299,8 @@
     <Content Include="Scripts\waitMe.min.js" />
     <Content Include="Views\Case\Case.js" />
     <Content Include="Views\Case\CaseTabs.js" />
+    <Content Include="Views\Schedule\events.xml" />
+    <Content Include="Views\Schedule\ScheduleTabs.js" />
     <Content Include="Views\Shared\Layout.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -235,6 +312,7 @@
     <Compile Include="Controllers\CaseController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="DataHelper\CaseData.cs" />
     <Compile Include="Global.asax.cs">
@@ -279,6 +357,10 @@
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\UserList.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Schedule\Calendar.cshtml" />
+    <Content Include="Views\Schedule\Confirmation.cshtml" />
+    <Content Include="Views\Schedule\TestCalendar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -291,7 +373,6 @@
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Patient\" />
-    <Folder Include="Views\Report\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -48,17 +48,14 @@ namespace POC.Controllers
             }
         }
 
-        protected override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
+        protected override void OnActionExecuting(ActionExecutingContext filterContext) {
             // make sure we don't get caught in a loop
             // if we are requesting the login page or the login page is logging in then exit now
             if (filterContext.Controller.ToString().EndsWith(".AuthController")
-                && (filterContext.ActionDescriptor.ActionName == "Index" || filterContext.ActionDescriptor.ActionName == "Login"))
-            {
+                && (filterContext.ActionDescriptor.ActionName == "Index" || filterContext.ActionDescriptor.ActionName == "Login")) {
                 return;
             }
-            if (GetLoggedInUserId() == 0)
-            {
+            if (string.IsNullOrWhiteSpace(Extensions.GetLoggedInUserName())) {
                 // redirect to login page now
                 filterContext.Result = new RedirectResult("/auth/");
             }

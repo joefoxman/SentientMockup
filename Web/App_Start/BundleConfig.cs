@@ -6,11 +6,16 @@ namespace POC
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/calendar").Include(
+                        "~/Scripts/Calendar/dhtmlxscheduler.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryBootgrid").Include(
                         "~/Scripts/jquery.bootgrid.js",
                         "~/Scripts/jquery.bootgrid.fa.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquerycookie").Include(
                         "~/Scripts/jquery.cookie.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/toastr").Include(
                         "~/Scripts/toastr.js"));
 
@@ -35,6 +40,7 @@ namespace POC
                         "~/Views/Shared/Layout.js",
                         "~/Views/Case/Case.js",
                         "~/Views/Case/CaseTabs.js",
+                        "~/Views/Schedule/ScheduleTabs.js",
                         "~/Scripts/waitMe.js",
                         "~/Scripts/jquery.maskedinput.js",
                         "~/Scripts/Custom/common.js",
@@ -49,7 +55,8 @@ namespace POC
                         "~/Content/waitMe.css",
                         "~/Content/bootstrap-multiselect.css",
                         "~/Content/toastr.css",
-                        "~/Content/bootstrap-dialog.css"));
+                        "~/Content/bootstrap-dialog.css",
+                        "~/Content/dhtmlxscheduler.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
