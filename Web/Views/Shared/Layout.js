@@ -22,14 +22,14 @@ sentientPOC.layout = (function () {
     };
 
     var initialize = function () {
-        setTimeout($.ajaxSetup({
-            beforeSend: function () {
-                var cookie = $.cookie(".AspNet.ApplicationCookie");
-                if (cookie == undefined) {
-                    location.href = "/home";
-                }
-            }
-        }), 5000);
+        //setTimeout($.ajaxSetup({
+        //    beforeSend: function () {
+        //        var cookie = $.cookie(".AspNet.ApplicationCookie");
+        //        if (cookie == undefined) {
+        //            location.href = "/home";
+        //        }
+        //    }
+        //}), 5000);
         initToastr();
     };
 

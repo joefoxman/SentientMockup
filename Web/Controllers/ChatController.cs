@@ -6,7 +6,8 @@ namespace POC.Controllers
 {
     public class ChatController : ControllerBase
     {
-        public ActionResult Chat()
+        [HttpGet]
+        public PartialViewResult Chat()
         {
             var users = new List<User>
             {

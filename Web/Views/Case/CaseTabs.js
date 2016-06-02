@@ -64,7 +64,7 @@
 
                 var tabName = ui.tab.text().toLowerCase();
                 if (tabName === "chat") {
-                    $("#SelectedUserIds").multiselect();
+                    //$("#SelectedUserIds").multiselect();
                 }
             }
         });
