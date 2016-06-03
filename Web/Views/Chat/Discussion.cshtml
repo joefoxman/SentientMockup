@@ -25,6 +25,7 @@
                     @Html.Label(user.Description, new {@class = "control-label"})
                     <span>&nbsp;</span>
                 }
+                @Html.Label(Model.UserWhoStartedChat, new { @class = "control-label" })
             </div>
             <hr/>
             <div style="height: 400px; overflow-y: scroll;">
@@ -38,18 +39,18 @@
     </body>
 </html>
 <script type="text/javascript">
-    function disableF5(e) {
-         if ((e.which || e.keyCode) === 116 || (e.which || e.keyCode) === 82) {
-             e.preventDefault();
-         }
-    };
+    //function disableF5(e) {
+    //     if ((e.which || e.keyCode) === 116 || (e.which || e.keyCode) === 82) {
+    //         e.preventDefault();
+    //     }
+    //};
     function htmlEncode(value) {
         var encodedValue = $('<div />').text(value).html();
         return encodedValue;
     }
 
     $(document).ready(function () {
-        $(document).on("keydown", disableF5);
+        //$(document).on("keydown", disableF5);
 
         if (history.pushState) {
             var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname;

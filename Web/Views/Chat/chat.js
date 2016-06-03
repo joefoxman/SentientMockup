@@ -4,11 +4,11 @@
         var windowObjectReference;
         var windowWidth = 400;
         var windowHeight = 600;
-        chat.client.isUserInRoom = function (users, roomId, userStartedChat) {
+        chat.client.isUserInRoom = function (users, roomId, userWhoStartedChat) {
             var usersSplit = users.split(";");
             var shouldOpenWindow = false;
             $.each(usersSplit, function (key, value) {
-                if (value !== userStartedChat) {
+                if (value !== userWhoStartedChat) {
                     // are you in this list for this room?
                     if (username === value) {
                         shouldOpenWindow = true;
@@ -16,7 +16,7 @@
                 }
             });
             if (shouldOpenWindow) {
-                window.open("/Chat/StartChat/?users=" + users + "&roomId=" + roomId, roomId, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+                window.open("/Chat/StartChat/?users=" + users + "&roomId=" + roomId + "&userWhoStartedChat=" + userWhoStartedChat, roomId, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
             }
         };
 
