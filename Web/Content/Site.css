@@ -173,12 +173,26 @@ legend {
     height:inherit;
     /* To center horizontally */
     margin: 0 auto;
+
 }.form-control-checkbox {
     width: 20px;
+     height: 20px;
+}
+.form-control {
+    max-width: 500px;
 }
 
- .form-control {
-     max-width: 500px;
+.checkbox-label {
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+li {
+    list-style-type: none;
+}
+
+li div {
+     display: table-cell; vertical-align: middle;
  }
 
 .medicare-form {
