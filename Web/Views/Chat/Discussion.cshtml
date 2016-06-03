@@ -49,7 +49,6 @@
         }
 
         var username = "@Model.LoggedInUser";
-        //$("#SelectedUserIds").multiselect({ numberDisplayed: 1 });
         // Reference the auto-generated proxy for the hub.
         var chat = $.connection.Chat;
 
@@ -64,10 +63,6 @@
             });
             height += 10 + '';
             $('div').animate({ scrollTop: height });
-
-            //var scrollArea = $("#discussion");
-            //var height = scrollArea[0].scrollHeight;
-            //scrollArea.scrollTop(height);
         };
         $("#message").focus();
 
@@ -79,6 +74,13 @@
                 // broadcast to everybody to start their chat and open their windows
                 chat.server.startChat("Joey;David;Alex", "@Model.RoomId");
             };
+
+            $("#message").keyup(function (e) {
+                var code = e.keyCode ? e.keyCode : e.which;
+                if (code === 13) {  // Enter keycode
+                    $("#send").click();
+                }
+            });
 
             $('#send').click(function () {
                 var message = $("#message").val().trim();
