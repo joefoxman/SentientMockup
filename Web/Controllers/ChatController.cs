@@ -21,22 +21,30 @@ namespace POC.Controllers
                 SelectedUserIds = new List<string>(),
                 Users = users
             };
+            var loggedInUser = chatViewModel.LoggedInUser = Helper.Extensions.GetLoggedInUserName();
+            foreach (var user in users) {
+                if (user.Description == loggedInUser)
+                {
+                    users.Remove(user);
+                }
+                    }
             return PartialView(chatViewModel);
         }
 
-        [HttpGet]
-        public PartialViewResult GetUserList()
-        {
-            var users = new List<User>
-            {
-                new User {Id = 1, Description = "Alex"},
-                new User {Id = 2, Description = "Joey"},
-                new User {Id = 3, Description = "Bob"},
-                new User {Id = 4, Description = "Kate"},
-                new User {Id = 5, Description = "Tom"}
-            };
-            return PartialView("UserList", users);
-        }
+        //[HttpGet]
+        //public PartialViewResult GetUserList()
+        //{
+        //    var users = new List<User>
+        //    {
+        //        new User {Id = 1, Description = "Alex"},
+        //        new User {Id = 2, Description = "Joey"},
+        //        new User {Id = 3, Description = "Bob"},
+        //        new User {Id = 4, Description = "Kate"},
+        //        new User {Id = 5, Description = "Tom"}
+        //    };
+
+        //    return PartialView("UserList", users);
+        //}
         public PartialViewResult StartChat(string users, string roomId, string userWhoStartedChat) {
             var discussionViewModel = new Discussion {
                 Chatlog = new List<Chatlog>(),

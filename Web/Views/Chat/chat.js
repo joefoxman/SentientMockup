@@ -16,13 +16,21 @@
                 }
             });
             if (shouldOpenWindow) {
-                window.open("/Chat/StartChat/?users=Joey;David;Alex", roomId, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+                window.open("/Chat/StartChat/?users=" + users, roomId, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
             }
         };
 
         $("#startchat").on("click", function () {
+            var selectedUsers = "";
+            var delim = "";
+            $.each($(".user-checkbox"), function (key, value) {
+                if ($(this).prop("checked")) {
+                    selectedUsers += delim + $(this).attr("data-description")
+                    delim = ";";
+                }
+            });
             var randomnumber = Math.floor((Math.random() * 100) + 1);
-            window.open("/Chat/StartChat/?users=Joey;David;Alex&UserWhoStartedChat=" + username, randomnumber, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+            window.open("/Chat/StartChat/?users=" + selectedUsers + "&UserWhoStartedChat=" + username, randomnumber, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
         });
 
         // Start the connection.
