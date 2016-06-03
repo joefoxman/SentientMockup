@@ -16,7 +16,7 @@
                 }
             });
             if (shouldOpenWindow) {
-                window.open("/Chat/StartChat/?users=" + users, roomId, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+                window.open("/Chat/StartChat/?users=" + users + "&roomId=" + roomId, roomId, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
             }
         };
 
@@ -25,7 +25,7 @@
             var delim = "";
             $.each($(".user-checkbox"), function (key, value) {
                 if ($(this).prop("checked")) {
-                    selectedUsers += delim + $(this).attr("data-description")
+                    selectedUsers += delim + $(this).attr("data-description");
                     delim = ";";
                 }
             });

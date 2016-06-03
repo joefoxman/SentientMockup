@@ -117,12 +117,18 @@ legend {
     margin-right: 15px;
 }
 
+.chat-datetime-li {
+    margin-bottom: 5px;
+}
 .chat-datetime {
-    margin-bottom: -10px;
+    font-size: smaller;
+}
+.chat-message-li {
+    margin-bottom: 10px;
 }
 .chat-message {
     background-color: blanchedalmond;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;

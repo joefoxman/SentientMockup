@@ -62,8 +62,8 @@
 
         chat.client.addMessageToRoom = function (name, message, roomId, dateSent) {
             // Add the message to the page.
-            $("#discussion").append("<li><div class='chat-datetime'><strong>" + htmlEncode(name) + " " + htmlEncode(dateSent) + "</strong></div>"
-                + "</br><div class='chat-message'>" + htmlEncode(message) + "</div></li>");
+            $("#discussion").append("<li class='chat-datetime-li'><div><strong>" + htmlEncode(name) + "</strong>: <span class='chat-datetime'>" + htmlEncode(dateSent) + "</span></div>"
+                + "</li><li class='chat-message-li'><div class='chat-message'>" + htmlEncode(message) + "</div></li>");
 
             var height = 0;
             $('li div').each(function (i, value) {
@@ -80,7 +80,7 @@
 
             if ("@Model.LoggedInUser" === "@Model.UserWhoStartedChat") {
                 // broadcast to everybody to start their chat and open their windows
-                chat.server.startChat("Joey;David;Alex", "@Model.RoomId");
+                chat.server.startChat("@Model.UserList", "@Model.RoomId");
             };
 
             $("#message").keyup(function (e) {

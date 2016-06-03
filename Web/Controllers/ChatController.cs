@@ -21,30 +21,11 @@ namespace POC.Controllers
                 SelectedUserIds = new List<string>(),
                 Users = users
             };
-            var loggedInUser = chatViewModel.LoggedInUser = Helper.Extensions.GetLoggedInUserName();
-            foreach (var user in users) {
-                if (user.Description == loggedInUser)
-                {
-                    users.Remove(user);
-                }
-                    }
+            var loggedInUser = Helper.Extensions.GetLoggedInUserName();
+            users.Remove(users.Find(a => a.Description.Equals(loggedInUser, StringComparison.OrdinalIgnoreCase)));
             return PartialView(chatViewModel);
         }
 
-        //[HttpGet]
-        //public PartialViewResult GetUserList()
-        //{
-        //    var users = new List<User>
-        //    {
-        //        new User {Id = 1, Description = "Alex"},
-        //        new User {Id = 2, Description = "Joey"},
-        //        new User {Id = 3, Description = "Bob"},
-        //        new User {Id = 4, Description = "Kate"},
-        //        new User {Id = 5, Description = "Tom"}
-        //    };
-
-        //    return PartialView("UserList", users);
-        //}
         public PartialViewResult StartChat(string users, string roomId, string userWhoStartedChat) {
             var discussionViewModel = new Discussion {
                 Chatlog = new List<Chatlog>(),
@@ -57,7 +38,7 @@ namespace POC.Controllers
                     discussionViewModel.Users.Add(new User { Id = 1, Description = user });
                 }
             }
-
+            discussionViewModel.UserList = users;
             discussionViewModel.LoggedInUser = Helper.Extensions.GetLoggedInUserName();
             discussionViewModel.RoomId = string.IsNullOrWhiteSpace(roomId) ? Guid.NewGuid() : new Guid(roomId);
             discussionViewModel.UserWhoStartedChat = userWhoStartedChat;
