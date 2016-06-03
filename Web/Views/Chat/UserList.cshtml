@@ -1,32 +1,15 @@
-﻿@using POC.Helper
-
-@model IEnumerable<POC.Models.User> 
-@{ 
-    var selectedItems = new List<int>();
-}
-
-    <div>
-        @{
-            foreach(var user in Model)
-            {
+﻿@model IEnumerable<POC.Models.User> 
+@{
+    <ul>
+        @foreach (var user in Model) {
+            <li>
                 <div>
-                    @Html.CheckBox(user.Id.ToString(), new { @class = "form-control user-checkbox", data_description = user.Description } )
-                    @Html.Label(user.Description, new { @class = "control-label" } )
+                    @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox", @id = user.Id })
                 </div>
-            }
-         }
-    </div>
-
-@*<ul>
-    @foreach (var user in Model)
-    {
-        <li>
-            <div>
-                @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox", @id = user.Id, data_description = user.Description })
-            </div>
-            <div>
-                @Html.Label(user.Description, new { @class = "checkbox-label", @for = user.Id })
-            </div>
-        </li>
-    }
-</ul>*@
+                <div>
+                    @Html.Label(user.Description, new { @class = "checkbox-label", @for = user.Id })
+                </div>
+            </li>
+        }
+    </ul>
+}

@@ -38,7 +38,15 @@
     </body>
 </html>
 <script type="text/javascript">
-    function disableF5(e) { if ((e.which || e.keyCode) === 116 || (e.which || e.keyCode) === 82) e.preventDefault(); };
+    function disableF5(e) {
+         if ((e.which || e.keyCode) === 116 || (e.which || e.keyCode) === 82) {
+             e.preventDefault();
+         }
+    };
+    function htmlEncode(value) {
+        var encodedValue = $('<div />').text(value).html();
+        return encodedValue;
+    }
 
     $(document).ready(function () {
         $(document).on("keydown", disableF5);
@@ -49,7 +57,6 @@
         }
 
         var username = "@Model.LoggedInUser";
-        //$("#SelectedUserIds").multiselect({ numberDisplayed: 1 });
         // Reference the auto-generated proxy for the hub.
         var chat = $.connection.Chat;
 
@@ -64,10 +71,6 @@
             });
             height += 10 + '';
             $('div').animate({ scrollTop: height });
-
-            //var scrollArea = $("#discussion");
-            //var height = scrollArea[0].scrollHeight;
-            //scrollArea.scrollTop(height);
         };
         $("#message").focus();
 
@@ -80,24 +83,23 @@
                 chat.server.startChat("Joey;David;Alex", "@Model.RoomId");
             };
 
+            $("#message").keyup(function (e) {
+                var code = e.keyCode ? e.keyCode : e.which;
+                if (code === 13) {  // Enter keycode
+                    $("#send").click();
+                }
+            });
+
             $('#send').click(function () {
                 var message = $("#message").val().trim();
                 if (message === "") {
                     $("#message").focus();
                     return;
                 }
-                // Call the Send method on the hub.
                 chat.server.sendToRoom("@Model.RoomId", username, message);
-                // Clear text box and reset focus Joeyfor next comment.
                 $("#message").val("").focus();
             });
 
         });
     });
-
-    // This optional function html-encodes messages for display in the page.
-    function htmlEncode(value) {
-        var encodedValue = $('<div />').text(value).html();
-        return encodedValue;
-    }
 </script>
