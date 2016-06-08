@@ -28,6 +28,10 @@ namespace POC.Hubs
             Groups.Add(Context.ConnectionId, room);
         }
 
+        public void LeavingRoom(string name)
+        {
+            Clients.All.updateUserStatus(name, false);
+        }
 
         //public void SendToAll(string name, string message)
         //{
@@ -39,7 +43,6 @@ namespace POC.Hubs
 
         public override Task OnConnected()
         {
-            
             var loggedInUser = Helper.Extensions.GetLoggedInUserName();
             Helper.Extensions.Users.Find(a => a.Description == loggedInUser).Online = true;
             Clients.All.updateUserStatus(loggedInUser, true);
@@ -48,6 +51,7 @@ namespace POC.Hubs
 
         public override Task OnDisconnected(bool stopCalled)
         {
+            // TODO: need to have error handler to see if cookie exists first
             var loggedInUser = Helper.Extensions.GetLoggedInUserName();
             Helper.Extensions.Users.Find(a => a.Description == loggedInUser).Online = false;
             Clients.All.updateUserStatus(loggedInUser, false);

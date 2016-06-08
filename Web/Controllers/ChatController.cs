@@ -2,19 +2,28 @@
 using System.Web.Mvc;
 using POC.Models;
 using System;
-using System.Runtime.Remoting.Contexts;
+using Microsoft.AspNet.SignalR;
+using POC.Hubs;
 
 namespace POC.Controllers
 {
     public class ChatController : ControllerBase
     {
+        [HttPost]
+        public JsonResult DisconnectUser(string userName)
+        {
+            var context = GlobalHost.ConnectionManager.GetHubContext<ChatHub>();
+            context.Clients.All.updateUserStatus(userName, false);
+            return new JsonResult();
+        }
+
         [HttpGet]
         public PartialViewResult Chat()
         {
             var userlist = new List<User>();
             foreach(var user in Helper.Extensions.Users)
             {
-                userlist.Add(new User { Id = user.Id, Description = user.Description });
+                userlist.Add(new User { Id = user.Id, Description = user.Description, Online = user.Online });
             }
             var chatViewModel = new Chat
             {
@@ -46,5 +55,9 @@ namespace POC.Controllers
             return PartialView("Discussion", discussionViewModel);
         }
 
+    }
+
+    public class HttPostAttribute : Attribute
+    {
     }
 }

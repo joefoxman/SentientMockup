@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using POC.Models;
@@ -13,8 +14,13 @@ namespace POC.Helper
                 new User { Id = 3, Description = "David" }
             };
       
-        public static string GetLoggedInUserName()
-        {
+        public static string GetLoggedInUserName() {
+            if (HttpContext.Current == null) {
+                return string.Empty;
+            }
+            if (HttpContext.Current != null && !HttpContext.Current.Request.Cookies.AllKeys.Contains(Common.CookieKey)) {
+                return string.Empty;
+            }
             var cookie = HttpContext.Current.Request.Cookies[Common.CookieKey];
             return cookie == null ? string.Empty : cookie.Values[Common.ClaimsKeys.UserName.ToDescription()];
         }

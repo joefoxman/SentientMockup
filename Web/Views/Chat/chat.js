@@ -5,6 +5,16 @@
         var windowWidth = 400;
         var windowHeight = 600;
 
+        window.onbeforeunload = function (e) {
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/chat/DisconnectUser/?userName=" + username
+            });
+            chat.server.leavingRoom(username);
+            $.connection.hub.stop();
+        };
+
         chat.client.updateUserStatus = function (name, isOnline) {
             var status = 'Offline';
             if (isOnline) {
@@ -12,7 +22,7 @@
             }
             var userStatusLabel = $('.isonline[data-description="' + name + '"]');
             if (userStatusLabel.length > 0) {
-                $userStatusLabel.text(status);
+                $(userStatusLabel).text(status);
             }
         };
 
