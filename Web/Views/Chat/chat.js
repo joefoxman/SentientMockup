@@ -4,6 +4,18 @@
         var windowObjectReference;
         var windowWidth = 400;
         var windowHeight = 600;
+
+        chat.client.updateUserStatus = function (name, isOnline) {
+            var status = 'Offline';
+            if (isOnline) {
+                status = "Online";
+            }
+            var userStatusLabel = $('.isonline[data-description="' + name + '"]');
+            if (userStatusLabel.length > 0) {
+                $userStatusLabel.text(status);
+            }
+        };
+
         chat.client.isUserInRoom = function (users, roomId, userWhoStartedChat) {
             var usersSplit = users.split(";");
             var shouldOpenWindow = false;
@@ -33,8 +45,10 @@
             window.open("/Chat/StartChat/?users=" + selectedUsers + "&UserWhoStartedChat=" + username, randomnumber, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
         });
 
+
         // Start the connection.
         $.connection.hub.start().done(function () {
+            
         });
     };
 

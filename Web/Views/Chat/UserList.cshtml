@@ -2,12 +2,20 @@
 @{
     <ul>
         @foreach (var user in Model) {
+            var online = "Offline";
+            if (user.Online)
+            {
+                online = "Online";
+            }
             <li>
                 <div>
                     @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox user-checkbox", @id = user.Id, data_description = user.Description })
                 </div>
                 <div>
                     @Html.Label(user.Description, new { @class = "checkbox-label", @for = user.Id })
+                </div>
+                <div>
+                    @Html.Label(online, new { @class = "isonline", @id = user.Id, data_description = user.Description })
                 </div>
             </li>
         }

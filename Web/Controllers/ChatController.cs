@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using POC.Models;
 using System;
+using System.Runtime.Remoting.Contexts;
 
 namespace POC.Controllers
 {
@@ -10,19 +11,18 @@ namespace POC.Controllers
         [HttpGet]
         public PartialViewResult Chat()
         {
-            var users = new List<User>
+            var userlist = new List<User>();
+            foreach(var user in Helper.Extensions.Users)
             {
-                new User {Id = 1, Description = "Alex"},
-                new User {Id = 2, Description = "Joey"},
-                new User {Id = 3, Description = "David"}
-            };
+                userlist.Add(new User { Id = user.Id, Description = user.Description });
+            }
             var chatViewModel = new Chat
             {
                 SelectedUserIds = new List<string>(),
-                Users = users
+                Users = userlist
             };
             var loggedInUser = Helper.Extensions.GetLoggedInUserName();
-            users.Remove(users.Find(a => a.Description.Equals(loggedInUser, StringComparison.OrdinalIgnoreCase)));
+            chatViewModel.Users.Remove(userlist.Find(a => a.Description.Equals(loggedInUser, StringComparison.OrdinalIgnoreCase)));
             return PartialView(chatViewModel);
         }
 

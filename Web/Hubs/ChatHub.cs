@@ -1,6 +1,9 @@
 ﻿using System;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
+using POC.Models;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace POC.Hubs
 {
@@ -25,16 +28,30 @@ namespace POC.Hubs
             Groups.Add(Context.ConnectionId, room);
         }
 
+
         //public void SendToAll(string name, string message)
         //{
         //    // Call the addNewMessageToPage method to update clients.
-        //    var msg = String.Format("{0} : {1}", Context.ConnectionId, message);
+        //    var msg = String.Format("{0} : {1}", Context.
+        //, message);
         //    Clients.All.addMessageToAll(name, message);
         //}
 
-        //public override Task OnConnected()
-        //{
-        //    return base.OnConnected();
-        //}
+        public override Task OnConnected()
+        {
+            
+            var loggedInUser = Helper.Extensions.GetLoggedInUserName();
+            Helper.Extensions.Users.Find(a => a.Description == loggedInUser).Online = true;
+            Clients.All.updateUserStatus(loggedInUser, true);
+            return base.OnConnected();
+        }
+
+        public override Task OnDisconnected(bool stopCalled)
+        {
+            var loggedInUser = Helper.Extensions.GetLoggedInUserName();
+            Helper.Extensions.Users.Find(a => a.Description == loggedInUser).Online = false;
+            Clients.All.updateUserStatus(loggedInUser, false);
+            return base.OnDisconnected(stopCalled);
+        }
     }
 }
