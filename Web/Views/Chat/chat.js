@@ -62,11 +62,12 @@
             else {
                 var randomnumber = Math.floor((Math.random() * 100) + 1);
                 var windowId = window.open("/Chat/StartChat/?users=" + selectedUsers + "&UserWhoStartedChat=" + username, randomnumber, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
-                //$(windowId.document).ready(function () {
-                //    var roomId = $(windowId.document).contents().find("roomId");
-                //});
             }
         });
+
+        window.setRoomId = function (roomId) {
+            alert("Room ID: " + roomId);
+        }
 
         // Start the connection.
         $.connection.hub.start().done(function () {

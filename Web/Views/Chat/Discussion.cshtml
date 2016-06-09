@@ -51,6 +51,7 @@
 
     $(document).ready(function () {
         //$(document).on("keydown", disableF5);
+        opener.setRoomId("@Model.RoomId");
 
         if (history.pushState) {
             var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname;
