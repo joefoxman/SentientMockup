@@ -30,8 +30,6 @@
         var scrollContentSelector = ".tab-body-content-scroll";
         var windowOffset = 80;
         $("#tabs-top-row").css("margin-top", "0");
-        //}
-
         $(".panel-collapse").css("display", "block");
         var docHeight = $(window).height() - windowOffset;
         $(tabs).css("height", docHeight + "px").css("overflow-y", "hidden");

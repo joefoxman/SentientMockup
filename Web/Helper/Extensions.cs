@@ -13,7 +13,9 @@ namespace POC.Helper
                 new User { Id = 2, Description = "Joey" },
                 new User { Id = 3, Description = "David" }
             };
-      
+
+        public static List<ChatHistory> ChatHistory = new List<ChatHistory>();
+
         public static string GetLoggedInUserName() {
             if (HttpContext.Current == null) {
                 return string.Empty;

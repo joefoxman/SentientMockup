@@ -1,4 +1,5 @@
 ﻿@using POC.Helper
+@using POC.Models
 
 @model POC.Models.Chat
 @{
@@ -17,7 +18,18 @@
         @Html.Partial("~/Views/Chat/UserList.cshtml", Model.Users)
     </div>
     <div>
-        <input type="button" id="startchat" class="btn btn-primary" value="Start Chat" />
+        <input type="button" id="startchat" class="btn btn-primary" value="Start Chat"/>
+    </div>
+    <div>
+        @{
+            var chatHistory = Extensions.ChatHistory;
+            var items = chatHistory.Select(chat => new SelectListItem
+            {
+                Text = chat.ChatStart.ToShortDateString() + " " + chat.ChatStart.ToShortTimeString() + " " + chat.Participants, Value = "1"
+            }).ToList();
+
+            @Html.ListBox("chathistory", items, new { @class = "form-control" })
+        }
     </div>
 </div>
 

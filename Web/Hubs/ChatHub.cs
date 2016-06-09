@@ -26,6 +26,8 @@ namespace POC.Hubs
         public void JoinRoom(string name, string room)
         {
             Groups.Add(Context.ConnectionId, room);
+            // Will have access to the status variable of ChatHistory
+            //Helper.Extensions.ChatHistory
         }
 
         public void LeavingRoom(string name)

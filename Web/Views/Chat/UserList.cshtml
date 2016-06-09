@@ -4,8 +4,10 @@
     <ul>
         @foreach (var user in Model) {
             var online = "Offline";
+            var onlineImage = "reddot.png";
             if (user.Online)
             {
+                onlineImage = "greendot.png";
                 online = "Online";
             }
             <li>
@@ -23,14 +25,7 @@
                     @Html.Label(user.Description, new { @class = "checkbox-label", @for = user.Id })
                 </div>
                 <div>
-                    @if (online == "Online")
-                    {
-                       <img src="~/Images/greendot.png" alt="online" title="User is online"/>
-                    }
-                    else
-                    {
-                        <img src="~/Images/reddot.png" alt="offline" title="User is offline" />
-                    }
+                    <img src="~/Images/@onlineImage" class="isonline" data-description="@user.Description" alt="online" title="User is online"/>
                     @*@Html.Label(online, new { @class = "isonline", @id = user.Id, data_description = user.Description })*@
                 </div>
             </li>

@@ -15,14 +15,19 @@
             $.connection.hub.stop();
         };
 
+        // TODO: Add this new chat to the list
+        // TODO: Add new client function to receive server message to update list
+
+
         chat.client.updateUserStatus = function (name, isOnline) {
-            var status = 'Offline';
+            var statusImage = "reddot.png";
             if (isOnline) {
-                status = "Online";
+                statusImage = "greendot.png";
             }
             var userStatusLabel = $('.isonline[data-description="' + name + '"]');
             if (userStatusLabel.length > 0) {
-                $(userStatusLabel).text(status);
+                var imageString = $(userStatusLabel).prop("src").replace("reddot.png", "").replace("greendot.png", "");
+                $(userStatusLabel).prop("src", imageString + statusImage);
             }
         };
 
@@ -51,20 +56,20 @@
                     delim = ";";
                 }
             });
-            if(selectedUsers == "") {
+            if(selectedUsers === "") {
                 alert('Please select a user to chat with.');
             }
             else {
                 var randomnumber = Math.floor((Math.random() * 100) + 1);
-                window.open("/Chat/StartChat/?users=" + selectedUsers + "&UserWhoStartedChat=" + username, randomnumber, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+                var windowId = window.open("/Chat/StartChat/?users=" + selectedUsers + "&UserWhoStartedChat=" + username, randomnumber, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+                //$(windowId.document).ready(function () {
+                //    var roomId = $(windowId.document).contents().find("roomId");
+                //});
             }
-            
         });
-
 
         // Start the connection.
         $.connection.hub.start().done(function () {
-            
         });
     };
 

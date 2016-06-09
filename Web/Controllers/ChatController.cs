@@ -13,6 +13,11 @@ namespace POC.Controllers
         public JsonResult DisconnectUser(string userName)
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<ChatHub>();
+            var loggedInUser = Helper.Extensions.GetLoggedInUserName();
+            var foundUser = Helper.Extensions.Users.Find(a => a.Description == loggedInUser);
+            if (foundUser != null) {
+                foundUser.Online = false;
+            }
             context.Clients.All.updateUserStatus(userName, false);
             return new JsonResult();
         }
@@ -47,6 +52,7 @@ namespace POC.Controllers
                     discussionViewModel.Users.Add(new User { Id = 1, Description = user });
                 }
             }
+            discussionViewModel.StartChat = DateTime.Now;
             discussionViewModel.UserList = users;
             discussionViewModel.LoggedInUser = Helper.Extensions.GetLoggedInUserName();
             discussionViewModel.RoomId = string.IsNullOrWhiteSpace(roomId) ? Guid.NewGuid() : new Guid(roomId);

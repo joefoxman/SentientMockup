@@ -334,6 +334,7 @@
     <Compile Include="Models\CaseSearchResult.cs" />
     <Compile Include="Models\CaseSearchResults.cs" />
     <Compile Include="Models\Chat.cs" />
+    <Compile Include="Models\ChatHistory.cs" />
     <Compile Include="Models\Chatlog.cs" />
     <Compile Include="Models\Discussion.cs" />
     <Compile Include="Models\Hardware.cs" />

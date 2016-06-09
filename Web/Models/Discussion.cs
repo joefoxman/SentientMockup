@@ -5,6 +5,8 @@ namespace POC.Models
 {
     public class Discussion
     {
+        public int CaseId { get; set; }
+        public DateTime StartChat { get; set; }
         public string UserList { get; set; }
         public List<User> Users { get; set; }
         public List<Chatlog> Chatlog { get; set; }
