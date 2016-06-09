@@ -8,8 +8,15 @@
                 online = "Online";
             }
             <li>
-                <div>
-                    @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox user-checkbox", @id = user.Id, data_description = user.Description })
+                <div>   
+                    @if (online == "Online")
+                    {
+                        @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox user-checkbox", @id = user.Id, data_description = user.Description })
+                    }
+                    else
+                    {
+                        @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox user-checkbox", @disabled = "disabled" })
+                    }
                 </div>
                 <div>
                     @Html.Label(user.Description, new { @class = "checkbox-label", @for = user.Id })
