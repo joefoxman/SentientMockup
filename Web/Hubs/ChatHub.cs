@@ -53,7 +53,10 @@ namespace POC.Hubs
         {
             // TODO: need to have error handler to see if cookie exists first
             var loggedInUser = Helper.Extensions.GetLoggedInUserName();
-            Helper.Extensions.Users.Find(a => a.Description == loggedInUser).Online = false;
+            var foundUser = Helper.Extensions.Users.Find(a => a.Description == loggedInUser);
+            if (foundUser != null) { 
+                foundUser.Online = false;
+            }
             Clients.All.updateUserStatus(loggedInUser, false);
             return base.OnDisconnected(stopCalled);
         }
