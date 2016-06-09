@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<POC.Models.User> 
 @{
+    <h1> Contacts</h1>
     <ul>
         @foreach (var user in Model) {
             var online = "Offline";
@@ -8,14 +9,29 @@
                 online = "Online";
             }
             <li>
-                <div>
-                    @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox user-checkbox", @id = user.Id, data_description = user.Description })
+                <div>   
+                    @if (online == "Online")
+                    {
+                        @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox user-checkbox", @id = user.Id, data_description = user.Description })
+                    }
+                    else
+                    {
+                        @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox user-checkbox", @disabled = "disabled" })
+                    }
                 </div>
                 <div>
                     @Html.Label(user.Description, new { @class = "checkbox-label", @for = user.Id })
                 </div>
                 <div>
-                    @Html.Label(online, new { @class = "isonline", @id = user.Id, data_description = user.Description })
+                    @if (online == "Online")
+                    {
+                       <img src="~/Images/greendot.png" alt="online" title="User is online"/>
+                    }
+                    else
+                    {
+                        <img src="~/Images/reddot.png" alt="offline" title="User is offline" />
+                    }
+                    @*@Html.Label(online, new { @class = "isonline", @id = user.Id, data_description = user.Description })*@
                 </div>
             </li>
         }

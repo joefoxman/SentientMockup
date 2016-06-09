@@ -253,6 +253,8 @@
     <None Include="Properties\PublishProfiles\signalrchatpoc13 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\signalrchatpoc13 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Images\greendot.png" />
+    <Content Include="Images\reddot.png" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap-checkbox.js" />
