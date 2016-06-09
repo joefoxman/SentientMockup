@@ -5,26 +5,65 @@
 <div class="row">
     <div class="col-lg-12" id="tabs-top-row">
         <div id="tabs">
-            <ul>
-                <li>@Html.ActionLink("Case", "Details", "Case")</li>
-                <li>@Html.ActionLink("Procedure", "Procedure", "Case")</li>
-                <li>@Html.ActionLink("Review", "Review", "Case")</li>
-                <li>@Html.ActionLink("Chat", "Chat", "Chat")</li>
+            <ul class="nav nav-tabs tabs-up nav-pills" id="nab-tabs">
+                <li><a href="/case/details" data-target="#tabCase" class="media_node active span" id="case_tab" data-toggle="tabajax" rel="tooltip">Case</a></li>
+                <li><a href="/case/procedure" data-target="#tabProcedure" class="media_node span" id="procedure_tab" data-toggle="tabajax" rel="tooltip">Procedure</a></li>
+                <li><a href="/case/review" data-target="#tabReview" class="media_node span" id="review_tab" data-toggle="tabajax" rel="tooltip">Review</a></li>
+                <li><a href="/chat/chat" data-target="#tabChatHistory" class="media_node span" id="chathistory_tab" data-toggle="tabajax" rel="tooltip">Chat History</a></li>
             </ul>
-            <div id="tabs-1">
-            </div>
-            <div id="tabs-2">
-            </div>
-            <div id="tabs-3">
-            </div>
-            <div id="tabs-4">
+
+            <div class="tab-content">
+                <div class="tab-pane fill" id="tabCase">
+                </div>
+                <div class="tab-pane" id="tabProcedure">
+                </div>
+                <div class="tab-pane" id="tabReview">
+                </div>
+                <div class="tab-pane" id="tabChatHistory">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+                    @*<ul>
+                        <li>@Html.ActionLink("Case", "Details", "Case")</li>
+                        <li>@Html.ActionLink("Procedure", "Procedure", "Case")</li>
+                        <li>@Html.ActionLink("Review", "Review", "Case")</li>
+                        <li>@Html.ActionLink("Chat", "Chat", "Chat")</li>
+                    </ul>
+                    <div id="tabs-1">
+                    </div>
+                    <div id="tabs-2">
+                    </div>
+                    <div id="tabs-3">
+                    </div>
+                    <div id="tabs-4">
+                    </div>*@
+                @*</div>*@
+            @*</div>
+        </div>*@
+
 <script type="text/javascript">
     $(document).ready(function () {
-        sentientPOC.caseTabs.initialize();
+        loadTab($("#case_tab"));
+
+        $('[data-toggle="tabajax"]').click(function (e) {
+            loadTab($(this));
+            return false;
+        });
+        //sentientPOC.caseTabs.initialize();
     });
+
+    function loadTab(tab) {
+        var $this = $(tab),
+            loadurl = $this.attr('href'),
+            targ = $this.attr('data-target');
+
+        $.get(loadurl, function (data) {
+            $(targ).html(data);
+        });
+
+        $this.tab('show');
+    }
 </script>

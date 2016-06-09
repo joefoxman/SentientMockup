@@ -20,14 +20,13 @@
 
 
         chat.client.updateUserStatus = function (name, isOnline) {
-            var statusImage = "reddot.png";
+            var statusClass = "offline";
             if (isOnline) {
-                statusImage = "greendot.png";
+                statusClass = "online";
             }
             var userStatusLabel = $('.isonline[data-description="' + name + '"]');
             if (userStatusLabel.length > 0) {
-                var imageString = $(userStatusLabel).prop("src").replace("reddot.png", "").replace("greendot.png", "");
-                $(userStatusLabel).prop("src", imageString + statusImage);
+                $(userStatusLabel).removeClass("offline").removeClass("online").addClass(statusClass);
             }
         };
 

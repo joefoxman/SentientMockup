@@ -1,32 +1,23 @@
-﻿@model IEnumerable<POC.Models.User> 
+﻿@using POC.Helper
+@model IEnumerable<POC.Models.User> 
 @{
-    <h1> Contacts</h1>
+    <h1>Contacts</h1>
     <ul>
+        @*TODO: Get from local storage after loading it the first time*@
         @foreach (var user in Model) {
-            var online = "Offline";
-            var onlineImage = "reddot.png";
-            if (user.Online)
-            {
-                onlineImage = "greendot.png";
-                online = "Online";
+            var onlineClass = "offline";
+            if (user.Online) {
+                onlineClass = "online";
             }
             <li>
-                <div>   
-                    @if (online == "Online")
-                    {
-                        @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox user-checkbox", @id = user.Id, data_description = user.Description })
-                    }
-                    else
-                    {
-                        @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox user-checkbox", @disabled = "disabled" })
-                    }
+                <div style="display: inline-block">
+                    <div class="chat-status isonline @onlineClass" data-description="@user.Description"></div>
                 </div>
-                <div>
+                <div style="display: inline-block;">
+                    @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox user-checkbox", @id = user.Id, data_description = user.Description }).DisableIf(() => !user.Online)
+                </div>
+                <div style="display: inline-block">
                     @Html.Label(user.Description, new { @class = "checkbox-label", @for = user.Id })
-                </div>
-                <div>
-                    <img src="~/Images/@onlineImage" class="isonline" data-description="@user.Description" alt="online" title="User is online"/>
-                    @*@Html.Label(online, new { @class = "isonline", @id = user.Id, data_description = user.Description })*@
                 </div>
             </li>
         }

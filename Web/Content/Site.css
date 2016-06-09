@@ -12,6 +12,55 @@ legend {
     overflow-x: hidden;    
 }
 
+.fill { 
+    min-height: 100%;
+    height: 100%;
+}
+
+.offline {
+    background: red;
+}
+.online {
+    background: green;
+}
+.chat-status {
+    width: 15px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    padding: 50% 0;
+    line-height: 0;
+    position: relative;
+    color: white;
+    font-family: Helvetica, Arial Black, sans;
+}
+
+.nav-tabs li {
+    /*background-color: lightgoldenrodyellow;*/
+}
+
+.tab-pane {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 .modal-header-success {
     color:#fff;
     padding:9px 15px;
@@ -190,7 +239,6 @@ legend {
 }
 
 .checkbox-label {
-    margin-left: 10px;
     margin-top: 3px;
 }
 
