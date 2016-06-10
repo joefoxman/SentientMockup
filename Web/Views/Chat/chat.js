@@ -1,11 +1,10 @@
 ﻿sentientPOC.chat = (function () {
     var initChat = function (username) {
         var chat = $.connection.Chat;
-        var windowObjectReference;
         var windowWidth = 400;
         var windowHeight = 600;
 
-        window.onbeforeunload = function (e) {
+        window.onbeforeunload = function () {
             $.ajax({
                 type: "POST",
                 async: false,
@@ -53,7 +52,7 @@
         $("#startchat").on("click", function () {
             var selectedUsers = "";
             var delim = "";
-            $.each($(".user-checkbox"), function (key, value) {
+            $.each($(".user-checkbox"), function () {
                 if ($(this).prop("checked")) {
                     selectedUsers += delim + $(this).attr("data-description");
                     delim = ";";
@@ -64,7 +63,7 @@
             }
             else {
                 var randomnumber = Math.floor((Math.random() * 100) + 1);
-                var windowId = window.open("/Chat/StartChat/?users=" + selectedUsers + "&UserWhoStartedChat=" + username, randomnumber, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+                window.open("/Chat/StartChat/?users=" + selectedUsers + "&UserWhoStartedChat=" + username, randomnumber, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
             }
         });
 

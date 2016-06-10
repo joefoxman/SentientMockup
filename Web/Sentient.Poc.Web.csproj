@@ -250,7 +250,7 @@
     <Content Include="Content\bootstrap-dialog.less" />
     <Content Include="Content\toastr.less" />
     <Content Include="Content\toastr.scss" />
-    <None Include="Properties\PublishProfiles\signalrchatpoc13 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\sentientmock - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\signalrchatpoc13 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Images\greendot.png" />
