@@ -28,6 +28,10 @@
             if (userStatusLabel.length > 0) {
                 $(userStatusLabel).removeClass("offline").removeClass("online").addClass(statusClass);
             }
+            var usercheckbox = $('.user-checkbox[data-description="' + name + '"]');
+            if(usercheckbox.length > 0) {
+                $(usercheckbox).prop("disabled", !isOnline);
+            }
         };
 
         chat.client.isUserInRoom = function (users, roomId, userWhoStartedChat) {
@@ -66,9 +70,11 @@
 
         window.setRoomId = function (roomId) {
             alert("Room ID: " + roomId);
+            var chathistory = [];
+            chathistory.push(roomId);
         }
 
-        // Start the connection.
+         //Start the connection.
         $.connection.hub.start().done(function () {
         });
     };
