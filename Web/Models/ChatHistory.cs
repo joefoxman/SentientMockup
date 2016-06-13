@@ -7,5 +7,6 @@ namespace POC.Models {
         public string UserName { get; set; }
         public DateTime ChatStart { get; set; }
         public string Participants { get; set; }
+        public Guid RoomId { get; set; }
     }
 }

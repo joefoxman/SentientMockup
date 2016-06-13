@@ -52,11 +52,20 @@ namespace POC.Controllers
                     discussionViewModel.Users.Add(new User { Id = 1, Description = user });
                 }
             }
-            discussionViewModel.StartChat = DateTime.Now;
+            discussionViewModel.StartChatDateTime = DateTime.Now;
             discussionViewModel.UserList = users;
             discussionViewModel.LoggedInUser = Helper.Extensions.GetLoggedInUserName();
             discussionViewModel.RoomId = string.IsNullOrWhiteSpace(roomId) ? Guid.NewGuid() : new Guid(roomId);
             discussionViewModel.UserWhoStartedChat = userWhoStartedChat;
+            if(string.IsNullOrWhiteSpace(roomId))
+            {
+                Helper.Extensions.ChatHistory.Add(new ChatHistory { CaseId = 1,
+                    ChatStart = discussionViewModel.StartChatDateTime,
+                    RoomId = discussionViewModel.RoomId,
+                    Participants = users,
+                    UserName = discussionViewModel.LoggedInUser,
+                    UserNameWhoStarted = discussionViewModel.UserWhoStartedChat });
+            }
 
             return PartialView("Discussion", discussionViewModel);
         }
