@@ -1,5 +1,7 @@
-﻿@using POC.Helper
-@using POC.Models
+﻿@using Microsoft.AspNet.SignalR
+@using Microsoft.AspNet.SignalR.Hubs
+@using POC.Helper
+@using POC.Hubs
 
 @model POC.Models.Chat
 @{
@@ -14,6 +16,9 @@
 <script src="~/signalr/hubs"></script>
 <!--SignalR script to update the chat page and send messages.-->
 <div class="container">
+    <div>
+        <div id="connectionid">Connection ID: </div>
+    </div>
     <div id="UserList">
         @Html.Partial("~/Views/Chat/UserList.cshtml", Model.Users)
     </div>
@@ -24,22 +29,20 @@
         @{
             var chatHistory = Extensions.ChatHistory;
             <select class="form-control" id="chathistory" multiple="" name="chathistory">
-                @foreach (var item in chatHistory) {
+                @foreach (var item in chatHistory)
+                {
                     <option data-roomid="@item.RoomId"
-                            data-users="@item.Participants+';'+@item.UserNameWhoStarted"
+                            data-users="@item.Participants"
                             data-userwhostartedchat="@item.UserNameWhoStarted"
                             value="@item.RoomId">
                         @item.ChatStart.ToShortDateString() @item.ChatStart.ToShortTimeString() @item.Participants;@item.UserNameWhoStarted
                     </option>
                 }
             </select>
-            <input type="button" id="rejoin" class="btn btn-default" value="Rejoin Chat" />
-
-
-        } 
+            <input type="button" id="rejoin" class="btn btn-default" value="Rejoin Chat"/>
+        }
     </div>
 </div>
-
 
 <script type="text/javascript">
     $(document).ready(function () {

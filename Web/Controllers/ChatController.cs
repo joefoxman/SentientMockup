@@ -41,12 +41,14 @@ namespace POC.Controllers
         }
 
         public PartialViewResult StartChat(string users, string roomId, string userWhoStartedChat) {
-            var discussionViewModel = new Discussion {
+            var discussionViewModel = new Discussion
+            {
                 Chatlog = new List<Chatlog>(),
-                Users = new List<User>()
+                Users = new List<User>(),
+                LoggedInUser = Helper.Extensions.GetLoggedInUserName()
             };
             discussionViewModel.Users = new List<User>();
-            if (users != null)  {
+            if (users != null) {
                 var splitUsers = users.Split(';');
                 foreach (var user in splitUsers) {
                     discussionViewModel.Users.Add(new User { Id = 1, Description = user });
@@ -54,9 +56,9 @@ namespace POC.Controllers
             }
             discussionViewModel.StartChatDateTime = DateTime.Now;
             discussionViewModel.UserList = users;
-            discussionViewModel.LoggedInUser = Helper.Extensions.GetLoggedInUserName();
             discussionViewModel.RoomId = string.IsNullOrWhiteSpace(roomId) ? Guid.NewGuid() : new Guid(roomId);
             discussionViewModel.UserWhoStartedChat = userWhoStartedChat;
+            discussionViewModel.UserWhoRejoinedChat = "";
             if(string.IsNullOrWhiteSpace(roomId))
             {
                 Helper.Extensions.ChatHistory.Add(new ChatHistory { CaseId = 1,
@@ -64,12 +66,49 @@ namespace POC.Controllers
                     RoomId = discussionViewModel.RoomId,
                     Participants = users,
                     UserName = discussionViewModel.LoggedInUser,
-                    UserNameWhoStarted = discussionViewModel.UserWhoStartedChat });
+                    UserNameWhoStarted = discussionViewModel.UserWhoStartedChat,
+                    UserNameWhoRejoined = discussionViewModel.UserWhoRejoinedChat });
             }
 
             return PartialView("Discussion", discussionViewModel);
         }
 
+        public PartialViewResult RejoinChat(string users, string roomId, string userWhoStartedChat) {
+            var discussionViewModel = new Discussion
+            {
+                Chatlog = new List<Chatlog>(),
+                Users = new List<User>(),
+                LoggedInUser = Helper.Extensions.GetLoggedInUserName()
+            };
+            discussionViewModel.Users = new List<User>();
+            if (users != null)
+            {
+                var splitUsers = users.Split(';');
+                foreach (var user in splitUsers)
+                {
+                    discussionViewModel.Users.Add(new User { Id = 1, Description = user });
+                }
+            }
+            discussionViewModel.StartChatDateTime = DateTime.Now;
+            discussionViewModel.UserList = users;
+            discussionViewModel.RoomId = string.IsNullOrWhiteSpace(roomId) ? Guid.NewGuid() : new Guid(roomId);
+            discussionViewModel.UserWhoStartedChat = userWhoStartedChat;
+            discussionViewModel.UserWhoRejoinedChat = discussionViewModel.LoggedInUser;
+            if (string.IsNullOrWhiteSpace(roomId))
+            {
+                Helper.Extensions.ChatHistory.Add(new ChatHistory
+                {
+                    CaseId = 1,
+                    ChatStart = discussionViewModel.StartChatDateTime,
+                    RoomId = discussionViewModel.RoomId,
+                    Participants = users,
+                    UserName = discussionViewModel.LoggedInUser,
+                    UserNameWhoStarted = discussionViewModel.UserWhoStartedChat,
+                    UserNameWhoRejoined = discussionViewModel.UserWhoRejoinedChat
+                });
+            }
+            return PartialView("Discussion", discussionViewModel);
+        }
     }
 
     public class HttPostAttribute : Attribute

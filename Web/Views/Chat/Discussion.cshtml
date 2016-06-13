@@ -19,6 +19,7 @@
             @Html.HiddenFor(a => Model.RoomId)
             @Html.HiddenFor(a => Model.Users)
             @Html.HiddenFor(a => Model.LoggedInUser)
+            <div id="connectionid"></div>
             <div>
                 @foreach (var user in Model.Users)
                 {
@@ -49,9 +50,10 @@
         return encodedValue;
     }
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         //$(document).on("keydown", disableF5);
-        opener.setRoomId("@Model.RoomId", "@Model.UserList", "@Model.UserWhoStartedChat", "@Model.StartChatDateTime" );
+        opener.setRoomId("@Model.RoomId", "@Model.UserList", "@Model.UserWhoStartedChat", "@Model.StartChatDateTime");
+        var chat = opener.getConnection();
 
         if (history.pushState) {
             var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname;
@@ -60,29 +62,17 @@
 
         var username = "@Model.LoggedInUser";
         // Reference the auto-generated proxy for the hub.
-        var chat = $.connection.Chat;
-
-        chat.client.addMessageToRoom = function (name, message, roomId, dateSent) {
-            // Add the message to the page.
-            $("#discussion").append("<li class='chat-datetime-li'><div><strong>" + htmlEncode(name) + "</strong>: <span class='chat-datetime'>" + htmlEncode(dateSent) + "</span></div>"
-                + "</li><li class='chat-message-li'><div class='chat-message'>" + htmlEncode(message) + "</div></li>");
-
-            var height = 0;
-            $('li div').each(function (i, value) {
-                height += parseInt($(this).height());
-            });
-            height += 10 + '';
-            $('div').animate({ scrollTop: height });
-        };
+        //var chat = $.connection.Chat;
         $("#message").focus();
 
         // Start the connection.
-        $.connection.hub.start().done(function () {
+        //$.connection.hub.start().done(function (data) {
+            $("#connectionid").html("Connection ID: " + chat.connection.id);
+    
             chat.server.joinRoom(username, "@Model.RoomId");
-
-            if ("@Model.LoggedInUser" === "@Model.UserWhoStartedChat") {
+            if ("@Model.LoggedInUser" === "@Model.UserWhoStartedChat" || "@Model.UserWhoRejoinedChat" !== "") {
                 // broadcast to everybody to start their chat and open their windows
-                chat.server.startChat("@Model.UserList", "@Model.RoomId");
+                chat.server.startChat("@Model.UserList", "@Model.RoomId", "@Model.UserWhoStartedChat", "@Model.UserWhoRejoinedChat");
             };
 
             $("#message").keyup(function (e) {
@@ -102,6 +92,19 @@
                 $("#message").val("").focus();
             });
 
-        });
+        $.connection.client.addMessageToRoom = function (name, message, roomId, dateSent) {
+            // Add the message to the page.
+            $("#discussion").append("<li class='chat-datetime-li'><div><strong>" + htmlEncode(name) + "</strong>: <span class='chat-datetime'>" + htmlEncode(dateSent) + "</span></div>"
+                + "</li><li class='chat-message-li'><div class='chat-message'>" + htmlEncode(message) + "</div></li>");
+
+            var height = 0;
+            $('li div').each(function (i, value) {
+                height += parseInt($(this).height());
+            });
+            height += 10 + '';
+            $('div').animate({ scrollTop: height });
+        };
+
+        //});
     });
 </script>

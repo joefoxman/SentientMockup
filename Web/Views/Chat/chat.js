@@ -30,21 +30,9 @@
             }
         };
 
-        chat.client.isUserInRoom = function (users, roomId, userWhoStartedChat) {
-            var usersSplit = users.split(";");
-            var shouldOpenWindow = false;
-            $.each(usersSplit, function (key, value) {
-                if (value !== userWhoStartedChat) {
-                    // are you in this list for this room?
-                    if (username === value) {
-                        shouldOpenWindow = true;
-                    }
-                }
-            });
-            if (shouldOpenWindow) {
-                window.open("/Chat/StartChat/?users=" + users + "&roomId=" + roomId + "&userWhoStartedChat=" + userWhoStartedChat, roomId, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
-            }
-        };
+        chat.client.rejoinRoom = function(users, roomId, userWhoStartedChat) {
+            window.open("/Chat/StartChat/?users=" + users + "&roomId=" + roomId + "&userWhoStartedChat=" + userWhoStartedChat, roomId, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+        }
 
         $("#startchat").on("click", function () {
             var selectedUsers = "";
@@ -65,18 +53,19 @@
         });
         
         window.setRoomId = function (roomId, users, userwhostarted, starttime) {
-            
-            var datavalues = 'data-room="' + roomId + '" data-users="' + users + '" data-userwhostartedchat="' + userwhostarted + '"';
-            alreadyexists = $("#chathistory option[value='" + roomId +"']");
+            var alreadyexists = $("#chathistory option[value='" + roomId +"']");
             if (alreadyexists.length === 0) {
+                var datavalues = 'data-roomid="' + roomId + '" data-users="' + users + '" data-userwhostartedchat="' + userwhostarted + '"';
                 $('#chathistory').append('<option ' + datavalues + ' value="' + roomId + '">' + starttime + ' ' + users + ';' + userwhostarted + '</option>');
             }
-           
-
         }
         
-        $('#rejoin').on("click", function () {
-            var selected = $('#chathistory').find("option:selected");
+        window.getConnection = function() {
+            return chat;
+        }
+
+        $("#rejoin").on("click", function () {
+            var selected = $("#chathistory").find("option:selected");
             var roomId = $(selected).attr("data-roomid");
             var users = $(selected).attr("data-users");
             var userWhoStartedChat = $(selected).attr("data-userwhostartedchat");
@@ -84,12 +73,13 @@
                 alert("Please Select a chat to rejoin");
             }
             else {
-                window.open("/Chat/StartChat/?users=" + users + "&roomId=" + roomId + "&userWhoStartedChat=" + userWhoStartedChat, roomId, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
-        }
-                    });
+                window.open("/Chat/RejoinChat/?users=" + users + "&roomId=" + roomId + "&userWhoStartedChat=" + userWhoStartedChat, roomId, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+            }
+        });
 
          //Start the connection.
-        $.connection.hub.start().done(function () {
+        $.connection.hub.start().done(function (data) {
+            $("#connectionid").html("Connection ID: " + data.id);
         });
     };
 
