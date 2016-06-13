@@ -344,6 +344,7 @@
     <Content Include="Views\Case\Case.js" />
     <Content Include="Views\Case\CaseTabs.js" />
     <Content Include="Views\Chat\Chat.js" />
+    <Content Include="Views\Chat\Discussion.js" />
     <Content Include="Views\Schedule\events.xml" />
     <Content Include="Views\Schedule\ScheduleTabs.js" />
     <Content Include="Views\Shared\Layout.js" />

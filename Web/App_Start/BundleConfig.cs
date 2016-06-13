@@ -44,6 +44,7 @@ namespace POC
                         "~/Views/Case/CaseTabs.js",
                         "~/Views/Schedule/ScheduleTabs.js",
                         "~/Views/Chat/Chat.js",
+                        "~/Views/Chat/Discussion.js",
                         "~/Scripts/waitMe.js",
                         "~/Scripts/jquery.maskedinput.js",
                         "~/Scripts/Custom/common.js",
