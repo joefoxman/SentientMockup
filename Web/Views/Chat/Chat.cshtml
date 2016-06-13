@@ -28,16 +28,15 @@
                     <option data-roomid="@item.RoomId"
                             data-users="@item.Participants+';'+@item.UserNameWhoStarted"
                             data-userwhostartedchat="@item.UserNameWhoStarted"
-                            value="@item.RoomId">@item.ChatStart.ToShortDateString() + " " + @item.ChatStart.ToShortTimeString()</option>
+                            value="@item.RoomId">
+                        @item.ChatStart.ToShortDateString() @item.ChatStart.ToShortTimeString() @item.Participants;@item.UserNameWhoStarted
+                    </option>
                 }
             </select>
-            //var items = chatHistory.Select(chat => new SelectListItem
-            //{
-            //    Text = chat.ChatStart.ToShortDateString() + " " + chat.ChatStart.ToShortTimeString() + " " + chat.Participants,
-            //    Value = "1"
-            //}).ToList();
-            @*@Html.ListBox("chathistory", items, new { @class = "form-control" })*@
-        }
+            <input type="button" id="rejoin" class="btn btn-default" value="Rejoin Chat" />
+
+
+        } 
     </div>
 </div>
 
