@@ -14,9 +14,6 @@
             $.connection.hub.stop();
         };
 
-        // TODO: Add this new chat to the list
-        // TODO: Add new client function to receive server message to update list
-
 
         chat.client.updateUserStatus = function (name, isOnline) {
             var statusClass = "offline";
@@ -26,6 +23,10 @@
             var userStatusLabel = $('.isonline[data-description="' + name + '"]');
             if (userStatusLabel.length > 0) {
                 $(userStatusLabel).removeClass("offline").removeClass("online").addClass(statusClass);
+            }
+            var usercheckbox = $('.user-checkbox[data-description="' + name + '"]');
+            if(usercheckbox.length > 0) {
+                $(usercheckbox).prop("disabled", !isOnline);
             }
         };
 
@@ -62,12 +63,32 @@
                 window.open("/Chat/StartChat/?users=" + selectedUsers + "&UserWhoStartedChat=" + username, randomnumber, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
             }
         });
+        
+        window.setRoomId = function (roomId, users, userwhostarted, starttime) {
+            
+            var datavalues = 'data-room="' + roomId + '" data-users="' + users + '" data-userwhostartedchat="' + userwhostarted + '"';
+            alreadyexists = $("#chathistory option[value='" + roomId +"']");
+            if (alreadyexists.length === 0) {
+                $('#chathistory').append('<option ' + datavalues + ' value="' + roomId + '">' + starttime + ' ' + users + ';' + userwhostarted + '</option>');
+            }
+           
 
-        window.setRoomId = function (roomId) {
-            //alert("Room ID: " + roomId);
         }
+        
+        $('#rejoin').on("click", function () {
+            var selected = $('#chathistory').find("option:selected");
+            var roomId = $(selected).attr("data-roomid");
+            var users = $(selected).attr("data-users");
+            var userWhoStartedChat = $(selected).attr("data-userwhostartedchat");
+            if (roomId == null) {
+                alert("Please Select a chat to rejoin");
+            }
+            else {
+                window.open("/Chat/StartChat/?users=" + users + "&roomId=" + roomId + "&userWhoStartedChat=" + userWhoStartedChat, roomId, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+        }
+                    });
 
-        // Start the connection.
+         //Start the connection.
         $.connection.hub.start().done(function () {
         });
     };
