@@ -7,7 +7,9 @@ namespace POC
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/calendar").Include(
-                        "~/Scripts/Calendar/dhtmlxscheduler.js"));
+                        "~/Scripts/Calendar/dhtmlxscheduler.js",
+                        "~/Scripts/Calendar/ext/dhtmlxscheduler_timeline.js",
+                        "~/Scripts/Calendar/ext/dhtmlxscheduler_treetimeline.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryBootgrid").Include(
                         "~/Scripts/jquery.bootgrid.js",

@@ -33,7 +33,8 @@
         $(".panel-collapse").css("display", "block");
         var docHeight = $(window).height() - windowOffset;
         $(tabs).css("height", docHeight + "px").css("overflow-y", "hidden");
-        $(tabs).find(scrollContentSelector).css("overflow-y", "scroll").css("overflow-x", "hidden");
+        $(tabs).find(scrollContentSelector).css("overflow-y", "scroll"); //.css("overflow-x", "hidden");
+        $(tabs).find(scrollContentSelector).css("overflow-y", "scroll"); //.css("overflow-x", "hidden");
         $(scrollContentSelector).height(docHeight - (tabsHeight + tabBodyHeaderHeight + tabContentOffset) + "px");
     };
 

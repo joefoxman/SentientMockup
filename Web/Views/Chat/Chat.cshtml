@@ -22,19 +22,11 @@
     </div>
     <div>
         @{
-                var chatHistory = Extensions.ChatHistory;
-                @*var items = chatHistory.Select(chat => new SelectListItem
-                {
-                    Text = chat.ChatStart.ToShortDateString() + " " + chat.ChatStart.ToShortTimeString() + " " + chat.Participants + ";" + chat.UserNameWhoStarted, Value = chat.RoomId.ToString(),
-
-            }).ToList();
-
-            @Html.ListBox("chathistory", items, new { @class = "form-control" })*@
+            var chatHistory = Extensions.ChatHistory;
             <select class="form-control" id="chathistory" multiple="" name="chathistory">
-                @foreach (var item in chatHistory)
-                {
+                @foreach (var item in chatHistory) {
                     <option data-roomid="@item.RoomId"
-                            data-users="@item.Participants;@item.UserNameWhoStarted"
+                            data-users="@item.Participants+';'+@item.UserNameWhoStarted"
                             data-userwhostartedchat="@item.UserNameWhoStarted"
                             value="@item.RoomId">
                         @item.ChatStart.ToShortDateString() @item.ChatStart.ToShortTimeString() @item.Participants;@item.UserNameWhoStarted
