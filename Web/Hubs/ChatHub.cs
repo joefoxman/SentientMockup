@@ -35,14 +35,6 @@ namespace POC.Hubs
             Clients.All.updateUserStatus(name, false);
         }
 
-        //public void SendToAll(string name, string message)
-        //{
-        //    // Call the addNewMessageToPage method to update clients.
-        //    var msg = String.Format("{0} : {1}", Context.
-        //, message);
-        //    Clients.All.addMessageToAll(name, message);
-        //}
-
         public override Task OnConnected()
         {
             var loggedInUser = Helper.Extensions.GetLoggedInUserName();
