@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 10px;
     overflow-y: hidden;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
 }
 
 legend {
@@ -9,7 +9,11 @@ legend {
 }
 
 .ui-tabs {
-    overflow-x: hidden;    
+    /*overflow-x: hidden;*/    
+}
+
+.dhx_cal_navline {
+    margin-top: -10px;
 }
 
 .fill { 
@@ -455,7 +459,7 @@ dl {
 }
 
 body.modal-open {
-  overflow: inherit;
+  /*overflow: inherit;*/
   padding-right: 0 !important;
 }
 
@@ -519,7 +523,7 @@ a.btn {
 
 .hide-overflow
 {
-    overflow: hidden;
+    /*overflow: hidden;*/
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 100%;

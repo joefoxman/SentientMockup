@@ -64,7 +64,7 @@
         });
 
         window.setRoomId = function (roomId) {
-            alert("Room ID: " + roomId);
+            //alert("Room ID: " + roomId);
         }
 
         // Start the connection.

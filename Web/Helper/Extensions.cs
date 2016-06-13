@@ -15,7 +15,10 @@ namespace POC.Helper
                 new User { Id = 3, Description = "David" }
             };
 
-        public static List<ChatHistory> ChatHistory = new List<ChatHistory>();
+        public static List<ChatHistory> ChatHistory = new List<ChatHistory>
+        {
+            new ChatHistory {CaseId = 1, ChatStart = DateTime.Now, Participants = "Joey;Alex", UserName = "Joey", UserNameWhoStarted = "Joey"}   
+        };
 
         public static MvcHtmlString DisableIf(this MvcHtmlString htmlString, Func<bool> expression)
         {
