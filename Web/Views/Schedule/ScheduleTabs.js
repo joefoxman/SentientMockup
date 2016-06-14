@@ -45,143 +45,56 @@
         $(scheduler).css("width", tabWidth - 50 + "px");
     };
 
-    var initScheduleTabs = function() {
-        $(window).resize(function() {
-            var tabs = $("#tabs").tabs();
-            dynamicHeightTab($(tabs));
-            dynamicCalendar(tabs, $("#scheduler_here"));
-        });
-
-        $("#tabs").tabs({
-            beforeActivate: function(event, ui) {
-                sentientPOC.common.showWait($("body"));
-                return true;
-            },
-            create: function(event, ui) {
-                sentientPOC.common.showWait($("body"));
-                dynamicHeightTab($(this));
-            },
-            activate: function (event, ui) {
-            },
-            select: function(event, ui) {
-            },
-            load: function(event, ui) {
-                dynamicHeightTab($(this));
-                sentientPOC.common.hideWait($("body"));
-                var tabName = ui.tab.text().toLowerCase();
-                if (tabName === "calendar") {
-                    initScheduler();
-                    dynamicCalendar($(this), $("#scheduler_here"));
-                    //$.get("/schedule/load", function (data) {
-                    //    scheduler.parse(data.Data, "json");
-                    //});
-                    //scheduler.init("scheduler_here", new Date(2016, 6, 13), "week");
-                    //the time scale from 8AM to 8PM with 30 minutes step
-
-                    //scheduler.locale.labels.timeline_tab = "Timeline";
-                    //scheduler.locale.labels.section_custom = "Section";
-                    //scheduler.config.details_on_create = true;
-                    //scheduler.config.details_on_dblclick = true;
-                    //scheduler.config.xml_date = "%Y-%m-%d %H:%i";
-
-                    //scheduler.createTimelineView({
-                    //    name: "timeline",
-                    //    x_unit: "minute",
-                    //    x_date: "%H:%i",
-                    //    x_step: 30,
-                    //    x_size: 24,
-                    //    x_start: 16,
-                    //    x_length: 48,
-                    //    y_unit:
-                    //       [{ key: 1, label: "Section A" },
-                    //           { key: 2, label: "Section B" },
-                    //           { key: 3, label: "Section C" },
-                    //           { key: 4, label: "Section D" }],
-                    //    y_property: "section_id",
-                    //    render: "tree"
-                    //});
-
-                    //===============
-                    //Configuration
-                    //===============	
-
-                    //var elements = [ // original hierarhical array to display
-                    //    {
-                    //        key: 10, label: "Web Testing Dep.", open: true, children: [
-                    //           { key: 20, label: "Elizabeth Taylor" },
-                    //           {
-                    //               key: 30, label: "Managers", children: [
-                    //                  { key: 40, label: "John Williams" },
-                    //                  { key: 50, label: "David Miller" }
-                    //               ]
-                    //           },
-                    //           { key: 60, label: "Linda Brown" },
-                    //           { key: 70, label: "George Lucas" }
-                    //        ]
-                    //    },
-                    //    {
-                    //        key: 110, label: "Human Relations Dep.", open: true, children: [
-                    //           { key: 80, label: "Kate Moss" },
-                    //           { key: 90, label: "Dian Fossey" }
-                    //        ]
-                    //    }
-                    //];
-
-                    //scheduler.createTimelineView({
-                    //    section_autoheight: false,
-                    //    name: "timeline",
-                    //    x_unit: "minute",
-                    //    x_date: "%H:%i",
-                    //    x_step: 30,
-                    //    x_size: 24,
-                    //    x_start: 16,
-                    //    x_length: 48,
-                    //    y_unit: elements,
-                    //    y_property: "section_id",
-                    //    render: "tree",
-                    //    folder_dy: 20,
-                    //    dy: 60
-                    //});
-
-                    ////===============
-                    ////Data loading
-                    ////===============
-                    //scheduler.config.lightbox.sections = [
-                    //    { name: "description", height: 130, map_to: "text", type: "textarea", focus: true },
-                    //    { name: "custom", height: 23, type: "timeline", options: null, map_to: "section_id" },
-                    //    //type should be the same as name of the tab
-                    //    { name: "time", height: 72, type: "time", map_to: "auto" }
-                    //];
-
-                    //scheduler.init("scheduler_here", new Date(2016, 06, 13), "timeline");
-
-                    //scheduler.parse([
-                    //    { start_date: "2016-06-13 09:00", end_date: "2016-06-13 12:00", text: "Task A-12458", section_id: 20 },
-                    //    { start_date: "2016-06-13 10:00", end_date: "2016-06-13 16:00", text: "Task A-89411", section_id: 20 },
-                    //    { start_date: "2016-06-13 10:00", end_date: "2016-06-13 14:00", text: "Task A-64168", section_id: 20 },
-                    //    { start_date: "2016-06-13 16:00", end_date: "2016-06-13 17:00", text: "Task A-46598", section_id: 20 },
-
-                    //    { start_date: "2016-06-13 12:00", end_date: "2016-06-13 20:00", text: "Task B-48865", section_id: 40 },
-                    //    { start_date: "2016-06-13 14:00", end_date: "2016-06-13 16:00", text: "Task B-44864", section_id: 40 },
-                    //    { start_date: "2016-06-13 16:30", end_date: "2016-06-13 18:00", text: "Task B-46558", section_id: 40 },
-                    //    { start_date: "2016-06-13 18:30", end_date: "2016-06-13 20:00", text: "Task B-45564", section_id: 40 },
-
-                    //    { start_date: "2016-06-13 08:00", end_date: "2014-06-13 12:00", text: "Task C-32421", section_id: 50 },
-                    //    { start_date: "2016-06-13 14:30", end_date: "2014-06-13 16:45", text: "Task C-14244", section_id: 50 },
-
-                    //    { start_date: "2016-06-13 09:20", end_date: "2014-06-13 12:20", text: "Task D-52688", section_id: 60 },
-                    //    { start_date: "2016-06-13 11:40", end_date: "2014-06-13 16:30", text: "Task D-46588", section_id: 60 },
-                    //    { start_date: "2016-06-13 12:00", end_date: "2014-06-13 18:00", text: "Task D-12458", section_id: 60 }
-                    //], "json");
-
-                    //dynamicCalendar($(this), $("#scheduler_here"));
-                }
-            }
+    var initSchedulerBasic = function () {
+        scheduler.config.xml_date = "%Y-%m-%d %H:%i";
+        scheduler.init("scheduler_here", new Date(2016, 6, 13), "week");
+        $.get("/schedule/load", function (data) {
+            scheduler.parse(data.Data, "json");
         });
     };
 
-    var initScheduler = function() {
-        scheduler.locale.labels.timeline_tab = "Timeline";
+    var initSchedulerPerson = function () {
+        scheduler.locale.labels.unit_tab = "SNP";
+        //scheduler.locale.labels.section_custom = "Assigned to";
+        scheduler.config.first_hour = 7;
+        //scheduler.config.multi_day = true;
+        scheduler.config.details_on_create = true;
+        scheduler.config.details_on_dblclick = true;
+        scheduler.config.xml_date = "%Y-%m-%d %H:%i";
+        //scheduler.templates.event_class = function (s, e, ev) { return ev.custom ? "custom" : ""; };
+        scheduler.createUnitsView({
+            name: "unit",
+            property: "unit_id",
+            list: [
+                { key: 1, label: "SNP Jame Smith" },
+                { key: 2, label: "SNP John Williams" },
+                { key: 3, label: "SNP David Miller" }
+            ],
+            days: 3,
+            size: 10,//the number of units that should be shown in the view 
+            step: 5  //the number of units that will be scrolled at once
+        });
+
+        scheduler.config.lightbox.sections = [
+            { name: "description", height: 130, map_to: "text", type: "textarea", focus: true },
+            { name: "custom", height: 23, type: "unit_id", options: null, map_to: "unit_id" }, //type should be the same as name of the tab
+            { name: "time", height: 72, type: "time", map_to: "auto" }
+        ];
+
+        scheduler.init("scheduler_here", new Date(2014, 06, 30), "unit");
+
+        scheduler.parse([
+            { id: 1, text: "Case 1", start_date: "2014-06-30 14:00", end_date: "2014-06-30 17:00", unit_id: "1" },
+            { id: 2, text: "Case 2", start_date: "2014-06-30 12:00", end_date: "2014-06-30 19:00", unit_id: "1" },
+            { id: 3, text: "Case 3", start_date: "2014-06-30 09:00", end_date: "2014-06-30 10:00", unit_id: "1" },
+            { id: 4, text: "Case 4", start_date: "2014-06-30 12:00", end_date: "2014-06-30 13:00", unit_id: "2" },
+            { id: 5, text: "Case 5", start_date: "2014-06-30 13:00", end_date: "2014-06-30 16:00", unit_id: "2" },
+            { id: 6, text: "Case 6", start_date: "2014-06-30 12:00", end_date: "2014-06-30 19:00", unit_id: "3" },
+        ], "json");
+    }
+
+    var initSchedulerTimeline = function () {
+        scheduler.locale.labels.timeline_tab = "Physician";
         scheduler.locale.labels.section_custom = "Section";
         scheduler.config.details_on_create = true;
         scheduler.config.details_on_dblclick = true;
@@ -258,6 +171,42 @@
 			{ start_date: "2014-06-30 11:40", end_date: "2014-06-30 16:30", text: "Case D-46588", section_id: 80 },
 			{ start_date: "2014-06-30 12:00", end_date: "2014-06-30 18:00", text: "Case D-12458", section_id: 80 }
         ], "json");
+    };
+
+
+    var initScheduleTabs = function() {
+        $(window).resize(function() {
+            var tabs = $("#tabs").tabs();
+            dynamicHeightTab($(tabs));
+            dynamicCalendar(tabs, $("#scheduler_here"));
+        });
+
+        $("#tabs").tabs({
+            beforeActivate: function(event, ui) {
+                sentientPOC.common.showWait($("body"));
+                return true;
+            },
+            create: function(event, ui) {
+                sentientPOC.common.showWait($("body"));
+                dynamicHeightTab($(this));
+            },
+            activate: function (event, ui) {
+            },
+            select: function(event, ui) {
+            },
+            load: function(event, ui) {
+                dynamicHeightTab($(this));
+                sentientPOC.common.hideWait($("body"));
+                var tabName = ui.tab.text().toLowerCase();
+                if (tabName === "calendar") {
+                    initSchedulerPerson();
+                    initSchedulerTimeline();
+                    //initSchedulerBasic();
+
+                    dynamicCalendar($(this), $("#scheduler_here"));
+                }
+            }
+        });
     };
 
     var initialize = function () {

@@ -16,6 +16,18 @@ legend {
     margin-top: -10px;
 }
 
+.dhtmlx_button, .dhtmlx_popup_button {
+    height: 35px !important;
+}
+.dhx_data_table.folder .dhx_matrix_cell, .dhx_matrix_scell.folder {
+    background-color: lightblue !important;
+    cursor: pointer;
+}
+
+.dhx_cal_navline div.dhx_minical_icon {
+    left: 375px !important;
+}
+
 .fill { 
     min-height: 100%;
     height: 100%;

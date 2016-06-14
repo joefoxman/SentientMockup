@@ -9,7 +9,9 @@ namespace POC
             bundles.Add(new ScriptBundle("~/bundles/calendar").Include(
                         "~/Scripts/Calendar/dhtmlxscheduler.js",
                         "~/Scripts/Calendar/ext/dhtmlxscheduler_timeline.js",
-                        "~/Scripts/Calendar/ext/dhtmlxscheduler_treetimeline.js"));
+                        "~/Scripts/Calendar/ext/dhtmlxscheduler_treetimeline.js",
+                        "~/Scripts/Calendar/ext/dhtmlxscheduler_units.js",
+                        "~/Scripts/Calendar/ext/dhtmlxscheduler_minical.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryBootgrid").Include(
                         "~/Scripts/jquery.bootgrid.js",
