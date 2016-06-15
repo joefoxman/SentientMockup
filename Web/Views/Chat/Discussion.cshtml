@@ -1,6 +1,11 @@
 ﻿@using System.Web.Optimization
 @model POC.Models.Discussion
+@{
+    if (string.IsNullOrWhiteSpace(Model.UserWhoStartedChat)) {
+        Model.UserWhoStartedChat = "";
+    }
 
+}
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,7 +31,6 @@
                     @Html.Label(user.Description, new {@class = "control-label"})
                     <span>&nbsp;</span>
                 }
-                @Html.Label(Model.UserWhoStartedChat, new { @class = "control-label" })
             </div>
             <hr/>
             <div style="height: 400px; overflow-y: scroll;">

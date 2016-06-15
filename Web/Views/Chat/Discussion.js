@@ -12,8 +12,9 @@
         }
 
         opener.setRoomId(roomId, userList, userWhoStartedChat, startChatDateTime);
-        //var chat = opener.getConnection();
         var chat = $.connection.Chat;
+        //var chat = opener.getConnection();
+        $.connection.hub.qs = "roomId=" + roomId;
 
         chat.client.addMessageToRoom = function (name, message, roomId, dateSent) {
             // Add the message to the page.
@@ -37,7 +38,7 @@
         $.connection.hub.start().done(function (data) {
             $("#connectionid").html("Connection ID: " + data.id);
             chat.server.joinRoom(loggedInUser, roomId);
-            if (loggedInUser === userWhoStartedChat || userWhoRejoinedChat !== "") {
+            if (loggedInUser === userWhoStartedChat) {
                 // broadcast to everybody to start their chat and open their windows
                 chat.server.startChat(userList, roomId, userWhoStartedChat, userWhoRejoinedChat);
             };

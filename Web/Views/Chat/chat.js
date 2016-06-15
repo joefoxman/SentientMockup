@@ -48,7 +48,8 @@
             }
             else {
                 var randomnumber = Math.floor((Math.random() * 100) + 1);
-                window.open("/Chat/StartChat/?users=" + selectedUsers + "&UserWhoStartedChat=" + username, randomnumber, "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+                window.open("/Chat/StartChat/?users=" + selectedUsers + "&UserWhoStartedChat=" + username, randomnumber,
+                    "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
             }
         });
         
@@ -73,8 +74,8 @@
                 alert("Please Select a chat to rejoin");
             }
             else {
-                //"scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width="
-                window.open("/Chat/RejoinChat/?users=" + users + "&roomId=" + roomId + "&userWhoStartedChat=" + userWhoStartedChat, roomId, "scrollbars=1,menubar=1,toolbar=1,status=1,Location=yes,directories=yes,resizable=1,titlebar=1,width=" + windowWidth + ",height=" + windowHeight);
+                window.open("/Chat/RejoinChat/?users=" + users + "&roomId=" + roomId + "&userWhoStartedChat=" + userWhoStartedChat, roomId,
+                    "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width" + windowWidth + ",height=" + windowHeight);
             }
         });
 

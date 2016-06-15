@@ -16,7 +16,8 @@ namespace POC.Helper
             };
 
         public static List<ChatHistory> ChatHistory = new List<ChatHistory>();
-
+        public static List<Discussion> Discussions = new List<Discussion>();
+         
         public static MvcHtmlString DisableIf(this MvcHtmlString htmlString, Func<bool> expression)
         {
             if (expression.Invoke())
