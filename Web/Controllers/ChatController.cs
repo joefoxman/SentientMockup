@@ -67,6 +67,7 @@ namespace POC.Controllers
                     }
                     // don't forget to add the user who started the chat
                     discussionViewModel.Users.Add(new User { Id = 1, Description = userWhoStartedChat });
+                    users += ";" + userWhoStartedChat;
                 }
                 discussionViewModel.StartChatDateTime = DateTime.Now;
                 discussionViewModel.UserList = users;

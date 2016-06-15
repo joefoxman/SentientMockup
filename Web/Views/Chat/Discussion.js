@@ -38,7 +38,7 @@
         $.connection.hub.start().done(function (data) {
             $("#connectionid").html("Connection ID: " + data.id);
             chat.server.joinRoom(loggedInUser, roomId);
-            if (loggedInUser === userWhoStartedChat) {
+            if (loggedInUser === userWhoStartedChat || userWhoRejoinedChat !== "") {
                 // broadcast to everybody to start their chat and open their windows
                 chat.server.startChat(userList, roomId, userWhoStartedChat, userWhoRejoinedChat);
             };
