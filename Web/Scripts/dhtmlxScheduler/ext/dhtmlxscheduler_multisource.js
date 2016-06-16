@@ -1,5 +1,9 @@
 /*
-Copyright DHTMLX LTD. http://www.dhtmlx.com
-To use this component please contact sales@dhtmlx.com to obtain license
+@license
+dhtmlxScheduler.Net v.3.3.18 Professional Evaluation
+
+This software is covered by DHTMLX Evaluation License. Contact sales@dhtmlx.com to get Commercial or Enterprise license. Usage without proper license is prohibited.
+
+(c) Dinamenta, UAB.
 */
-Scheduler.plugin(function(b){(function(){function f(a){var c=function(){};c.prototype=a;return c}var e=b._load;b._load=function(a,c){a=a||this._load_url;if(typeof a=="object")for(var b=f(this._loaded),d=0;d<a.length;d++)this._loaded=new b,e.call(this,a[d],c);else e.apply(this,arguments)}})()});
+Scheduler.plugin(function(e){!function(){function t(e){var t=function(){};return t.prototype=e,t}var a=e._load;e._load=function(e,n){if(e=e||this._load_url,"object"==typeof e)for(var i=t(this._loaded),r=0;r<e.length;r++)this._loaded=new i,a.call(this,e[r],n);else a.apply(this,arguments)}}()});

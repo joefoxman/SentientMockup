@@ -1,6 +1,6 @@
 ﻿body {
     padding-top: 10px;
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
     /*overflow-x: hidden;*/
 }
 
@@ -216,7 +216,7 @@ h3 {
 }
 
 .body-content-admin .table-responsive {
-    overflow-x: visible;
+    /*overflow-x: visible;*/
 }
 
 .body-content-login {
@@ -232,7 +232,7 @@ h3 {
 }
 
 .tab-body-content-scroll {
-    overflow-y: auto;
+    /*overflow-y: auto;*/
     margin-top: 0;
     margin-left: 0;
     margin-right: 0;
@@ -336,7 +336,7 @@ dl {
 
 .modal-body-chat-log {
   height:350px;
-  overflow:auto;
+  /*overflow:auto;*/
 }
 
 .comment-label {
@@ -509,7 +509,7 @@ body.modal-open {
 
 .fileinput-button {
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
     display: inline-block;
     font-size: 1em;  /* matches button size */
 }
@@ -531,21 +531,20 @@ a.btn {
 }
 
 .upload-list {
-    overflow: visible;
+    /*overflow: visible;*/
 }
 
 .file-name {
     border: none;
 }
 
-.hide-overflow
+/*.hide-overflow
 {
-    /*overflow: hidden;*/
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 100%;
     display: block;
-}
+}*/
 
 a.document-view {
     min-width: 150px;

@@ -1,6 +1,10 @@
 /*
-Copyright DHTMLX LTD. http://www.dhtmlx.com
-To use this component please contact sales@dhtmlx.com to obtain license
+@license
+dhtmlxScheduler.Net v.3.3.18 Professional Evaluation
+
+This software is covered by DHTMLX Evaluation License. Contact sales@dhtmlx.com to get Commercial or Enterprise license. Usage without proper license is prohibited.
+
+(c) Dinamenta, UAB.
 */
-Scheduler.plugin(function(b){b.attachEvent("onTemplatesReady",function(){var e=!0,f=b.date.str_to_date("%Y-%m-%d"),i=b.date.date_to_str("%Y-%m-%d");b.attachEvent("onBeforeViewChange",function(b,j,g,k){if(e){e=!1;for(var a={},h=(document.location.hash||"").replace("#","").split(","),c=0;c<h.length;c++){var d=h[c].split("=");d.length==2&&(a[d[0]]=d[1])}if(a.date||a.mode){try{this.setCurrentView(a.date?f(a.date):null,a.mode||null)}catch(m){this.setCurrentView(a.date?f(a.date):null,g)}return!1}}var l=
-"#date="+i(k||j)+",mode="+(g||b);document.location.hash=l;return!0})})});
+Scheduler.plugin(function(e){e._get_url_nav=function(){for(var e={},t=(document.location.hash||"").replace("#","").split(","),a=0;a<t.length;a++){var n=t[a].split("=");2==n.length&&(e[n[0]]=n[1])}return e},e.attachEvent("onTemplatesReady",function(){function t(t){r=t,e.getEvent(t)&&e.showEvent(t)}var a=!0,n=e.date.str_to_date("%Y-%m-%d"),i=e.date.date_to_str("%Y-%m-%d"),r=e._get_url_nav().event||null;e.attachEvent("onAfterEventDisplay",function(e){return r=null,!0}),e.attachEvent("onBeforeViewChange",function(s,d,_,o){
+if(a){a=!1;var l=e._get_url_nav();if(l.event)try{if(e.getEvent(l.event))return t(l.event),!1;var c=e.attachEvent("onXLE",function(){t(l.event),e.detachEvent(c)})}catch(h){}if(l.date||l.mode){try{this.setCurrentView(l.date?n(l.date):null,l.mode||null)}catch(h){this.setCurrentView(l.date?n(l.date):null,_)}return!1}}var u=["date="+i(o||d),"mode="+(_||s)];r&&u.push("event="+r);var v="#"+u.join(",");return document.location.hash=v,!0})})});

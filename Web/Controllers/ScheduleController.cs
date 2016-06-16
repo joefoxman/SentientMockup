@@ -23,6 +23,13 @@ namespace POC.Controllers {
             return View();
         }
 
+        public ActionResult CalendarTest()
+        {
+            var vm = new CalendarItem();
+            return View(vm);
+        }
+
+
         public ActionResult Calendar()
         {
             var vm = new CalendarItem();

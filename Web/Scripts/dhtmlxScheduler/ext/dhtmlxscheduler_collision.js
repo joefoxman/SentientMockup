@@ -1,7 +1,13 @@
 /*
-Copyright DHTMLX LTD. http://www.dhtmlx.com
-To use this component please contact sales@dhtmlx.com to obtain license
+@license
+dhtmlxScheduler.Net v.3.3.18 Professional Evaluation
+
+This software is covered by DHTMLX Evaluation License. Contact sales@dhtmlx.com to get Commercial or Enterprise license. Usage without proper license is prohibited.
+
+(c) Dinamenta, UAB.
 */
-Scheduler.plugin(function(a){(function(){function i(c){var b=a._props?a._props[a._mode]:null,j=a.matrix?a.matrix[a._mode]:null,f=b||j;if(b)var g=f.map_to;if(j)g=f.y_property;f&&c&&(o=a.getEvent(c)[g])}function h(c){var b=[],j=a.config.collision_limit;if(c.rec_type)for(var f=a.getRecDates(c),g=0;g<f.length;g++)for(var e=a.getEvents(f[g].start_date,f[g].end_date),k=0;k<e.length;k++)(e[k].event_pid||e[k].id)!=c.id&&b.push(e[k]);else for(var b=a.getEvents(c.start_date,c.end_date),d=0;d<b.length;d++)if(b[d].id==
-c.id){b.splice(d,1);break}var h=a._props?a._props[a._mode]:null,i=a.matrix?a.matrix[a._mode]:null,n=h||i;if(h)var l=n.map_to;if(i)l=n.y_property;var m=!0;if(n){for(var p=0,d=0;d<b.length;d++)b[d][l]==c[l]&&b[d].id!=c.id&&p++;p>=j&&(m=!1)}else b.length>=j&&(m=!1);if(!m){var q=!a.callEvent("onEventCollision",[c,b]);q||(c[l]=o||c[l]);return q}return m}var o,e;a.config.collision_limit=1;a.attachEvent("onBeforeDrag",function(a){i(a);return!0});a.attachEvent("onBeforeLightbox",function(c){var b=a.getEvent(c);
-e=[b.start_date,b.end_date];i(c);return!0});a.attachEvent("onEventChanged",function(c){if(!c)return!0;var b=a.getEvent(c);if(!h(b)){if(!e)return!1;b.start_date=e[0];b.end_date=e[1];b._timed=this.is_one_day_event(b)}return!0});a.attachEvent("onBeforeEventChanged",function(a){return h(a)});a.attachEvent("onEventSave",function(c,b){b=a._lame_clone(b);b.id=c;b.rec_type&&a._roll_back_dates(data_copy);return h(b)})})()});
+Scheduler.plugin(function(e){!function(){function t(t){var s=e._get_section_view();s&&t&&(i=e.getEvent(t)[e._get_section_property()])}var i,s;e.config.collision_limit=1,e.attachEvent("onBeforeDrag",function(e){return t(e),!0}),e.attachEvent("onBeforeLightbox",function(i){var a=e.getEvent(i);return s=[a.start_date,a.end_date],t(i),!0}),e.attachEvent("onEventChanged",function(t){if(!t||!e.getEvent(t))return!0;var i=e.getEvent(t);if(!e.checkCollision(i)){if(!s)return!1;i.start_date=s[0],i.end_date=s[1],
+i._timed=this.isOneDayEvent(i)}return!0}),e.attachEvent("onBeforeEventChanged",function(t,i,s){return e.checkCollision(t)}),e.attachEvent("onEventAdded",function(t,i){var s=e.checkCollision(i);s||e.deleteEvent(t)}),e.attachEvent("onEventSave",function(t,i,s){if(i=e._lame_clone(i),i.id=t,!i.start_date||!i.end_date){var a=e.getEvent(t);i.start_date=new Date(a.start_date),i.end_date=new Date(a.end_date)}return i.rec_type&&e._roll_back_dates(i),e.checkCollision(i)}),e._check_sections_collision=function(t,i){
+var s=e._get_section_property();return t[s]==i[s]&&t.id!=i.id?!0:!1},e.checkCollision=function(t){var s=[],a=e.config.collision_limit;if(t.rec_type)for(var n=e.getRecDates(t),r=0;r<n.length;r++)for(var d=e.getEvents(n[r].start_date,n[r].end_date),o=0;o<d.length;o++)(d[o].event_pid||d[o].id)!=t.id&&s.push(d[o]);else{s=e.getEvents(t.start_date,t.end_date);for(var l=0;l<s.length;l++)if(s[l].id==t.id){s.splice(l,1);break}}var _=e._get_section_view(),h=e._get_section_property(),c=!0;if(_){for(var u=0,l=0;l<s.length;l++)s[l].id!=t.id&&this._check_sections_collision(s[l],t)&&u++;
+
+u>=a&&(c=!1)}else s.length>=a&&(c=!1);if(!c){var g=!e.callEvent("onEventCollision",[t,s]);return g||(t[h]=i||t[h]),g}return c}}()});

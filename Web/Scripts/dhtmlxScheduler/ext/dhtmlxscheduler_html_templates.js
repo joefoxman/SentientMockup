@@ -1,5 +1,9 @@
 /*
-Copyright DHTMLX LTD. http://www.dhtmlx.com
-To use this component please contact sales@dhtmlx.com to obtain license
+@license
+dhtmlxScheduler.Net v.3.3.18 Professional Evaluation
+
+This software is covered by DHTMLX Evaluation License. Contact sales@dhtmlx.com to get Commercial or Enterprise license. Usage without proper license is prohibited.
+
+(c) Dinamenta, UAB.
 */
-Scheduler.plugin(function(e){e.attachEvent("onTemplatesReady",function(){for(var c=document.body.getElementsByTagName("DIV"),b=0;b<c.length;b++){var a=c[b].className||"",a=a.split(":");if(a.length==2&&a[0]=="template"){var d='return "'+(c[b].innerHTML||"").replace(/\"/g,'\\"').replace(/[\n\r]+/g,"")+'";',d=unescape(d).replace(/\{event\.([a-z]+)\}/g,function(b,a){return'"+ev.'+a+'+"'});e.templates[a[1]]=Function("start","end","ev",d);c[b].style.display="none"}}})});
+Scheduler.plugin(function(e){e.attachEvent("onTemplatesReady",function(){for(var t=document.body.getElementsByTagName("DIV"),i=0;i<t.length;i++){var a=t[i].className||"";if(a=a.split(":"),2==a.length&&"template"==a[0]){var n='return "'+(t[i].innerHTML||"").replace(/\"/g,'\\"').replace(/[\n\r]+/g,"")+'";';n=unescape(n).replace(/\{event\.([a-z]+)\}/g,function(e,t){return'"+ev.'+t+'+"'}),e.templates[a[1]]=Function("start","end","ev",n),t[i].style.display="none"}}})});

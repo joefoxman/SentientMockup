@@ -1,11 +1,11 @@
 ﻿sentientPOC.scheduleTabs = (function () {
     var dynamicHeightTabRecursiveMarginFind = function(element, tabBodyHeaderHeight) {
         $(element).children().each(function() {
-            var extraMarginTop = $(this).css("marginTop").replace('px', '');
+            var extraMarginTop = $(this).css("marginTop").replace("px", "");
             if (extraMarginTop !== undefined) {
                 tabBodyHeaderHeight = parseInt(tabBodyHeaderHeight) + parseInt(extraMarginTop);
             }
-            var extraMarginBottom = $(this).css("marginBottom").replace('px', '');
+            var extraMarginBottom = $(this).css("marginBottom").replace("px", "");
             if (extraMarginBottom !== undefined) {
                 tabBodyHeaderHeight = parseInt(tabBodyHeaderHeight) + parseInt(extraMarginBottom);
             }
@@ -54,9 +54,11 @@
     };
 
     var initSchedulerPerson = function () {
-        scheduler.locale.labels.unit_tab = "SNP";
+        //scheduler.locale.labels.unit_tab = "SNP";
         //scheduler.locale.labels.section_custom = "Assigned to";
-        scheduler.config.first_hour = 7;
+        scheduler.config.first_hour = 5;
+        scheduler.config.last_hour = 25;
+        scheduler.config.hour_date = "%h:%i %A";
         //scheduler.config.multi_day = true;
         scheduler.config.details_on_create = true;
         scheduler.config.details_on_dblclick = true;
@@ -94,7 +96,7 @@
     }
 
     var initSchedulerTimeline = function () {
-        scheduler.locale.labels.timeline_tab = "Physician";
+        //scheduler.locale.labels.timeline_tab = "Physician";
         scheduler.locale.labels.section_custom = "Section";
         scheduler.config.details_on_create = true;
         scheduler.config.details_on_dblclick = true;
@@ -110,17 +112,17 @@
 			    ]
 			},
 			{
-			    key: 30, label: "Dr. Linda Brown", open: false, children: [
+			    key: 30, label: "Dr. Linda Brown", open: true, children: [
                    { key: 40, label: "Dr. Linda Brown" }
 			    ]
 			},
 			{
-			    key: 50, label: "Dr. Kate Moss", open: false, children: [
+			    key: 50, label: "Dr. Kate Moss", open: true, children: [
                    { key: 60, label: "Dr. Kate Moss" }
 			    ]
 			},
             {
-                key: 70, label: "Dr. Dian Fossey", open: false, children: [
+                key: 70, label: "Dr. Dian Fossey", open: true, children: [
                    { key: 80, label: "Dr. Dian Fossey" }
                 ]
             }
@@ -130,19 +132,19 @@
             section_autoheight: false,
             name: "timeline",
             x_unit: "minute",
-            x_date: "%H:%i",
+            x_date: "%h:%i %A",
             x_step: 30,
             x_size: 24,
-            x_start: 12,
-            x_length: 48,
+            x_start: 14,
+            x_length: 2,
             y_unit: elements,
             y_property: "section_id",
             render: "tree",
             folder_dy: 20,
-            dy: 60,
-            fit_events: true
+            dy: 80,
+            fit_events: true,
+            last_hour: 24
         });
-
         //===============
         //Data loading
         //===============
@@ -173,7 +175,6 @@
         ], "json");
     };
 
-
     var initScheduleTabs = function() {
         $(window).resize(function() {
             var tabs = $("#tabs").tabs();
@@ -188,43 +189,56 @@
             },
             create: function(event, ui) {
                 sentientPOC.common.showWait($("body"));
-                dynamicHeightTab($(this));
             },
             activate: function (event, ui) {
             },
             select: function(event, ui) {
             },
-            load: function(event, ui) {
+            load: function (event, ui) {
+                $("#expand-all").on("click", function () {
+                    scheduler.openAllSections();
+                    scheduler.updateView();
+                });
+                $("#collapse-all").on("click", function () {
+                    scheduler.closeAllSections();
+                    scheduler.updateView();
+                });
+
                 dynamicHeightTab($(this));
                 sentientPOC.common.hideWait($("body"));
                 var tabName = ui.tab.text().toLowerCase();
                 if (tabName === "calendar") {
                     initSchedulerPerson();
                     initSchedulerTimeline();
+                    var tabs = $("#tabs").tabs();
+                    dynamicHeightTab($(tabs));
+                    dynamicCalendar(tabs, $("#scheduler_here"));
                     //initSchedulerBasic();
-                    dynamicCalendar($(this), $("#scheduler_here"));
                     //initResponsive($("#scheduler_here"));
-                }
-                scheduler.attachEvent("onBeforeLightbox", function (id) {
-                    var eventObj = scheduler.getEvent(id);
-                    $("#customLightBoxModal").find("#Title").val(eventObj.text);
-                    $("#customLightBoxModal").find("#StartDateTime").val(eventObj.start_date.toString());
-                    $("#customLightBoxModal").find("#EndDateTime").val(eventObj.end_date.toString());
-                    var physicianName = scheduler.getSection(eventObj.section_id);
-                    if (physicianName !== undefined && physicianName !== null) {
-                        $("#customLightBoxModal").find("#PhysicianName").css("display", "inline-block");
-                        $("#customLightBoxModal").find("#SnpName").css("display", "none");
-                        $("#customLightBoxModal").find("#PhysicianName").val(physicianName.label);
-                    } else {
-                        $("#customLightBoxModal").find("#PhysicianName").css("display", "none");
-                        $("#customLightBoxModal").find("#SnpName").css("display", "inline-block");
-                        // get SNP Name
-                        var snpName = eventObj.snp_name;
-                        $("#customLightBoxModal").find("#SnpName").val(snpName);
-                    }
-                    $("#customLightBoxModal").modal("show");
-                    return false;
-                });
+                    scheduler.attachEvent("onBeforeLightbox", function(id) {
+                        var eventObj = scheduler.getEvent(id);
+                        $("#customLightBoxModal").find("#Title").val(eventObj.text);
+                        $("#customLightBoxModal").find("#StartDateTime").val(eventObj.start_date.toString());
+                        $("#customLightBoxModal").find("#EndDateTime").val(eventObj.end_date.toString());
+                        var physicianName = scheduler.getSection(eventObj.section_id);
+                        if (physicianName !== undefined && physicianName !== null) {
+                            $("#customLightBoxModal").find("#PhysicianName").css("display", "inline-block");
+                            $("#customLightBoxModal").find("#SnpName").css("display", "none");
+                            $("#customLightBoxModal").find("#PhysicianName").val(physicianName.label);
+                        } else {
+                            $("#customLightBoxModal").find("#PhysicianName").css("display", "none");
+                            $("#customLightBoxModal").find("#SnpName").css("display", "inline-block");
+                            // get SNP Name
+                            var snpName = eventObj.snp_name;
+                            $("#customLightBoxModal").find("#SnpName").val(snpName);
+                        }
+                        $("#customLightBoxModal").modal("show");
+                        return false;
+                    });
+                    //scheduler.config.multi_day = false;
+                    //scheduler.config.hour_date = "%h:%i %A";
+                    scheduler.updateView();
+                };
             }
         });
     };
