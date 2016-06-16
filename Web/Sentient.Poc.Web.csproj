@@ -310,6 +310,7 @@
     <Content Include="Scripts\Calendar\ext\dhtmlxscheduler_wp.js" />
     <Content Include="Scripts\Calendar\ext\dhtmlxscheduler_year_view.js" />
     <Content Include="Scripts\Custom\common.js" />
+    <Content Include="Scripts\Custom\notification.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler-responsive.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
@@ -503,6 +504,7 @@
     <Content Include="Views\Schedule\Confirmation.cshtml" />
     <Content Include="Views\Schedule\TestCalendar.cshtml" />
     <Content Include="Views\Chat\Discussion.cshtml" />
+    <Content Include="Views\Case\PatientHistory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

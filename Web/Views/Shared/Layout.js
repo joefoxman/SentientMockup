@@ -31,6 +31,7 @@ sentientPOC.layout = (function () {
             }
         }), 5000);
         initToastr();
+        sentientPOC.notification.initNotifications();
     };
 
     return {

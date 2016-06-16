@@ -16,7 +16,6 @@ namespace POC.Controllers {
             {
                 Data = json
             }, JsonRequestBehavior.AllowGet);
-            //return "({ text: \"Meeting\", start_date: \"06/10/2016 10:00\", end_date: \"06/10/2016 13:00\" })";
         }
 
         public ActionResult Index()

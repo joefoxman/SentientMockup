@@ -1,5 +1,5 @@
 ﻿.notification-window {
-    height:300px; 
+    height:350px; 
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -65,10 +65,15 @@
     text-decoration:none;
     cursor:pointer;
 }
-        
+
+.notification-window li div {
+    display: inline-block;
+}        
+
 #noti_Container {
     position:relative;
     margin-top: 13px;
+    display: inline;
 }
 
 /* A CIRCLE LIKE BUTTON IN THE TOP MENU. */
@@ -95,7 +100,7 @@
 /* THE NOTIFICAIONS WINDOW. THIS REMAINS HIDDEN WHEN THE PAGE LOADS. */
 #notifications {
     display:none;
-    width:280px;
+    width:450px;
     position:absolute;
     top:30px;
     left:-100px;

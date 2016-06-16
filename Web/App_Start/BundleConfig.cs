@@ -6,6 +6,10 @@ namespace POC
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/signalr").Include(
+                        "~/Scripts/jquery.signalR-2.2.0.js",
+                        "~/Scripts/Custom/notification.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/calendar").Include(
                         "~/Scripts/Calendar/dhtmlxscheduler.js",
                         "~/Scripts/dhtmlxScheduler/dhtmlxscheduler-responsive.js",

@@ -1,9 +1,8 @@
 ﻿sentientPOC.chat = (function () {
     var initChat = function (username) {
-        var chat = $.connection.Chat;
         var windowWidth = 400;
         var windowHeight = 600;
-
+        var chat = $.connection.Chat;
         window.onbeforeunload = function () {
             $.ajax({
                 type: "POST",
@@ -79,7 +78,7 @@
             }
         });
 
-         //Start the connection.
+        //Start the connection.
         $.connection.hub.start().done(function (data) {
             $("#connectionid").html("Connection ID: " + data.id);
         });

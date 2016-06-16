@@ -11,7 +11,7 @@ namespace POC.Controllers
 {
     public class ChatController : ControllerBase
     {
-        [HttPost]
+        [HttpPost]
         public JsonResult DisconnectUser(string userName)
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<ChatHub>();
@@ -37,7 +37,7 @@ namespace POC.Controllers
                 SelectedUserIds = new List<string>(),
                 Users = userlist
             };
-            var loggedInUser = Helper.Extensions.GetLoggedInUserName();
+            var loggedInUser = Extensions.GetLoggedInUserName();
             chatViewModel.Users.Remove(userlist.Find(a => a.Description.Equals(loggedInUser, StringComparison.OrdinalIgnoreCase)));
             return PartialView(chatViewModel);
         }
@@ -106,9 +106,5 @@ namespace POC.Controllers
             var discussionViewModel = GetDiscussionViewModel(users, roomId, userWhoStartedChat, Extensions.GetLoggedInUserName());
             return PartialView("Discussion", discussionViewModel);
         }
-    }
-
-    public class HttPostAttribute : Attribute
-    {
     }
 }

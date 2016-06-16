@@ -17,6 +17,7 @@
     @Scripts.Render("~/bundles/jquerycookie")
     @Scripts.Render("~/bundles/toastr")
     @Scripts.Render("~/bundles/common")
+    @Scripts.Render("~/bundles/signalr")
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -54,6 +55,25 @@
         </div>
         <div class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
+                <li id="noti_Container">
+                    <!--SHOW CHAT NOTIFICATIONS COUNT.-->
+                    <div id="noti_Counter" style="display: none;"></div>
+                    <!--A CIRCLE LIKE BUTTON TO DISPLAY NOTIFICATION DROPDOWN.-->
+                    <div id="noti_Button">
+                        <i class="fa fa-bell fa-lg" style="color: whitesmoke;"></i>
+                    </div>
+
+                    <!--THE NOTIFICAIONS DROPDOWN BOX.-->
+                    <div id="notifications">
+                        <h3 class="notification-h3">Chats</h3>
+                        <div class="notification-window" id="notification-window">
+                        </div>
+                        <div class="notification-buttons">
+                            <button class="btn btn-sm btn-success" id="notification-close">Close</button>
+                        </div>
+                    </div>
+                </li>
+
                 <li>@Html.ActionLink("Schedule", "Index", "Schedule")</li>
                 <li>@Html.ActionLink("Case", "Index", "Case")</li>
                 <li>@Html.ActionLink("Reports", "Index", "Report")</li>

@@ -33,6 +33,10 @@ namespace POC.Controllers
         {
             return PartialView(CaseData.GetCaseData());
         }
+        public ActionResult PatientHistory(Guid? id)
+        {
+            return PartialView();
+        }
 
         public ActionResult Procedure(Guid? id)
         {

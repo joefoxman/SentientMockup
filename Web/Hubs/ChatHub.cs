@@ -59,6 +59,10 @@ namespace POC.Hubs
             Clients.All.updateUserStatus(name, false);
         }
 
+        public void UpdateUserStatus(string userName, bool online) {
+            Clients.All.updateUserStatus(userName, online);
+        }
+
         public override Task OnConnected()
         {
             var roomId = Context.QueryString["roomId"];

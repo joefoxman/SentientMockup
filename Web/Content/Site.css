@@ -11,6 +11,10 @@ legend {
 .ui-tabs {
     /*overflow-x: hidden;*/    
 }
+h3 {
+    margin: 0;
+    margin-left: 10px;
+}
 
 .dhx_cal_navline {
     margin-top: -10px;
@@ -266,10 +270,11 @@ legend {
 li {
     list-style-type: none;
 }
-
-li div {
-     display: table-cell; vertical-align: middle;
- }
+h
+/*li div {
+     display: table-cell; 
+     vertical-align: middle;
+ }*/
 
 .medicare-form {
     width: 99%;
