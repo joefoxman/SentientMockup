@@ -26,7 +26,8 @@ namespace POC.Controllers {
 
         public ActionResult Calendar()
         {
-            return PartialView();
+            var vm = new CalendarItem();
+            return PartialView(vm);
         }
 
         public ActionResult Confirmation()

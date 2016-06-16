@@ -8,6 +8,7 @@ namespace POC
         {
             bundles.Add(new ScriptBundle("~/bundles/calendar").Include(
                         "~/Scripts/Calendar/dhtmlxscheduler.js",
+                        "~/Scripts/dhtmlxScheduler/dhtmlxscheduler-responsive.js",
                         "~/Scripts/Calendar/ext/dhtmlxscheduler_timeline.js",
                         "~/Scripts/Calendar/ext/dhtmlxscheduler_treetimeline.js",
                         "~/Scripts/Calendar/ext/dhtmlxscheduler_units.js",
@@ -62,7 +63,9 @@ namespace POC
                         "~/Content/bootstrap-multiselect.css",
                         "~/Content/toastr.css",
                         "~/Content/bootstrap-dialog.css",
-                        "~/Content/dhtmlxscheduler.css"));
+                        "~/Content/dhtmlxscheduler.css",
+                        "~/Content/dhtmlxScheduler/dhtmlxscheduler-responsive.css",
+                        "~/Content/dhtmlxScheduler/dhtmlxscheduler-responsive-classic.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862

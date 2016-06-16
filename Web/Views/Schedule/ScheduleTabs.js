@@ -75,21 +75,21 @@
             step: 5  //the number of units that will be scrolled at once
         });
 
-        scheduler.config.lightbox.sections = [
-            { name: "description", height: 130, map_to: "text", type: "textarea", focus: true },
-            { name: "custom", height: 23, type: "unit_id", options: null, map_to: "unit_id" }, //type should be the same as name of the tab
-            { name: "time", height: 72, type: "time", map_to: "auto" }
-        ];
+        //scheduler.config.lightbox.sections = [
+        //    { name: "description", height: 130, map_to: "text", type: "textarea", focus: true },
+        //    { name: "custom", height: 23, type: "unit_id", options: null, map_to: "unit_id" }, //type should be the same as name of the tab
+        //    { name: "time", height: 72, type: "time", map_to: "auto" }
+        //];
 
         scheduler.init("scheduler_here", new Date(2014, 06, 30), "unit");
 
         scheduler.parse([
-            { id: 1, text: "Case 1", start_date: "2014-06-30 14:00", end_date: "2014-06-30 17:00", unit_id: "1" },
-            { id: 2, text: "Case 2", start_date: "2014-06-30 12:00", end_date: "2014-06-30 19:00", unit_id: "1" },
-            { id: 3, text: "Case 3", start_date: "2014-06-30 09:00", end_date: "2014-06-30 10:00", unit_id: "1" },
-            { id: 4, text: "Case 4", start_date: "2014-06-30 12:00", end_date: "2014-06-30 13:00", unit_id: "2" },
-            { id: 5, text: "Case 5", start_date: "2014-06-30 13:00", end_date: "2014-06-30 16:00", unit_id: "2" },
-            { id: 6, text: "Case 6", start_date: "2014-06-30 12:00", end_date: "2014-06-30 19:00", unit_id: "3" },
+            { id: 1, text: "Case 1", start_date: "2014-06-30 14:00", end_date: "2014-06-30 17:00", unit_id: "1", snp_name: "SNP Jame Smith" },
+            { id: 2, text: "Case 2", start_date: "2014-06-30 12:00", end_date: "2014-06-30 19:00", unit_id: "1", snp_name: "SNP Jame Smith" },
+            { id: 3, text: "Case 3", start_date: "2014-06-30 09:00", end_date: "2014-06-30 10:00", unit_id: "1", snp_name: "SNP Jame Smith" },
+            { id: 4, text: "Case 4", start_date: "2014-06-30 12:00", end_date: "2014-06-30 13:00", unit_id: "2", snp_name: "SNP John Williams" },
+            { id: 5, text: "Case 5", start_date: "2014-06-30 13:00", end_date: "2014-06-30 16:00", unit_id: "2", snp_name: "SNP John Williams" },
+            { id: 6, text: "Case 6", start_date: "2014-06-30 12:00", end_date: "2014-06-30 19:00", unit_id: "3", snp_name: "SNP David Miller" }
         ], "json");
     }
 
@@ -202,9 +202,29 @@
                     initSchedulerPerson();
                     initSchedulerTimeline();
                     //initSchedulerBasic();
-
                     dynamicCalendar($(this), $("#scheduler_here"));
+                    //initResponsive($("#scheduler_here"));
                 }
+                scheduler.attachEvent("onBeforeLightbox", function (id) {
+                    var eventObj = scheduler.getEvent(id);
+                    $("#customLightBoxModal").find("#Title").val(eventObj.text);
+                    $("#customLightBoxModal").find("#StartDateTime").val(eventObj.start_date.toString());
+                    $("#customLightBoxModal").find("#EndDateTime").val(eventObj.end_date.toString());
+                    var physicianName = scheduler.getSection(eventObj.section_id);
+                    if (physicianName !== undefined && physicianName !== null) {
+                        $("#customLightBoxModal").find("#PhysicianName").css("display", "inline-block");
+                        $("#customLightBoxModal").find("#SnpName").css("display", "none");
+                        $("#customLightBoxModal").find("#PhysicianName").val(physicianName.label);
+                    } else {
+                        $("#customLightBoxModal").find("#PhysicianName").css("display", "none");
+                        $("#customLightBoxModal").find("#SnpName").css("display", "inline-block");
+                        // get SNP Name
+                        var snpName = eventObj.snp_name;
+                        $("#customLightBoxModal").find("#SnpName").val(snpName);
+                    }
+                    $("#customLightBoxModal").modal("show");
+                    return false;
+                });
             }
         });
     };
