@@ -59,6 +59,18 @@
                 chat.server.sendToRoom(roomId, loggedInUser, message);
                 $("#message").val("").focus();
             });
+            $("#add").click(function () {
+                var selected = $("#userstoadd").find("option:selected");
+                var users = $(selected).attr("data-user");
+                if (users == null) {
+                    alert('Please choose a user to add to the conversation.')
+                }
+                else {
+                    window.open("/Chat/StartChat/?users=" + users + "&UserWhoStartedChat=" + username, randomnumber,
+                    "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+                }
+
+            });
         });
     };
 

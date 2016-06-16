@@ -14,5 +14,6 @@ namespace POC.Models
         public Guid RoomId { get; set; }
         public string UserWhoStartedChat { get; set; }
         public string UserWhoRejoinedChat { get; set; }
+        public List<User> UsersToAdd { get; set; }
     }
 }

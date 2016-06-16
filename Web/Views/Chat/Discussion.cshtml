@@ -25,6 +25,15 @@
             @Html.HiddenFor(a => Model.UserList)
             @Html.HiddenFor(a => Model.LoggedInUser)
             <div id="connectionid"></div>
+                <select class="form-control" id="userstoadd" multiple="" name="userstoadd">
+                    @foreach (var user in Model.UsersToAdd)
+                    {
+                        <option data-user="@user.Description" rvalue="@user.Description">
+                            @user.Description
+                        </option>
+                    }
+                </select>
+                <input type="button" class="btn btn-default" id="add" value="Add" />
             <div>
                 @foreach (var user in Model.Users)
                 {

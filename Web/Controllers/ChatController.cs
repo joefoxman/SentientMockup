@@ -48,6 +48,7 @@ namespace POC.Controllers
             string userWhoStartedChat, 
             string userWhoRejoinedChat)
         {
+
             Discussion discussionViewModel;
             if (string.IsNullOrWhiteSpace(roomId))
             {
@@ -55,7 +56,8 @@ namespace POC.Controllers
                 {
                     Chatlog = new List<Chatlog>(),
                     Users = new List<User>(),
-                    LoggedInUser = Extensions.GetLoggedInUserName()
+                    LoggedInUser = Extensions.GetLoggedInUserName(),
+                    UsersToAdd = Extensions.Users
                 };
                 discussionViewModel.Users = new List<User>();
                 if (users != null)

@@ -12,7 +12,10 @@ namespace POC.Helper
         public static List<User> Users = new List<User> {
                 new User { Id = 1, Description = "Alex" },
                 new User { Id = 2, Description = "Joey" },
-                new User { Id = 3, Description = "David" }
+                new User { Id = 3, Description = "David" },
+                new User { Id = 4, Description = "Alice" },
+                new User { Id = 5, Description = "Grace" },
+                new User { Id = 6, Description = "Bob" }
             };
 
         public static List<ChatHistory> ChatHistory = new List<ChatHistory>();
