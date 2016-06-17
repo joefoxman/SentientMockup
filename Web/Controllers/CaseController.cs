@@ -8,6 +8,11 @@ namespace POC.Controllers
 {
     public class CaseController : ControllerBase
     {
+        public ActionResult Documents()
+        {
+            return PartialView();
+        }
+
         public ActionResult Index()
         {   
             return View(CaseData.GetCaseListData());

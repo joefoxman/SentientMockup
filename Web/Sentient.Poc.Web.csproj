@@ -533,7 +533,6 @@
     <Content Include="Views\Chat\Chat.js" />
     <Content Include="Views\Chat\Discussion.js" />
     <Content Include="Views\Schedule\events.xml" />
-    <Content Include="Views\Schedule\ScheduleTest.js" />
     <Content Include="Views\Schedule\ScheduleTabs.js" />
     <Content Include="Views\Shared\Layout.js" />
     <Content Include="Web.config" />
@@ -597,11 +596,10 @@
     <Content Include="Views\Report\Index.cshtml" />
     <Content Include="Views\Schedule\Calendar.cshtml" />
     <Content Include="Views\Schedule\Confirmation.cshtml" />
-    <Content Include="Views\Schedule\TestCalendar.cshtml" />
     <Content Include="Views\Chat\Discussion.cshtml" />
     <Content Include="Views\Case\PatientHistory.cshtml" />
-    <Content Include="Views\Schedule\IndexTest.cshtml" />
     <Content Include="Views\Schedule\CalendarTest.cshtml" />
+    <Content Include="Views\Case\Documents.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
