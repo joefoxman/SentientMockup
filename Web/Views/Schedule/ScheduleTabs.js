@@ -107,23 +107,23 @@
         //===============	
         var elements = [ // original hierarhical array to display
 			{
-			    key: 10, label: "Dr. Elizabeth Taylor", open: true, children: [
-                   { key: 20, label: "Dr. Elizabeth Taylor" }
+			    key: 10, label: "Dr. Elizabeth Taylor (4 Active)", open: true, children: [
+                   { key: 20, label: "Dr. Elizabeth Taylor (4 Active)" }
 			    ]
 			},
 			{
-			    key: 30, label: "Dr. Linda Brown", open: true, children: [
-                   { key: 40, label: "Dr. Linda Brown" }
+			    key: 30, label: "Dr. Linda Brown (4 Active)", open: true, children: [
+                   { key: 40, label: "Dr. Linda Brown (4 Active)" }
 			    ]
 			},
 			{
-			    key: 50, label: "Dr. Kate Moss", open: true, children: [
-                   { key: 60, label: "Dr. Kate Moss" }
+			    key: 50, label: "Dr. Kate Moss (2 Active)", open: true, children: [
+                   { key: 60, label: "Dr. Kate Moss (2 Active)" }
 			    ]
 			},
             {
-                key: 70, label: "Dr. Dian Fossey", open: true, children: [
-                   { key: 80, label: "Dr. Dian Fossey" }
+                key: 70, label: "Dr. Dian Fossey (3 Active)", open: true, children: [
+                   { key: 80, label: "Dr. Dian Fossey (3 Active)" }
                 ]
             }
         ];
