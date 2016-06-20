@@ -36,7 +36,7 @@ namespace POC.Hubs
             //        var connectionId = staticUser.ParentConnectionId;
             //        Clients.Client(connectionId).rejoinRoom(users, roomId, Extensions.GetLoggedInUserName());
             //    }
-            //}
+            //} 
             // broadcast all users in this room
             //Clients.All.isUserInRoom(users, roomId, Helper.Extensions.GetLoggedInUserName());
         }
@@ -49,13 +49,15 @@ namespace POC.Hubs
             }
             var usersInChat = room.UserList + ";" + usersToAdd;
             var splitUser = usersToAdd.Split(';');
-            foreach (var user in splitUser)
-            {
+            foreach (var user in splitUser) {
                 var staticUser = Extensions.Users.FirstOrDefault(a => a.Description == user);
                 if (staticUser == null) continue;
                 var connectionId = staticUser.ParentConnectionId;
                 Clients.Client(connectionId).rejoinRoom(usersInChat, roomId, userWhoStartedChat);
             }
+            // now send a notification to all of the other users (not newly added) so they will
+            // get an update with the new user list
+
         }
         public void JoinRoom(string name, string room)
         {

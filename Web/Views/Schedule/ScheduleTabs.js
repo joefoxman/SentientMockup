@@ -38,11 +38,41 @@
         $(tabs).find(scrollContentSelector).css("overflow-y", "scroll").css("overflow-x", "hidden");
         $(scrollContentSelector).height(docHeight - (tabsHeight + tabBodyHeaderHeight + tabContentOffset) + "px");
     };
-    var dynamicCalendar = function(tabs, scheduler) {
+    var dynamicCalendar = function(tabs, schedulerObject) {
         var tabHeight = $(tabs).css("height").replace("px", "");
         var tabWidth = $(tabs).css("width").replace("px", "");
-        $(scheduler).css("height", tabHeight - 100 + "px");
-        $(scheduler).css("width", tabWidth - 50 + "px");
+        $(schedulerObject).css("height", tabHeight - 100 + "px");
+        $(schedulerObject).css("width", tabWidth - 50 + "px");
+
+        var windowWidth = $(window).width();
+        if (windowWidth >= 1200) {
+            // large >= 1200px 
+            $(".dhx_cal_data table td.dhx_matrix_scell.folder").css("width", "200px");
+            $(".dhx_cal_data table td.dhx_matrix_scell.item").css("width", "200px");
+            scheduler.matrix.timeline.x_size = 24;
+            //scheduler.update_view();
+        }
+        else if (windowWidth >= 992 && windowWidth < 1200) {
+            // medium >= 992
+            $(".dhx_cal_data table td.dhx_matrix_scell.folder").css("width", "200px");
+            $(".dhx_cal_data table td.dhx_matrix_scell.item").css("width", "200px");
+            scheduler.matrix.timeline.x_size = 12;
+            //scheduler.update_view();
+        }
+        else if (windowWidth >= 768 && windowWidth < 992) {
+            // small >= 768
+            $(".dhx_cal_data table td.dhx_matrix_scell.folder").css("width", "50px");
+            $(".dhx_cal_data table td.dhx_matrix_scell.item").css("width", "50px");
+            scheduler.matrix.timeline.x_size = 3;
+            //scheduler.update_view();
+        }
+        else if (windowWidth < 768) {
+            // x-small < 768
+            $(".dhx_cal_data table td.dhx_matrix_scell.folder").css("width", "25px").css("height", "40px");
+            $(".dhx_cal_data table td.dhx_matrix_scell.item").css("width", "25px").css("height", "40px");
+            scheduler.matrix.timeline.x_size = 1;
+            //scheduler.update_view();
+        }
     };
 
     var initSchedulerBasic = function () {
@@ -148,11 +178,11 @@
         //===============
         //Data loading
         //===============
-        scheduler.config.lightbox.sections = [
-            { name: "description", height: 130, map_to: "text", type: "textarea", focus: true },
-            { name: "custom", height: 23, type: "timeline", options: null, map_to: "section_id" }, //type should be the same as name of the tab
-            { name: "time", height: 72, type: "time", map_to: "auto" }
-        ];
+        //scheduler.config.lightbox.sections = [
+        //    { name: "description", height: 130, map_to: "text", type: "textarea", focus: true },
+        //    { name: "custom", height: 23, type: "timeline", options: null, map_to: "section_id" }, //type should be the same as name of the tab
+        //    { name: "time", height: 72, type: "time", map_to: "auto" }
+        //];
 
         scheduler.init("scheduler_here", new Date(2014, 5, 30), "timeline");
         scheduler.parse([
