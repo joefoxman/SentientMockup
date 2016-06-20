@@ -6,6 +6,8 @@ namespace POC.Models
     public class CalendarItem
     {
         public bool Disabled { get; set; }
+        [DisplayName("Status")]
+        public string Status { get; set; }
         [DisplayName("Title")]
         public string Title { get; set; }
         [DisplayName("Start Date/Time")]

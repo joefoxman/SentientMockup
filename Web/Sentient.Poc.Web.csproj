@@ -598,7 +598,6 @@
     <Content Include="Views\Schedule\Confirmation.cshtml" />
     <Content Include="Views\Chat\Discussion.cshtml" />
     <Content Include="Views\Case\PatientHistory.cshtml" />
-    <Content Include="Views\Schedule\CalendarTest.cshtml" />
     <Content Include="Views\Case\Documents.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

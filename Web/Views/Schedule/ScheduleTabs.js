@@ -53,7 +53,7 @@
         });
     };
 
-    var initSchedulerPerson = function () {
+    var initSchedulerPerson = function() {
         //scheduler.locale.labels.unit_tab = "SNP";
         //scheduler.locale.labels.section_custom = "Assigned to";
         scheduler.config.first_hour = 5;
@@ -73,8 +73,8 @@
                 { key: 3, label: "SNP David Miller" }
             ],
             days: 3,
-            size: 10,//the number of units that should be shown in the view 
-            step: 5  //the number of units that will be scrolled at once
+            size: 10, //the number of units that should be shown in the view 
+            step: 5 //the number of units that will be scrolled at once
         });
 
         //scheduler.config.lightbox.sections = [
@@ -83,7 +83,7 @@
         //    { name: "time", height: 72, type: "time", map_to: "auto" }
         //];
 
-        scheduler.init("scheduler_here", new Date(2014, 06, 30), "unit");
+        scheduler.init("scheduler_here", new Date(2014, 6, 30), "unit");
 
         scheduler.parse([
             { id: 1, text: "Case 1", start_date: "2014-06-30 14:00", end_date: "2014-06-30 17:00", unit_id: "1", snp_name: "SNP Jame Smith", status: "transferred", color: "rgb(169,209,142)", textColor: "black" },
@@ -93,7 +93,7 @@
             { id: 5, text: "Case 5", start_date: "2014-06-30 13:00", end_date: "2014-06-30 16:00", unit_id: "2", snp_name: "SNP John Williams", status: "complete", color: "rgb(162,30,30)", textColor: "white" },
             { id: 6, text: "Case 6", start_date: "2014-06-30 12:00", end_date: "2014-06-30 19:00", unit_id: "3", snp_name: "SNP David Miller", status: "tentative", color: "rgb(166,166,166)" }
         ], "json");
-    }
+    };
 
     var initSchedulerTimeline = function () {
         //scheduler.locale.labels.timeline_tab = "Physician";
@@ -107,19 +107,19 @@
         //===============	
         var elements = [ // original hierarhical array to display
 			{
-			    key: 10, label: "Dr. Elizabeth Duncan (2 Active)", open: true, children: [
+                key: 10, label: "Dr. Elizabeth Duncan (2 Active)", open: true, children: [
                    { key: 20, label: "Dr. Elizabeth Duncan" }
-			    ]
+                ]
 			},
 			{
-			    key: 30, label: "Dr. Linda Brown (1 Active)", open: true, children: [
+                key: 30, label: "Dr. Linda Brown (1 Active)", open: true, children: [
                    { key: 40, label: "Dr. Linda Brown" }
-			    ]
+                ]
 			},
 			{
-			    key: 50, label: "Dr. Kate Moss (1 Active)", open: true, children: [
+                key: 50, label: "Dr. Kate Moss (1 Active)", open: true, children: [
                    { key: 60, label: "Dr. Kate Moss" }
-			    ]
+                ]
 			},
             {
                 key: 70, label: "Dr. Dian Fossey (2 Active)", open: true, children: [
@@ -133,10 +133,10 @@
             name: "timeline",
             x_unit: "minute",
             x_date: "%h:%i %A",
-            x_step: 30,
-            x_size: 24,
-            x_start: 14,
-            x_length: 2,
+            x_step: 30,  // when you scroll go by 30 minutes
+            x_size: 24,  // 24 30 minute increments is 12 hours
+            x_start: 14, // start at 7:00 AM
+            x_length: 2, // 30 minute increments
             y_unit: elements,
             y_property: "section_id",
             render: "tree",
@@ -220,6 +220,7 @@
                         $("#customLightBoxModal").find("#Title").val(eventObj.text);
                         $("#customLightBoxModal").find("#StartDateTime").val(eventObj.start_date.toString());
                         $("#customLightBoxModal").find("#EndDateTime").val(eventObj.end_date.toString());
+                        $("#customLightBoxModal").find("#Status").val(eventObj.status.toString());
                         var physicianName = scheduler.getSection(eventObj.section_id);
                         if (physicianName !== undefined && physicianName !== null) {
                             $("#customLightBoxModal").find("#PhysicianName").css("display", "inline-block");
@@ -238,7 +239,7 @@
                     //scheduler.config.multi_day = false;
                     //scheduler.config.hour_date = "%h:%i %A";
                     scheduler.updateView();
-                };
+                }
             }
         });
     };
