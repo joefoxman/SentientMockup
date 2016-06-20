@@ -43,7 +43,10 @@ namespace POC.Hubs
 
         public void JoinChat(string usersToAdd, string roomId, string userWhoStartedChat)
         {
-            var room = Extensions.Discussions.Where(a => a.RoomId.Equals(roomId)).FirstOrDefault();
+            var room = Extensions.Discussions.FirstOrDefault(a => a.RoomId.Equals(new Guid(roomId)));
+            if (room == null) {
+                return;
+            }
             var usersInChat = room.UserList + ";" + usersToAdd;
             var splitUser = usersToAdd.Split(';');
             foreach (var user in splitUser)
@@ -53,17 +56,6 @@ namespace POC.Hubs
                 var connectionId = staticUser.ParentConnectionId;
                 Clients.Client(connectionId).rejoinRoom(usersInChat, roomId, userWhoStartedChat);
             }
-            //if (!string.IsNullOrWhiteSpace(userWhoRejoinedChat))
-            //{
-            //    // send to the user who started the chat because they are not listed in the user variable sent it
-            //    var staticUser = Extensions.Users.FirstOrDefault(a => a.Description == userWhoStartedChat);
-            //    if (staticUser != null) {
-            //        var connectionId = staticUser.ParentConnectionId;
-            //        Clients.Client(connectionId).rejoinRoom(users, roomId, Extensions.GetLoggedInUserName());
-            //    }
-            //}
-            // broadcast all users in this room
-            //Clients.All.isUserInRoom(users, roomId, Helper.Extensions.GetLoggedInUserName());
         }
         public void JoinRoom(string name, string room)
         {
