@@ -43,12 +43,16 @@ namespace POC.Controllers
         }
 
         private Discussion GetDiscussionViewModel(
-            string users, 
+            string User, 
             string roomId, 
             string userWhoStartedChat, 
             string userWhoRejoinedChat)
         {
-
+            var userstoadd = new List<User>();
+            foreach(var user in Helper.Extensions.Users)
+            {
+                userstoadd.Add(new User { Id = user.Id, Description = user.Description, Online = user.Online });
+            }
             Discussion discussionViewModel;
             if (string.IsNullOrWhiteSpace(roomId))
             {
@@ -57,22 +61,24 @@ namespace POC.Controllers
                     Chatlog = new List<Chatlog>(),
                     Users = new List<User>(),
                     LoggedInUser = Extensions.GetLoggedInUserName(),
-                    UsersToAdd = Extensions.Users
+                    UsersToAdd = userstoadd
                 };
+                var loggedInUser = Extensions.GetLoggedInUserName();
+                discussionViewModel.UsersToAdd.Remove(userstoadd.Find(a => a.Description.Equals(loggedInUser, StringComparison.OrdinalIgnoreCase)));
                 discussionViewModel.Users = new List<User>();
-                if (users != null)
+                if (User != null)
                 {
-                    var splitUsers = users.Split(';');
+                    var splitUsers = User.Split(';');
                     foreach (var user in splitUsers)
                     {
                         discussionViewModel.Users.Add(new User { Id = 1, Description = user });
                     }
                     // don't forget to add the user who started the chat
                     discussionViewModel.Users.Add(new User { Id = 1, Description = userWhoStartedChat });
-                    users += ";" + userWhoStartedChat;
+                    User += ";" + userWhoStartedChat;
                 }
                 discussionViewModel.StartChatDateTime = DateTime.Now;
-                discussionViewModel.UserList = users;
+                discussionViewModel.UserList = User;
                 discussionViewModel.RoomId = Guid.NewGuid();
                 discussionViewModel.UserWhoStartedChat = userWhoStartedChat;
                 discussionViewModel.UserWhoRejoinedChat = userWhoRejoinedChat;
@@ -82,7 +88,7 @@ namespace POC.Controllers
                     CaseId = 1,
                     ChatStart = discussionViewModel.StartChatDateTime,
                     RoomId = discussionViewModel.RoomId,
-                    Participants = users,
+                    Participants = User,
                     UserName = discussionViewModel.LoggedInUser,
                     UserNameWhoStarted = discussionViewModel.UserWhoStartedChat,
                     UserNameWhoRejoined = discussionViewModel.UserWhoRejoinedChat

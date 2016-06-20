@@ -28,7 +28,7 @@
                 <select class="form-control" id="userstoadd" multiple="" name="userstoadd">
                     @foreach (var user in Model.UsersToAdd)
                     {
-                        <option data-user="@user.Description" rvalue="@user.Description">
+                        <option value="@user.Description">
                             @user.Description
                         </option>
                     }

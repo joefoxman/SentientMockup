@@ -6,6 +6,8 @@
     //};
 
     var initDiscussion = function (roomId, userList, userWhoStartedChat, startChatDateTime, loggedInUser, userWhoRejoinedChat) {
+        var windowWidth = 400;
+        var windowHeight = 600;
         if (history.pushState) {
             var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname;
             window.history.pushState({ path: newurl }, '', newurl);
@@ -60,16 +62,16 @@
                 $("#message").val("").focus();
             });
             $("#add").click(function () {
-                var selected = $("#userstoadd").find("option:selected");
-                var users = $(selected).attr("data-user");
-                if (users == null) {
+                var selected = $("#userstoadd").find("option:selected").val();
+                if (selected == null) {
                     alert('Please choose a user to add to the conversation.')
                 }
                 else {
-                    window.open("/Chat/StartChat/?users=" + users + "&UserWhoStartedChat=" + username, randomnumber,
-                    "scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+                    userList += ";" + selected
+                    chat.server.joinChat(selected, roomId, userWhoStartedChat)
+                    //window.open("/Chat/StartChat/?users=" + userList + "&UserWhoStartedChat=" + userWhoStartedChat, roomId,
+                    //"scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
                 }
-
             });
         });
     };
