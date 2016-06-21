@@ -31,6 +31,21 @@
             $("div").animate({ scrollTop: height });
         };
 
+        chat.client.updateUserStatus = function (name, isOnline) {
+            var statusClass = "offline";
+            if (isOnline) {
+                statusClass = "online";
+            }
+            var userStatusLabel = $('.isonline[data-description="' + name + '"]');
+            if (userStatusLabel.length > 0) {
+                $(userStatusLabel).removeClass("offline").removeClass("online").addClass(statusClass);
+            }
+            var useroption = $("#userstoadd").val();
+            if (statusClass == "offline") {
+                $(useroption).hide();
+                //$(useroption).prop("disabled", !isOnline);
+            }
+        };
         // Reference the auto-generated proxy for the hub.
         //var chat = $.connection.Chat;
         $("#message").focus();
@@ -61,6 +76,7 @@
                 chat.server.sendToRoom(roomId, loggedInUser, message);
                 $("#message").val("").focus();
             });
+
             $("#add").click(function () {
                 var selected = $("#userstoadd").find("option:selected").val();
                 if (selected == null) {
@@ -68,6 +84,7 @@
                 }
                 else {
                     userList += ";" + selected
+                    chat.server.joinRoom(selected, roomId)
                     chat.server.joinChat(selected, roomId, userWhoStartedChat)
                     //window.open("/Chat/StartChat/?users=" + userList + "&UserWhoStartedChat=" + userWhoStartedChat, roomId,
                     //"scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
