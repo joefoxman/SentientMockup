@@ -1,4 +1,6 @@
-﻿namespace POC.Models
+﻿using Microsoft.Owin.Security.DataHandler.Encoder;
+
+namespace POC.Models
 {
     public class User
     {
