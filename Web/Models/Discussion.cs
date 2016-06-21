@@ -15,5 +15,6 @@ namespace POC.Models
         public string UserWhoStartedChat { get; set; }
         public string UserWhoRejoinedChat { get; set; }
         public List<User> UsersToAdd { get; set; }
+        public List<User> AllUsers { get; set; } 
     }
 }

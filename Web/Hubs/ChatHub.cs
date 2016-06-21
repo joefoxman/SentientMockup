@@ -61,10 +61,13 @@ namespace POC.Hubs
         }
         public void JoinRoom(string name, string room)
         {
+            var splitUser = name.Split(';');
             var discussion = Extensions.Discussions.FirstOrDefault(a => a.RoomId.Equals(new Guid(room)));
-            var discussionUser = discussion?.Users.FirstOrDefault(a => a.Description == name);
-            discussion.Users.Add(new User { Id = 1, Description = name});
-            if (discussionUser != null) {
+            if (discussion == null) return;
+            foreach (var user in splitUser) {
+                discussion.Users.Add(new User { Id = 1, Description = name });
+                var discussionUser = discussion?.Users.FirstOrDefault(a => a.Description == user);
+                if (discussionUser == null) continue;
                 var connectionId = discussionUser.DiscussionConnectionId;
                 Groups.Add(connectionId, room);
             }

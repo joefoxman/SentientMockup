@@ -25,14 +25,17 @@
             @Html.HiddenFor(a => Model.UserList)
             @Html.HiddenFor(a => Model.LoggedInUser)
             <div id="connectionid"></div>
-                <select class="form-control" id="userstoadd" multiple="" name="userstoadd">
+                <div id="UserList">
+                    @Html.Partial("~/Views/Chat/UserList.cshtml", Model.AllUsers)
+                </div>
+                @*<select class="form-control" id="userstoadd" multiple="" name="userstoadd">
                     @foreach (var user in Model.UsersToAdd)
                     {
                         <option value="@user.Description">
                             @user.Description
                         </option>
                     }
-                </select>
+                </select>*@
                 <input type="button" class="btn btn-default" id="add" value="Add" />
             <div>
                 @foreach (var user in Model.Users)

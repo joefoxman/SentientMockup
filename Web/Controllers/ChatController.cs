@@ -107,11 +107,13 @@ namespace POC.Controllers
 
         public PartialViewResult StartChat(string users, string roomId, string userWhoStartedChat) {
             var discussionViewModel = GetDiscussionViewModel(users, roomId, userWhoStartedChat, "");
+            discussionViewModel.AllUsers = Extensions.Users;
             return PartialView("Discussion", discussionViewModel);
         }
 
         public PartialViewResult RejoinChat(string users, string roomId, string userWhoStartedChat) {
             var discussionViewModel = GetDiscussionViewModel(users, roomId, userWhoStartedChat, Extensions.GetLoggedInUserName());
+            discussionViewModel.AllUsers = Extensions.Users;
             return PartialView("Discussion", discussionViewModel);
         }
     }

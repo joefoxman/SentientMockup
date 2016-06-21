@@ -37,18 +37,16 @@
             if (userStatusLabel.length > 0) {
                 $(userStatusLabel).removeClass("offline").removeClass("online").addClass(statusClass);
             }
-            var useroption = $("#userstoadd").val();
-            if (statusClass == "offline") {
-                $(useroption).hide();
-                //$(useroption).prop("disabled", !isOnline);
+            var usercheckbox = $('.user-checkbox[data-description="' + name + '"]');
+            if (usercheckbox.length > 0) {
+                $(usercheckbox).prop("disabled", !isOnline);
             }
         };
+
         // Reference the auto-generated proxy for the hub.
-        //var chat = $.connection.Chat;
         $("#message").focus();
 
         // Start the connection.
-        //$.connection.hub.start().done(function () {
         $.connection.hub.start().done(function (data) {
             $("#connectionid").html("Connection ID: " + data.id);
             chat.server.joinRoom(loggedInUser, roomId);
@@ -75,16 +73,20 @@
             });
 
             $("#add").click(function () {
-                var selected = $("#userstoadd").find("option:selected").val();
-                if (selected == null) {
-                    alert('Please choose a user to add to the conversation.')
+                var selectedUsers = "";
+                var delim = "";
+                $.each($(".user-checkbox"), function () {
+                    if ($(this).prop("checked")) {
+                        selectedUsers += delim + $(this).attr("data-description");
+                        delim = ";";
+                    }
+                });
+                if (selectedUsers === "") {
+                    alert("Please choose a user to add to the conversation.");
                 }
                 else {
-                    userList += ";" + selected
-                    chat.server.joinRoom(selected, roomId)
-                    chat.server.joinChat(selected, roomId, userWhoStartedChat)
-                    //window.open("/Chat/StartChat/?users=" + userList + "&UserWhoStartedChat=" + userWhoStartedChat, roomId,
-                    //"scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+                    chat.server.joinRoom(selectedUsers, roomId);
+                    chat.server.joinChat(selectedUsers, roomId, userWhoStartedChat);
                 }
             });
         });
