@@ -48,8 +48,8 @@ namespace POC.Hubs
                 return;
             }
             var usersInChat = room.UserList + ";" + usersToAdd;
-            var splitUser = usersToAdd.Split(';');
-            foreach (var user in splitUser) {
+            var splitUsers = usersToAdd.Split(';');
+            foreach (var user in splitUsers) {
                 var staticUser = Extensions.Users.FirstOrDefault(a => a.Description == user);
                 if (staticUser == null) continue;
                 var connectionId = staticUser.ParentConnectionId;
@@ -59,6 +59,23 @@ namespace POC.Hubs
             // get an update with the new user list
 
         }
+
+        public void AddUserToRoom(string usersToAdd, string roomId) {
+            var splitUsers = usersToAdd.Split(';');
+            var room = Extensions.Discussions.FirstOrDefault(a => a.RoomId.Equals(new Guid(roomId)));
+            if (room == null) {
+                return;
+            }
+            var usersInRoom = room.UserList + ";" + usersToAdd;
+            var userWhoStartedChat = room.UserWhoStartedChat;
+            foreach (var user in splitUsers) {
+                var staticUser = Extensions.Users.FirstOrDefault(a => a.Description == user);
+                if (staticUser == null) continue;
+                var connectionId = staticUser.ParentConnectionId;
+                Clients.Client(connectionId).addUserToRoom(usersInRoom, roomId, userWhoStartedChat);
+            }
+        }
+
         public void JoinRoom(string name, string room)
         {
             var splitUser = name.Split(';');

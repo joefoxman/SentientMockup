@@ -85,8 +85,7 @@
                     alert("Please choose a user to add to the conversation.");
                 }
                 else {
-                    chat.server.joinRoom(selectedUsers, roomId);
-                    chat.server.joinChat(selectedUsers, roomId, userWhoStartedChat);
+                    chat.server.AddUserToRoom(selectedUsers, roomId);
                 }
             });
         });

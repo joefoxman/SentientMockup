@@ -32,6 +32,10 @@
             window.open("/Chat/StartChat/?users=" + users + "&roomId=" + roomId + "&userWhoStartedChat=" + userWhoStartedChat, roomId, "scrollbars=1,menubar=1,toolbar=1,status=1,Location=yes,directories=yes,resizable=1,titlebar=1,width=" + windowWidth + ",height=" + windowHeight);
         }
 
+        chat.client.addUserToRoom = function (usersInRoom, roomId, userWhoStartedChat) {
+            window.open("/Chat/StartChat/?users=" + usersInRoom + "&roomId=" + roomId + "&userWhoStartedChat=" + userWhoStartedChat, roomId, "scrollbars=1,menubar=1,toolbar=1,status=1,Location=yes,directories=yes,resizable=1,titlebar=1,width=" + windowWidth + ",height=" + windowHeight);
+        }
+
         $("#startchat").on("click", function () {
             var selectedUsers = "";
             var delim = "";
