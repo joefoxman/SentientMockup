@@ -63,7 +63,7 @@ namespace POC.Hubs
         {
             var discussion = Extensions.Discussions.FirstOrDefault(a => a.RoomId.Equals(new Guid(room)));
             var discussionUser = discussion?.Users.FirstOrDefault(a => a.Description == name);
-            //var staticUser = Extensions.Users.FirstOrDefault(a => a.Description == name);
+            discussion.Users.Add(new User { Id = 1, Description = name});
             if (discussionUser != null) {
                 var connectionId = discussionUser.DiscussionConnectionId;
                 Groups.Add(connectionId, room);
