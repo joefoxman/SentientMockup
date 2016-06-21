@@ -38,45 +38,45 @@
                 <div class="row form-horizontal">
                     <div style="margin-left: -10px;">
                         <div class="form-group">
-                            @Html.LabelFor(a => a.Status, new { @class = "control-label col-sm-2" })
-                            <div class="col-sm-10">
+                            @Html.LabelFor(a => a.Status, new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
                                 @Html.TextBoxFor(a => a.Status, new { @class = "form-control" }).DisableIf(() => Model.Disabled)
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(a => a.Title, new { @class = "control-label col-sm-2" })
-                            <div class="col-sm-10">
+                            @Html.LabelFor(a => a.Title, new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
                                 @Html.TextBoxFor(a => a.Title, new { @class = "form-control" }).DisableIf(() => Model.Disabled)
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(a => a.Description, new {@class = "control-label col-sm-2"})
-                            <div class="col-sm-10">
+                            @Html.LabelFor(a => a.Description, new {@class = "control-label col-sm-3"})
+                            <div class="col-sm-9">
                                 @Html.TextAreaFor(a => a.Description, new {@class = "form-control"}).DisableIf(() => Model.Disabled)
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(a => a.PhysicianName, new {@class = "control-label col-sm-2"})
-                            <div class="col-sm-10">
+                            @Html.LabelFor(a => a.PhysicianName, new {@class = "control-label col-sm-3 physicianname-label"})
+                            <div class="col-sm-9">
                                 @Html.TextBoxFor(a => a.PhysicianName, new {@class = "form-control"}).DisableIf(() => Model.Disabled)
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(a => a.SnpName, new { @class = "control-label col-sm-2" })
-                            <div class="col-sm-10">
+                            @Html.LabelFor(a => a.SnpName, new { @class = "control-label col-sm-3 snpname-label" })
+                            <div class="col-sm-9">
                                 @Html.TextBoxFor(a => a.SnpName, new { @class = "form-control" }).DisableIf(() => Model.Disabled)
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(a => a.StartDateTime, new { @class = "control-label col-sm-2" })
-                            <div class="col-sm-10">
+                            @Html.LabelFor(a => a.StartDateTime, new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
                                 @Html.EditorFor(a => a.StartDateTime, new { htmlAttributes = new { @class = "form-control"} }).DisableIf(() => Model.Disabled)
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(a => a.EndDateTime, new { @class = "control-label col-sm-2" })
-                            <div class="col-sm-10">
+                            @Html.LabelFor(a => a.EndDateTime, new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
                                 @Html.EditorFor(a => a.EndDateTime, new { htmlAttributes = new { @class = "form-control"} }).DisableIf(() => Model.Disabled)
                             </div>
                         </div>

@@ -60,7 +60,7 @@
             var alreadyexists = $("#chathistory option[value='" + roomId +"']");
             if (alreadyexists.length === 0) {
                 var datavalues = 'data-roomid="' + roomId + '" data-users="' + users + '" data-userwhostartedchat="' + userwhostarted + '"';
-                $('#chathistory').append('<option ' + datavalues + ' value="' + roomId + '">' + starttime + ' ' + users + ';' + userwhostarted + '</option>');
+                $("#chathistory").append('<option ' + datavalues + ' value="' + roomId + '">' + starttime + ' ' + users + ';' + userwhostarted + '</option>');
             }
         }
         

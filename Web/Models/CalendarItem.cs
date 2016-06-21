@@ -10,9 +10,9 @@ namespace POC.Models
         public string Status { get; set; }
         [DisplayName("Title")]
         public string Title { get; set; }
-        [DisplayName("Start Date/Time")]
+        [DisplayName("Start")]
         public DateTime StartDateTime { get; set; }
-        [DisplayName("End Date/Time")]
+        [DisplayName("End")]
         public DateTime EndDateTime { get; set; }
         [DisplayName("All Day Event")]
         public bool AllDayEvent { get; set; }

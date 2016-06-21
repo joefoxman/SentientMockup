@@ -13,6 +13,11 @@ namespace POC.Controllers
             return PartialView();
         }
 
+        public ActionResult ChatHistory()
+        {
+            return PartialView();
+        }
+
         public ActionResult Index()
         {   
             return View(CaseData.GetCaseListData());

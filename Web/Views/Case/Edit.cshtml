@@ -11,7 +11,7 @@
                 <li><a href="/case/patienthistory" data-target="#tabPatientHistory" class="media_node span" id="patient-history_tab" data-toggle="tabajax" rel="tooltip">Patient History</a></li>
                 <li><a href="/case/documents" data-target="#tabDocuments" class="media_node span" id="document_tab" data-toggle="tabajax" rel="tooltip">Documents</a></li>
                 <li><a href="/case/review" data-target="#tabReview" class="media_node span" id="review_tab" data-toggle="tabajax" rel="tooltip">Review</a></li>
-                <li><a href="/chat/chat" data-target="#tabChatHistory" class="media_node span" id="chathistory_tab" data-toggle="tabajax" rel="tooltip">Chat History</a></li>
+                <li><a href="/case/chathistory" data-target="#tabChatHistory" class="media_node span" id="chathistory_tab" data-toggle="tabajax" rel="tooltip">Chat History</a></li>
             </ul>
 
             <div class="tab-content">
@@ -32,24 +32,6 @@
     </div>
 </div>
 
-                    @*<ul>
-                        <li>@Html.ActionLink("Case", "Details", "Case")</li>
-                        <li>@Html.ActionLink("Procedure", "Procedure", "Case")</li>
-                        <li>@Html.ActionLink("Review", "Review", "Case")</li>
-                        <li>@Html.ActionLink("Chat", "Chat", "Chat")</li>
-                    </ul>
-                    <div id="tabs-1">
-                    </div>
-                    <div id="tabs-2">
-                    </div>
-                    <div id="tabs-3">
-                    </div>
-                    <div id="tabs-4">
-                    </div>*@
-                @*</div>*@
-            @*</div>
-        </div>*@
-
 <script type="text/javascript">
     $(document).ready(function () {
         loadTab($("#case_tab"));
@@ -58,7 +40,6 @@
             loadTab($(this));
             return false;
         });
-        //sentientPOC.caseTabs.initialize();
     });
 
     function loadTab(tab) {

@@ -186,22 +186,22 @@
 
         scheduler.init("scheduler_here", new Date(2014, 5, 30), "timeline");
         scheduler.parse([
-			{ start_date: "2014-06-30 09:00", end_date: "2014-06-30 12:00", text: "Case A-12458", section_id: 20, status: "inprogress", color: "rgb(84,130,53)" },
-			{ start_date: "2014-06-30 10:00", end_date: "2014-06-30 16:00", text: "Case A-89411", section_id: 20, status: "transferred", color: "rgb(169,209,142)", textColor: "black" },
-			{ start_date: "2014-06-30 10:00", end_date: "2014-06-30 14:00", text: "Case A-64168", section_id: 20, status: "complete", color: "rgb(162,30,30)", textColor: "white" },
-			{ start_date: "2014-06-30 16:00", end_date: "2014-06-30 17:00", text: "Case A-46598", section_id: 20, status: "scheduled", color: "rgb(65,113,156)" },
+			{ start_date: "2014-06-30 09:00", end_date: "2014-06-30 12:00", text: "Case A-12458", section_id: 20, status: "In Progress", color: "rgb(84,130,53)" },
+			{ start_date: "2014-06-30 10:00", end_date: "2014-06-30 16:00", text: "Case A-89411", section_id: 20, status: "Transferred", color: "rgb(169,209,142)", textColor: "black" },
+			{ start_date: "2014-06-30 10:00", end_date: "2014-06-30 14:00", text: "Case A-64168", section_id: 20, status: "Complete", color: "rgb(162,30,30)", textColor: "white" },
+			{ start_date: "2014-06-30 16:00", end_date: "2014-06-30 17:00", text: "Case A-46598", section_id: 20, status: "Scheduled", color: "rgb(65,113,156)" },
 
-			{ start_date: "2014-06-30 12:00", end_date: "2014-06-30 20:00", text: "Case B-48865", section_id: 40, status: "canceled", color: "rgb(189,208,233)", textColor: "black" },
-			{ start_date: "2014-06-30 14:00", end_date: "2014-06-30 16:00", text: "Case B-44864", section_id: 40, status: "inprogress", color: "rgb(84,130,53)" },
-			{ start_date: "2014-06-30 16:30", end_date: "2014-06-30 18:00", text: "Case B-46558", section_id: 40, status: "tentative", color: "rgb(166,166,166)" },
-			{ start_date: "2014-06-30 18:30", end_date: "2014-06-30 20:00", text: "Case B-45564", section_id: 40, status: "canceled", color: "rgb(189,208,233)", textColor: "black" },
+			{ start_date: "2014-06-30 12:00", end_date: "2014-06-30 20:00", text: "Case B-48865", section_id: 40, status: "Canceled", color: "rgb(189,208,233)", textColor: "black" },
+			{ start_date: "2014-06-30 14:00", end_date: "2014-06-30 16:00", text: "Case B-44864", section_id: 40, status: "In Progress", color: "rgb(84,130,53)" },
+			{ start_date: "2014-06-30 16:30", end_date: "2014-06-30 18:00", text: "Case B-46558", section_id: 40, status: "Tentative", color: "rgb(166,166,166)" },
+			{ start_date: "2014-06-30 18:30", end_date: "2014-06-30 20:00", text: "Case B-45564", section_id: 40, status: "Canceled", color: "rgb(189,208,233)", textColor: "black" },
 
-			{ start_date: "2014-06-30 08:00", end_date: "2014-06-30 12:00", text: "Case C-32421", section_id: 60, status: "inprogress", color: "rgb(84,130,53)" },
-			{ start_date: "2014-06-30 14:30", end_date: "2014-06-30 16:45", text: "Case C-14244", section_id: 60, status: "complete", color: "rgb(162,30,30)", textColor: "white" },
+			{ start_date: "2014-06-30 08:00", end_date: "2014-06-30 12:00", text: "Case C-32421", section_id: 60, status: "In Progress", color: "rgb(84,130,53)" },
+			{ start_date: "2014-06-30 14:30", end_date: "2014-06-30 16:45", text: "Case C-14244", section_id: 60, status: "Complete", color: "rgb(162,30,30)", textColor: "white" },
 
-			{ start_date: "2014-06-30 09:20", end_date: "2014-06-30 12:20", text: "Case D-52688", section_id: 80, status: "complete", color: "rgb(162,30,30)", textColor: "white" },
-			{ start_date: "2014-06-30 11:40", end_date: "2014-06-30 16:30", text: "Case D-46588", section_id: 80, status: "inprogress", color: "rgb(84,130,53)" },
-			{ start_date: "2014-06-30 12:00", end_date: "2014-06-30 18:00", text: "Case D-12458", section_id: 80, status: "inprogress", color: "rgb(84,130,53)" }
+			{ start_date: "2014-06-30 09:20", end_date: "2014-06-30 12:20", text: "Case D-52688", section_id: 80, status: "Complete", color: "rgb(162,30,30)", textColor: "white" },
+			{ start_date: "2014-06-30 11:40", end_date: "2014-06-30 16:30", text: "Case D-46588", section_id: 80, status: "In Progress", color: "rgb(84,130,53)" },
+			{ start_date: "2014-06-30 12:00", end_date: "2014-06-30 18:00", text: "Case D-12458", section_id: 80, status: "In Progress", color: "rgb(84,130,53)" }
         ], "json");
     };
 
@@ -233,7 +233,7 @@
                     scheduler.closeAllSections();
                     scheduler.updateView();
                 });
-
+                scheduler.clearAll();
                 dynamicHeightTab($(this));
                 sentientPOC.common.hideWait($("body"));
                 var tabName = ui.tab.text().toLowerCase();
@@ -245,6 +245,21 @@
                     dynamicCalendar(tabs, $("#scheduler_here"));
                     //initSchedulerBasic();
                     //initResponsive($("#scheduler_here"));
+                    scheduler.attachEvent("onBeforeViewChange", function (old_mode, old_date, mode, date) {
+                        //if (old_mode === mode) {
+                        //    return true;
+                        //}
+                        ////any custom logic here
+                        //if (mode === "timeline") {
+                        //    initSchedulerTimeline();
+                        //}
+                        //else if (mode === "unit") {
+                        //    initSchedulerPerson();
+                        //}
+                        //scheduler.updateView();
+                        return true;
+                    });
+
                     scheduler.attachEvent("onBeforeLightbox", function(id) {
                         var eventObj = scheduler.getEvent(id);
                         $("#customLightBoxModal").find("#Title").val(eventObj.text);
@@ -253,13 +268,16 @@
                         $("#customLightBoxModal").find("#Status").val(eventObj.status.toString());
                         var physicianName = scheduler.getSection(eventObj.section_id);
                         if (physicianName !== undefined && physicianName !== null) {
+                            // get Physician Name
                             $("#customLightBoxModal").find("#PhysicianName").css("display", "inline-block");
                             $("#customLightBoxModal").find("#SnpName").css("display", "none");
+                            $("#customLightBoxModal").find(".snpname-label").css("display", "none");
                             $("#customLightBoxModal").find("#PhysicianName").val(physicianName.label);
                         } else {
-                            $("#customLightBoxModal").find("#PhysicianName").css("display", "none");
-                            $("#customLightBoxModal").find("#SnpName").css("display", "inline-block");
                             // get SNP Name
+                            $("#customLightBoxModal").find("#PhysicianName").css("display", "none");
+                            $("#customLightBoxModal").find(".physicianname-label").css("display", "none");
+                            $("#customLightBoxModal").find("#SnpName").css("display", "inline-block");
                             var snpName = eventObj.snp_name;
                             $("#customLightBoxModal").find("#SnpName").val(snpName);
                         }
