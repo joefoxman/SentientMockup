@@ -46,8 +46,8 @@
                 }
             });
             if (selectedUsers === "") {
-                $("#noUsersSelectecteWarningModal").modal("show");
-                //alert("Please select a user to chat with.");
+                $("#warningModal").find("#warningMessage").html("Please select a user to chat with.");
+                $("#warningModal").modal("show");
             }
             else {
                 var randomnumber = Math.floor((Math.random() * 100) + 1);
@@ -70,7 +70,8 @@
             var users = $(selected).attr("data-users");
             var userWhoStartedChat = $(selected).attr("data-userwhostartedchat");
             if (roomId == null) {
-                alert("Please Select a chat to rejoin");
+                $("#warningModal").find("#warningMessage").html("Please Select a chat to rejoin.");
+                $("#warningModal").modal("show");
             }
             else {
                 window.open("/Chat/RejoinChat/?users=" + users + "&roomId=" + roomId + "&userWhoStartedChat=" + userWhoStartedChat, roomId,

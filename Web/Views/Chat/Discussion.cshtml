@@ -8,27 +8,27 @@
 }
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sentient Clinical System (Mock Up) Chat</title>
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @Scripts.Render("~/bundles/common")
-        <script src="~/Scripts/jquery.signalR-2.2.0.js"></script>
-        <script src="~/signalr/hubs"></script>
-    </head>
-    <body>
-        <div class="body-content-chat">
-            @Html.HiddenFor(a => Model.RoomId)
-            @Html.HiddenFor(a => Model.UserList)
-            @Html.HiddenFor(a => Model.LoggedInUser)
-            <div id="connectionid"></div>
-                <div id="UserList">
-                    @Html.Partial("~/Views/Chat/UserList.cshtml", Model.AllUsers)
-                </div>
-                @*<select class="form-control" id="userstoadd" multiple="" name="userstoadd">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentient Clinical System (Mock Up) Chat</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/common")
+    <script src="~/Scripts/jquery.signalR-2.2.0.js"></script>
+    <script src="~/signalr/hubs"></script>
+</head>
+<body>
+<div class="body-content-chat">
+    @Html.HiddenFor(a => Model.RoomId)
+    @Html.HiddenFor(a => Model.UserList)
+    @Html.HiddenFor(a => Model.LoggedInUser)
+    <div id="connectionid"></div>
+    <div id="UserList">
+        @Html.Partial("~/Views/Chat/UserList.cshtml", Model.AllUsers)
+    </div>
+    @*<select class="form-control" id="userstoadd" multiple="" name="userstoadd">
                     @foreach (var user in Model.UsersToAdd)
                     {
                         <option value="@user.Description">
@@ -36,25 +36,43 @@
                         </option>
                     }
                 </select>*@
-                <input type="button" class="btn btn-default" id="add" value="Add" />
-            <div>
-                @foreach (var user in Model.Users)
-                {
-                    @Html.Label(user.Description, new {@class = "control-label"})
-                    <span>&nbsp;</span>
-                }
+    <input type="button" class="btn btn-default" id="add" value="Add"/>
+    <div>
+        @foreach (var user in Model.Users)
+        {
+            @Html.Label(user.Description, new {@class = "control-label"})
+            <span>&nbsp;</span>
+        }
+    </div>
+    <hr/>
+    <div style="height: 400px; overflow-y: scroll;">
+        <ul id="discussion"></ul>
+    </div>
+    <div>
+        @Html.TextArea("message", new {@class = "form-control"})
+        <input type="button" id="send" class="btn btn-primary" value="Send"/>
+    </div>
+</div>
+</body>
+</html>
+
+
+<div class="modal fade" id="warningModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-warning">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Warning</h4>
             </div>
-            <hr/>
-            <div style="height: 400px; overflow-y: scroll;">
-                <ul id="discussion"></ul>
-            </div>
-            <div>
-                @Html.TextArea("message", new { @class = "form-control" })
-                <input type="button" id="send" class="btn btn-primary" value="Send"/>
+            <div class="modal-body">
+                <span id="warningMessage"></span>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="cancel" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+</div>
 <script type="text/javascript">
     $(document).ready(function () {
         sentientPOC.discussion.initialize(

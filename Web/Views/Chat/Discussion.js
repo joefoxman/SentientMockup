@@ -82,7 +82,8 @@
                     }
                 });
                 if (selectedUsers === "") {
-                    alert("Please choose a user to add to the conversation.");
+                    $("#warningModal").find("#warningMessage").html("Please choose a user to add to the conversation.");
+                    $("#warningModal").modal("show");
                 }
                 else {
                     chat.server.AddUserToRoom(selectedUsers, roomId);
