@@ -6,16 +6,13 @@
     //};
 
     var initDiscussion = function (roomId, userList, userWhoStartedChat, startChatDateTime, loggedInUser, userWhoRejoinedChat) {
-        var windowWidth = 400;
-        var windowHeight = 600;
         if (history.pushState) {
             var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname;
-            window.history.pushState({ path: newurl }, '', newurl);
+            window.history.pushState({ path: newurl }, "", newurl);
         }
 
         opener.setRoomId(roomId, userList, userWhoStartedChat, startChatDateTime);
         var chat = $.connection.Chat;
-        //var chat = opener.getConnection();
         $.connection.hub.qs = "roomId=" + roomId;
 
         chat.client.addMessageToRoom = function (name, message, roomId, dateSent) {
@@ -68,9 +65,7 @@
                 }
                 else {
                     userList += ";" + selected
-                    chat.server.joinChat(selected, roomId, userWhoStartedChat)
-                    //window.open("/Chat/StartChat/?users=" + userList + "&UserWhoStartedChat=" + userWhoStartedChat, roomId,
-                    //"scrollbars=1,menubar=0,toolbar=0,status=0,Location=no,directories=no,resizable=1,titlebar=0,width=" + windowWidth + ",height=" + windowHeight);
+                    chat.server.joinChat(selected, roomId, userWhoStartedChat);
                 }
             });
         });

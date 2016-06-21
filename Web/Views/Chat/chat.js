@@ -13,7 +13,6 @@
             $.connection.hub.stop();
         };
 
-
         chat.client.updateUserStatus = function (name, isOnline) {
             var statusClass = "offline";
             if (isOnline) {
@@ -43,7 +42,7 @@
                 }
             });
             if(selectedUsers === "") {
-                alert('Please select a user to chat with.');
+                alert("Please select a user to chat with.");
             }
             else {
                 var randomnumber = Math.floor((Math.random() * 100) + 1);
@@ -60,10 +59,6 @@
             }
         }
         
-        window.getConnection = function() {
-            return $(chat);
-        }
-
         $("#rejoin").on("click", function () {
             var selected = $("#chathistory").find("option:selected");
             var roomId = $(selected).attr("data-roomid");
