@@ -45,8 +45,9 @@
                     delim = ";";
                 }
             });
-            if(selectedUsers === "") {
-                alert("Please select a user to chat with.");
+            if (selectedUsers === "") {
+                $("#noUsersSelectecteWarningModal").modal("show");
+                //alert("Please select a user to chat with.");
             }
             else {
                 var randomnumber = Math.floor((Math.random() * 100) + 1);
