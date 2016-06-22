@@ -6041,6 +6041,8 @@
     <Content Include="Views\Metronic\DashboardClinical.cshtml" />
     <Content Include="Views\Metronic\DashboardIT.cshtml" />
     <Content Include="Views\Metronic\DashboardScheduler.cshtml" />
+    <Content Include="Views\Metronic\CaseBookTabs.cshtml" />
+    <Content Include="Views\Metronic\CaseBookPills.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
