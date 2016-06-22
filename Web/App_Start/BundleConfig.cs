@@ -71,6 +71,42 @@ namespace POC
                         "~/Content/dhtmlxScheduler/dhtmlxscheduler-responsive.css",
                         "~/Content/dhtmlxScheduler/dhtmlxscheduler-responsive-classic.css"));
 
+            #region Metronic
+            bundles.Add(new StyleBundle("~/bundles/metronic-global-mandatory-css").Include(
+                "~/Content/metronic/global/plugins/font-awesome/css/font-awesome.css",
+                "~/Content/metronic/global/plugins/simple-line-icons/simple-line-icons.css",
+                "~/Content/metronic/global/plugins/bootstrap/css/bootstrap.css",
+                "~/Content/metronic/global/plugins/bootstrap-switch/css/bootstrap-switch.css"
+                ));
+            bundles.Add(new StyleBundle("~/bundles/metronic-global-theme-css").Include(
+                "~/Content/metronic/global/css/components.css",
+                "~/Content/metronic/global/css/plugins.css"
+                ));
+            bundles.Add(new StyleBundle("~/bundles/metronic-layout-theme-css").Include(
+                "~/Content/metronic/layouts/layout/css/layout.css",
+                "~/Content/metronic/layouts/layout/css/themes/light2.css",
+                "~/Content/metronic/layouts/layout/css/custom.css"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/metronic-core-plugins-js").Include(
+                "~/Content/metronic/global/plugins/jquery.min.js",
+                "~/Content/metronic/global/plugins/bootstrap/js/bootstrap.js",
+                "~/Content/metronic/global/plugins/js.cookie.min.js",
+                "~/Content/metronic/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js",
+                "~/Content/metronic/global/plugins/jquery-slimscroll/jquery.slimscroll.js",
+                "~/Content/metronic/global/plugins/jquery.blockui.min.js",
+                "~/Content/metronic/global/plugins/bootstrap-switch/js/bootstrap-switch.js"
+                ));
+            bundles.Add(new ScriptBundle("~/bundles/metronic-global-theme-js").Include(
+                "~/Content/metronic/global/scripts/app.js"
+                ));
+            bundles.Add(new ScriptBundle("~/bundles/metronic-layout-theme-js").Include(
+                "~/Content/metronic/layouts/layout/scripts/layout.js",
+                "~/Content/metronic/layouts/layout/scripts/demo.js",
+                "~/Content/metronic/layouts/layout/global/scripts/quick-sidebar.js"
+                ));
+            #endregion
+
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
             BundleTable.EnableOptimizations = false;

@@ -1,0 +1,895 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMetronic.cshtml";
+}
+
+<!-- BEGIN MY SCHEDULE -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title tabbable-line">
+                <div class="caption">
+                    <span class="caption-subject font-dark bold uppercase">My Schedule</span>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#schedule_today" data-toggle="tab">Today</a>
+                    </li>
+                    <li>
+                        <a href="#schedule_tomorrow" data-toggle="tab">Tomorrow</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="schedule_today">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>8:00am - 9:00am</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:DashboardSNP.showHospitalInfo();" class="btn btn-info btn-xs">
+                                                <i class="fa fa-h-square"></i>
+                                            </a>
+                                            <a href="javascript:DashboardSNP.navigateToCase();" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-user fa-fw"></i>
+                                            <span>Jessica Lundy</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span> Facial Pain</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span> Johns Hopkins Hospital</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. Jeremy Watson</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-heartbeat font-red"></i>
+                                        <span>9:30am - 11:30pm</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-info btn-xs">
+                                                <i class="fa fa-h-square"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-user fa-fw"></i>
+                                            <span>William Hampton</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span>Numbness and Tingling</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span>Sinai Hospital</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. Tim Smoltz</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>1:00pm - 3:00pm</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-info btn-xs">
+                                                <i class="fa fa-h-square"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-user fa-fw"></i>
+                                            <span>Andy Simpson</span>
+                                        </div>
+
+                                        <div>
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span> Lumbago</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span> University of Maryland Medical Center</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. Hap Johnson</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>5:30pm - 7:30pm</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-info btn-xs">
+                                                <i class="fa fa-h-square"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-user fa-fw"></i>
+                                            <span> Unknown</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span> Aortic Stenosis Repair</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span> Mercy Medical Center</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. Nancy Jones</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="schedule_tomorrow">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>9:00am - 10:30am</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-info btn-xs">
+                                                <i class="fa fa-h-square"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-user fa-fw"></i>
+                                            <span>Julie Conover</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span>Facial Pain</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span>MedStar Harbor Hospital</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. Jackie Childs</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>12:00am - 2:00pm</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-info btn-xs">
+                                                <i class="fa fa-h-square"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-user fa-fw"></i>
+                                            <span>Arthur Babcock</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span>Back Pain</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span>Mercy Medical Center</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. Paula Jones</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>3:00pm - 7:00pm</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-info btn-xs">
+                                                <i class="fa fa-h-square"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-user fa-fw"></i>
+                                            <span>Terry Ensor</span>
+                                        </div>
+
+                                        <div>
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span>Sciatica</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span>University of Maryland Medical Center</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. Hap Johnson</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroller-footer" style="margin-top: -10px;">
+                    <div class="pull-right">
+                        <a href="javascript:;">View My Calendar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MY SCHEDULE -->
+<!-- BEGIN MY CASES -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title tabbable-line">
+                <div class="caption">
+                    <span class="caption-subject font-dark bold uppercase">My Cases</span>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#cases_review" data-toggle="tab">Pending Review</a>
+                    </li>
+                    <li>
+                        <a href="#cases_recent" data-toggle="tab">Recent</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="cases_review">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-user"></i>
+                                        <span>Jerry Johnson</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-calendar fa-fw"></i>
+                                            <span> 06/16/2016</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span> Aortic Stenosis Repair</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span> Mercy Medical Center</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. Nancy Jones</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-user"></i>
+                                        <span>Lucy Wainwright</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-calendar fa-fw"></i>
+                                            <span> 06/19/2016</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span> Back Pain</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span> Johns Hopkins Hospital</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. James Winston</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-user"></i>
+                                        <span>John Harper</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-calendar fa-fw"></i>
+                                            <span> 06/20/2016</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span> Abnormal Movements or Spasms</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span> Greater Baltimore Medical Center</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. Henry Todd</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="cases_recent">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-user"></i>
+                                        <span>Nancy Phillips</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-calendar fa-fw"></i>
+                                            <span> 06/15/2016</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span> Balance and Coordination</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span> Sinai Hospital</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. William Peterson</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-user"></i>
+                                        <span>Thomas Reader</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-calendar fa-fw"></i>
+                                            <span> 06/15/2016</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span> Sciatica, Pain in Limb</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span> Sinai Hospital</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. Janet Hopkins</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-user"></i>
+                                        <span>Stephen Livingston</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-calendar fa-fw"></i>
+                                            <span> 06/14/2016</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span> Speech and Swallowing</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span> University of Maryland Medical Center</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. Kim Prescott</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-user"></i>
+                                        <span>Daniel Goodson</span>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <i class="fa fa-calendar fa-fw"></i>
+                                            <span> 06/13/2016</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-medkit fa-fw"></i>
+                                            <span> Numbness or Tingling</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-h-square fa-fw"></i>
+                                            <span> Medstar Harbor Hospital</span>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-user-md fa-fw"></i>
+                                            <span>Dr. Jackson Billings</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroller-footer" style="margin-top: -10px;">
+                <div class="pull-right">
+                    <a href="javascript:;">View All My Cases</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MY CASES -->
+<!-- BEGIN TASKS AND NOTIFICATIONS -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="portlet light tasks-widget bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-share font-dark hide"></i>
+                    <span class="caption-subject font-dark bold uppercase">My Tasks</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="task-content">
+                    <div class="porlet-body">
+                        <!-- START TASK LIST -->
+                        <ul class="task-list">
+                            <li class="task-done">
+                                <div class="task-checkbox">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes" value="1" checked="checked" />
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">Lorem dolor sit amet ipsum dolor sit consectetuer dolore.</span>
+                                </div>
+                            </li>
+                            <li class="task-done">
+                                <div class="task-checkbox">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes" value="1" checked="checked" />
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">Lorem ipsum dolor sit amet, consectetuer dolore dolor sit amet.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="task-checkbox">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes" value="1" />
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">Lorem ipsum amet, consectetuer dolore dolor sit amet.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="task-checkbox">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes" value="1" />
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">Lorem ipsum dolor sit amet, consectetuer dolore psum dolor sit.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="task-checkbox">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes" value="1" />
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">Lorem ipsum dolor sit amet.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="task-checkbox">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes" value="1" />
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">Lorem ipsum dolor sit amet, consectetuer dolore psum dolor sit.</span>
+                                </div>
+                            </li>
+                            <li class="last-line">
+                                <div class="task-checkbox">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes" value="1" />
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">Lorem ipsum amet, psum dolor sit consectetuer dolore. </span>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- END START TASK LIST -->
+                    </div>
+                </div>
+                <div class="chat-form">
+                    <div class="input-cont">
+                        <input class="form-control" type="text" placeholder="Add a new task here..." />
+                    </div>
+                    <div class="btn-cont">
+                        <span class="arrow"> </span>
+                        <a href="" class="btn blue icn-only">
+                            <i class="fa fa-plus icon-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="task-footer">
+                    <a href="javascript:;" class="pull-right">View All My Tasks</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-dark bold uppercase">My Notifications</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <ul class="feeds">
+                    <li>
+                        <div class="col1">
+                            <div class="cont">
+                                <div class="cont-col1">
+                                    <div class="label label-sm label-info">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="cont-col2">
+                                    <div class="desc">
+                                        Notification example.  We can provide visual grouping using icons.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col2">
+                            <div class="date">Just now</div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="col1">
+                                <div class="cont">
+                                    <div class="cont-col1">
+                                        <div class="label label-sm label-success">
+                                            <i class="fa fa-bar-chart-o"></i>
+                                        </div>
+                                    </div>
+                                    <div class="cont-col2">
+                                        <div class="desc">
+                                            Here's a linkable notification.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col2">
+                                <div class="date">10 mins</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="col1">
+                            <div class="cont">
+                                <div class="cont-col1">
+                                    <div class="label label-sm label-danger">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="cont-col2">
+                                    <div class="desc">
+                                        Something happened you need to know about.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col2">
+                            <div class="date">45 mins</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col1">
+                            <div class="cont">
+                                <div class="cont-col1">
+                                    <div class="label label-sm label-info">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </div>
+                                </div>
+                                <div class="cont-col2">
+                                    <div class="desc">
+                                        A notification with
+                                        <span class="label label-sm label-success">key information highlighted</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col2">
+                            <div class="date">2 hrs</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col1">
+                            <div class="cont">
+                                <div class="cont-col1">
+                                    <div class="label label-sm label-success">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="cont-col2">
+                                    <div class="desc">Get back to work!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col2">
+                            <div class="date">6 hrs</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col1">
+                            <div class="cont">
+                                <div class="cont-col1">
+                                    <div class="label label-sm label-default">
+                                        <i class="fa fa-bell-o"></i>
+                                    </div>
+                                </div>
+                                <div class="cont-col2">
+                                    <div class="desc">
+                                        Notification with some sort of status.
+                                        <span class="label label-sm label-default "> Overdue </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col2">
+                            <div class="date">10 hrs</div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="col1">
+                                <div class="cont">
+                                    <div class="cont-col1">
+                                        <div class="label label-sm label-default">
+                                            <i class="fa fa-briefcase"></i>
+                                        </div>
+                                    </div>
+                                    <div class="cont-col2">
+                                        <div class="desc">
+                                            Please review Case #1234.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col2">
+                                <div class="date">20 hrs</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="col1">
+                            <div class="cont">
+                                <div class="cont-col1">
+                                    <div class="label label-sm label-info">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="cont-col2">
+                                    <div class="desc">
+                                        You have something that needs completing.
+                                        <span class="label label-sm label-warning ">
+                                            Take action
+                                            <i class="fa fa-share"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col2">
+                            <div class="date">1 day</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col1">
+                            <div class="cont">
+                                <div class="cont-col1">
+                                    <div class="label label-sm label-danger">
+                                        <i class="fa fa-bar-chart-o"></i>
+                                    </div>
+                                </div>
+                                <div class="cont-col2">
+                                    <div class="desc">
+                                        You have a task that needs to be done asap.  Maybe instead of an action button we add it to their Task list.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col2">
+                            <div class="date">1 day</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col1">
+                            <div class="cont">
+                                <div class="cont-col1">
+                                    <div class="label label-sm label-default">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="cont-col2">
+                                    <div class="desc">
+                                        Time to go to the hospital.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col2">
+                            <div class="date">2 days</div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="scroller-footer">
+                    <a href="javascript:;" class="pull-right">View All My Notifications</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END TASKS AND NOTIFICATIONS -->
+
+@section styles
+{
+
+}
+
+@section scripts
+{
+    <script>
+        var DashboardSNP = (function () {
+
+            var showHospitalInfo = function () {
+                alert("Show additional hospital info (e.g. address, phone, scrub color)");
+            };
+
+            var navigateToCase = function () {
+                alert("Go to the Case");
+            };
+
+            return {
+                showHospitalInfo: showHospitalInfo,
+                navigateToCase: navigateToCase
+            }
+
+        })();
+    </script>
+}
+
+

@@ -5978,6 +5978,7 @@
     <Compile Include="Controllers\CaseController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MetronicController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="DataHelper\CaseData.cs" />
@@ -6033,6 +6034,12 @@
     <Content Include="Views\Case\PatientHistory.cshtml" />
     <Content Include="Views\Case\Documents.cshtml" />
     <Content Include="Views\Case\ChatHistory.cshtml" />
+    <Content Include="Views\Shared\_LayoutMetronic.cshtml" />
+    <Content Include="Views\Metronic\DashboardSNP.cshtml" />
+    <Content Include="Views\Metronic\DashboardExecutive.cshtml" />
+    <Content Include="Views\Metronic\DashboardClinical.cshtml" />
+    <Content Include="Views\Metronic\DashboardIT.cshtml" />
+    <Content Include="Views\Metronic\DashboardScheduler.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
