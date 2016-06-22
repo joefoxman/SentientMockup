@@ -5,18 +5,18 @@
         @*TODO: Get from local storage after loading it the first time*@
         @foreach (var user in Model)
         {
-            var onlineClass = "offline";
+            var onlineClass = "badge-important";
             if (user.Online)
             {
-                onlineClass = "online";
+                onlineClass = "badge-success";
             }
             <li class="media">
                 <div class="media-status">
-                    <div class="chat-status isonline @onlineClass" data-description="@user.Description"></div>
-                    @*<span class="badge badge-success"></span>*@
+                    @*<div class="chat-status isonline @onlineClass" data-description="@user.Description"></div>*@
+                    <span data-description="@user.Description" class="isonline badge @onlineClass">&nbsp;</span>
                 </div>
                 @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox user-checkbox", @id = user.Id, data_description = user.Description }).DisableIf(() => !user.Online)
-                <img class="media-object" src="~/Content/metronic/layouts/layout/img/avatar3.jpg" alt="...">
+                <img class="media-object" src="~/Images/avatar1.png" alt="...">
                 <div class="media-body">
                     <h4 class="media-heading">@user.Description</h4>
                     <div class="media-heading-sub">SNP</div>

@@ -5692,6 +5692,7 @@
     <Content Include="Content\metronic\pages\media\pages\Thumbs.db" />
     <None Include="Properties\PublishProfiles\sentientmock - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\signalrchatpoc13 - Web Deploy.pubxml" />
+    <Content Include="Images\avatar1.png" />
     <Content Include="Images\greendot.png" />
     <Content Include="Images\reddot.png" />
     <Content Include="Scripts\bootbox.js" />

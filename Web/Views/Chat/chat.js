@@ -14,13 +14,13 @@
         };
 
         chat.client.updateUserStatus = function (name, isOnline) {
-            var statusClass = "offline";
+            var statusClass = "badge-important";
             if (isOnline) {
-                statusClass = "online";
+                statusClass = "badge-success";
             }
             var userStatusLabel = $('.isonline[data-description="' + name + '"]');
             if (userStatusLabel.length > 0) {
-                $(userStatusLabel).removeClass("offline").removeClass("online").addClass(statusClass);
+                $(userStatusLabel).removeClass("badge-important").removeClass("badge-success").addClass(statusClass);
             }
             var usercheckbox = $('.user-checkbox[data-description="' + name + '"]');
             if(usercheckbox.length > 0) {

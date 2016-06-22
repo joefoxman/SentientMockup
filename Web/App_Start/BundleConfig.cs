@@ -10,6 +10,10 @@ namespace POC
                         "~/Scripts/jquery.signalR-2.2.0.js",
                         "~/Scripts/Custom/notification.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/metronicsignalr").Include(
+                        "~/Scripts/jquery.signalR-2.2.0.js",
+                        "~/Views/Chat/Chat.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/calendar").Include(
                         "~/Scripts/Calendar/dhtmlxscheduler.js",
                         "~/Scripts/dhtmlxScheduler/dhtmlxscheduler-responsive.js",
