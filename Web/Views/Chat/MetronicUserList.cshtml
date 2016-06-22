@@ -1,0 +1,27 @@
+﻿@using POC.Helper
+@model IEnumerable<POC.Models.User>
+@{
+    <ul class="media-list list-items">
+        @*TODO: Get from local storage after loading it the first time*@
+        @foreach (var user in Model)
+        {
+            var onlineClass = "offline";
+            if (user.Online)
+            {
+                onlineClass = "online";
+            }
+            <li class="media">
+                <div class="media-status">
+                    <div class="chat-status isonline @onlineClass" data-description="@user.Description"></div>
+                    @*<span class="badge badge-success"></span>*@
+                </div>
+                @Html.CheckBox(user.Id.ToString(), new { @class = "form-control-checkbox user-checkbox", @id = user.Id, data_description = user.Description }).DisableIf(() => !user.Online)
+                <img class="media-object" src="~/Content/metronic/layouts/layout/img/avatar3.jpg" alt="...">
+                <div class="media-body">
+                    <h4 class="media-heading">@user.Description</h4>
+                    <div class="media-heading-sub">SNP</div>
+                </div>
+            </li>
+        }
+    </ul>
+}

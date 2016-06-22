@@ -5968,6 +5968,7 @@
     <Content Include="Views\Chat\Discussion.js" />
     <Content Include="Views\Schedule\events.xml" />
     <Content Include="Views\Schedule\ScheduleTabs.js" />
+    <Content Include="Views\Shared\LayoutMetronic.js" />
     <Content Include="Views\Shared\Layout.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -6041,6 +6042,7 @@
     <Content Include="Views\Metronic\DashboardClinical.cshtml" />
     <Content Include="Views\Metronic\DashboardIT.cshtml" />
     <Content Include="Views\Metronic\DashboardScheduler.cshtml" />
+    <Content Include="Views\Chat\MetronicUserList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
