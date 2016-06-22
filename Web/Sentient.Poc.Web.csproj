@@ -4738,6 +4738,7 @@
     <Content Include="Content\metronic\layouts\layout\scripts\layout.min.js" />
     <Content Include="Content\metronic\logo.png" />
     <Content Include="Content\metronic\logo_small.png" />
+    <Content Include="Content\metronic\logo_small_white.png" />
     <Content Include="Content\metronic\pages\css\about.css" />
     <Content Include="Content\metronic\pages\css\about.min.css" />
     <Content Include="Content\metronic\pages\css\blog.css" />
