@@ -42,6 +42,16 @@ namespace POC.Controllers
             return PartialView(chatViewModel);
         }
 
+        public PartialViewResult ChatUserList() {
+            var userlist = new List<User>();
+            foreach (var user in Extensions.Users) {
+                userlist.Add(new User { Id = user.Id, Description = user.Description, Online = user.Online });
+            }
+            var loggedInUser = Extensions.GetLoggedInUserName();
+            userlist.Remove(userlist.Find(a => a.Description.Equals(loggedInUser, StringComparison.OrdinalIgnoreCase)));
+            return PartialView("MetronicUserList", userlist);
+        }
+
         private Discussion GetDiscussionViewModel(
             string User, 
             string roomId, 

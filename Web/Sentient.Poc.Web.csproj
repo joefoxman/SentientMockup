@@ -5692,6 +5692,7 @@
     <Content Include="Content\metronic\pages\media\pages\Thumbs.db" />
     <None Include="Properties\PublishProfiles\sentientmock - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\signalrchatpoc13 - Web Deploy.pubxml" />
+    <Content Include="Images\avatar1.png" />
     <Content Include="Images\greendot.png" />
     <Content Include="Images\reddot.png" />
     <Content Include="Scripts\bootbox.js" />
@@ -5968,6 +5969,7 @@
     <Content Include="Views\Chat\Discussion.js" />
     <Content Include="Views\Schedule\events.xml" />
     <Content Include="Views\Schedule\ScheduleTabs.js" />
+    <Content Include="Views\Shared\LayoutMetronic.js" />
     <Content Include="Views\Shared\Layout.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -6044,6 +6046,7 @@
     <Content Include="Views\Metronic\CaseBookTabs.cshtml" />
     <Content Include="Views\Metronic\CaseBookPills.cshtml" />
     <Content Include="Views\Metronic\CaseDetails.cshtml" />
+    <Content Include="Views\Chat\MetronicUserList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

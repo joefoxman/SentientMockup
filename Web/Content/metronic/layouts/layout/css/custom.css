@@ -3,14 +3,21 @@
       margin: 5px 0 0 0; 
 }
 
-.badge-online {
+span.badge-online {
     background-color: green;
     font-weight: 600;
 }
 
-.badge-offline {
+span.badge-offline {
     background-color: red;
     font-weight: 600;
 }
 
+i.online {
+    color: lawngreen;
+}
+
+i.offline {
+    color: red;
+}
 

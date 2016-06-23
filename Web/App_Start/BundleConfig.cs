@@ -10,6 +10,10 @@ namespace POC
                         "~/Scripts/jquery.signalR-2.2.0.js",
                         "~/Scripts/Custom/notification.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/metronicsignalr").Include(
+                        "~/Scripts/jquery.signalR-2.2.0.js",
+                        "~/Views/Chat/Chat.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/calendar").Include(
                         "~/Scripts/Calendar/dhtmlxscheduler.js",
                         "~/Scripts/dhtmlxScheduler/dhtmlxscheduler-responsive.js",
@@ -103,7 +107,8 @@ namespace POC
             bundles.Add(new ScriptBundle("~/bundles/metronic-layout-theme-js").Include(
                 "~/Content/metronic/layouts/layout/scripts/layout.js",
                 "~/Content/metronic/layouts/layout/scripts/demo.js",
-                "~/Content/metronic/layouts/global/scripts/quick-sidebar.js"
+                "~/Content/metronic/layouts/global/scripts/quick-sidebar.js",
+                "~/Views/Shared/LayoutMetronic.js"
                 ));
             #endregion
 
