@@ -245,6 +245,11 @@
                     dynamicCalendar(tabs, $("#scheduler_here"));
                     //initSchedulerBasic();
                     //initResponsive($("#scheduler_here"));
+                    scheduler.attachEvent("onBeforeTodayDisplayed", function () {
+                        //any custom logic here
+                        return true;
+                    });
+
                     scheduler.attachEvent("onBeforeViewChange", function (old_mode, old_date, mode, date) {
                         //if (old_mode === mode) {
                         //    return true;
