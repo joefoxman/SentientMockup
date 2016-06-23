@@ -50,5 +50,47 @@ namespace POC.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult CaseTab()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ProcedureTab()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult DocumentsTab()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ChatTab()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ReviewTab()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ReportTab()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult BillingTab()
+        {
+            return View();
+        }
     }
 }

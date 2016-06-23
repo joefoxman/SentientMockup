@@ -6048,6 +6048,13 @@
     <Content Include="Views\Metronic\CaseDetails.cshtml" />
     <Content Include="Views\Chat\MetronicUserList.cshtml" />
     <Content Include="Views\Shared\_LayoutMetronicNew.cshtml" />
+    <Content Include="Views\Metronic\ChatTab.cshtml" />
+    <Content Include="Views\Metronic\CaseTab.cshtml" />
+    <Content Include="Views\Metronic\ProcedureTab.cshtml" />
+    <Content Include="Views\Metronic\DocumentsTab.cshtml" />
+    <Content Include="Views\Metronic\ReviewTab.cshtml" />
+    <Content Include="Views\Metronic\ReportTab.cshtml" />
+    <Content Include="Views\Metronic\BillingTab.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
