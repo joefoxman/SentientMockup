@@ -38,5 +38,17 @@ namespace POC.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult CaseBookTabs()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult CaseBookPills()
+        {
+            return View();
+        }
     }
 }

@@ -18,35 +18,38 @@ var QuickSidebar = function () {
 
         var initChatSlimScroll = function () {
             var chatUsers = wrapper.find('.page-quick-sidebar-chat-users');
-            var chatUsersHeight;
+            
+            var tabHeight = wrapper.find('.nav-tabs').outerHeight(true);
+            var formHeight = wrapperChat.find('.page-quick-sidebar-chat-user-form').outerHeight(true);
+            var chatUsersHeight = wrapper.height() - tabHeight - formHeight;
 
-            chatUsersHeight = wrapper.height() - wrapper.find('.nav-tabs').outerHeight(true);
+            //alert(chatUsersHeight);
 
             // chat user list 
             App.destroySlimScroll(chatUsers);
             chatUsers.attr("data-height", chatUsersHeight);
             App.initSlimScroll(chatUsers);
 
-            var chatMessages = wrapperChat.find('.page-quick-sidebar-chat-user-messages');
-            var chatMessagesHeight = chatUsersHeight - wrapperChat.find('.page-quick-sidebar-chat-user-form').outerHeight(true);
-            chatMessagesHeight = chatMessagesHeight - wrapperChat.find('.page-quick-sidebar-nav').outerHeight(true);
+            //var chatMessages = wrapperChat.find('.page-quick-sidebar-chat-user-messages');
+            //var chatMessagesHeight = chatUsersHeight - wrapperChat.find('.page-quick-sidebar-chat-user-form').outerHeight(true);
+            //chatMessagesHeight = chatMessagesHeight - wrapperChat.find('.page-quick-sidebar-nav').outerHeight(true);
 
             // user chat messages 
-            App.destroySlimScroll(chatMessages);
-            chatMessages.attr("data-height", chatMessagesHeight);
-            App.initSlimScroll(chatMessages);
+            //App.destroySlimScroll(chatMessages);
+            //chatMessages.attr("data-height", chatMessagesHeight);
+            //App.initSlimScroll(chatMessages);
         };
 
         initChatSlimScroll();
         App.addResizeHandler(initChatSlimScroll); // reinitialize on window resize
 
-        wrapper.find('.page-quick-sidebar-chat-users .media-list > .media').click(function () {
-            wrapperChat.addClass("page-quick-sidebar-content-item-shown");
-        });
+        //wrapper.find('.page-quick-sidebar-chat-users .media-list > .media').click(function () {
+        //    wrapperChat.addClass("page-quick-sidebar-content-item-shown");
+        //});
 
-        wrapper.find('.page-quick-sidebar-chat-user .page-quick-sidebar-back-to-list').click(function () {
-            wrapperChat.removeClass("page-quick-sidebar-content-item-shown");
-        });
+        //wrapper.find('.page-quick-sidebar-chat-user .page-quick-sidebar-back-to-list').click(function () {
+        //    wrapperChat.removeClass("page-quick-sidebar-content-item-shown");
+        //});
 
         var handleChatMessagePost = function (e) {
             e.preventDefault();
@@ -158,8 +161,8 @@ var QuickSidebar = function () {
             //layout handlers
             handleQuickSidebarToggler(); // handles quick sidebar's toggler
             handleQuickSidebarChat(); // handles quick sidebar's chats
-            handleQuickSidebarAlerts(); // handles quick sidebar's alerts
-            handleQuickSidebarSettings(); // handles quick sidebar's setting
+            //handleQuickSidebarAlerts(); // handles quick sidebar's alerts
+            //handleQuickSidebarSettings(); // handles quick sidebar's setting
         }
     };
 
