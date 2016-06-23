@@ -6043,6 +6043,7 @@
     <Content Include="Views\Metronic\DashboardScheduler.cshtml" />
     <Content Include="Views\Metronic\CaseBookTabs.cshtml" />
     <Content Include="Views\Metronic\CaseBookPills.cshtml" />
+    <Content Include="Views\Metronic\CaseDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
