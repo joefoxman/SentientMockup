@@ -1,32 +1,33 @@
 ﻿@using POC.Helper
 @model POC.Models.CalendarItem
 
-<div id="scheduler_here" class="dhx_cal_container dhx_scheduler_timeline dhx_scheduler_unit">
-<div class="dhx_cal_navline">
-    <div class="dhx_cal_prev_button">&nbsp;</div>
-    <div class="dhx_cal_next_button">&nbsp;</div>
-    <div class="dhx_cal_today_button"></div>
-    <div class="dhx_cal_date"></div>
-    <div class="dhx_cal_navline">
-        <div class="dhx_cal_tab" name="day_tab" style="right: 204px;"></div>
-        <div class="dhx_cal_tab" name="week_tab" style="right: 140px;"></div>
-        <div class="dhx_cal_tab" name="month_tab" style="right: 76px;"></div>
-        <div class="dhx_cal_tab" name="timeline_tab" style="right: 320px;">
-            <i class="fa fa-user-md" style="font-size:18px; color: #A21E1E;"></i>
+<div class="row">
+    <div id="scheduler_here" class="dhx_cal_container dhx_scheduler_timeline dhx_scheduler_unit">
+        <div class="row">
+            <div class="dhx_cal_navline">
+                <div class="dhx_cal_prev_button">&nbsp;</div>
+                <div class="dhx_cal_next_button">&nbsp;</div>
+                <div class="dhx_cal_today_button"></div>
+                <div class="dhx_cal_date"></div>
+                <div class="dhx_cal_tab" name="day_tab" style="right: 204px;"></div>
+                <div class="dhx_cal_tab" name="week_tab" style="right: 140px;"></div>
+                <div class="dhx_cal_tab" name="month_tab" style="right: 76px;"></div>
+                <div class="dhx_cal_tab" name="timeline_tab" style="right: 320px;">
+                    <i class="fa fa-user-md" style="font-size:18px; color: #A21E1E;"></i>
+                </div>
+                <div class="dhx_cal_tab" name="unit_tab" style="right: 360px;">
+                    <i class="fa fa-hospital-o" style="font-size: 18px; color: #41719C;"></i>
+                </div>
+                <div class="dhx_minical_icon" id="dhx_minical_icon" onclick="show_minical()" style="right: 280px;">&nbsp;</div>
+            </div>
         </div>
-        <div class="dhx_cal_tab" name="unit_tab" style="right: 360px;">
-            <i class="fa fa-hospital-o" style="font-size: 18px; color: #41719C;"></i>
+        <div class="dhx_cal_header row">
         </div>
-        <div class="dhx_minical_icon" id="dhx_minical_icon" onclick="show_minical()" style="right: 280px;">&nbsp;</div>
+        <div class="dhx_cal_data row">
+        </div>
+        <div class="dhx_minical_popup" style="left: 211px; top: -1000px;"></div>
     </div>
 </div>
-<div class="dhx_cal_header">
-</div>
-<div class="dhx_cal_data">
-</div>
-<div class="dhx_minical_popup" style="left: 211px; top: -1000px;"></div>
-</div>
-
 <div class="modal fade" id="customLightBoxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

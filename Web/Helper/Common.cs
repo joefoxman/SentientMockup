@@ -6,7 +6,7 @@ namespace POC.Helper
     public static class Common
     {
         public const string CookieKey = "CookieKey";
-        public const int CookieExpiration = 30;
+        public const int CookieExpiration = 34560;
 
         public enum ClaimsKeys
         {
