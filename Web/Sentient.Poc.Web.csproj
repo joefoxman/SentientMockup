@@ -6047,6 +6047,7 @@
     <Content Include="Views\Metronic\CaseBookPills.cshtml" />
     <Content Include="Views\Metronic\CaseDetails.cshtml" />
     <Content Include="Views\Chat\MetronicUserList.cshtml" />
+    <Content Include="Views\Shared\_LayoutMetronicNew.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -106,8 +106,6 @@ namespace POC
                 ));
             bundles.Add(new ScriptBundle("~/bundles/metronic-layout-theme-js").Include(
                 "~/Content/metronic/layouts/layout/scripts/layout.js",
-                "~/Content/metronic/layouts/layout/scripts/demo.js",
-                "~/Content/metronic/layouts/global/scripts/quick-sidebar.js",
                 "~/Views/Shared/LayoutMetronic.js"
                 ));
             #endregion

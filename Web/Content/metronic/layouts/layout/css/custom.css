@@ -3,21 +3,16 @@
       margin: 5px 0 0 0; 
 }
 
-span.badge-online {
-    background-color: green;
-    font-weight: 600;
-}
-
-span.badge-offline {
+span.label.offline {
     background-color: red;
-    font-weight: 600;
 }
 
-i.online {
-    color: lawngreen;
+/* Need to make some adjustments because we're not using the inbox or task dropdowns.  Plus we're showing the user name on mobile devices. */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-notification .dropdown-menu {
+    margin-right: -90px;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-notification .dropdown-menu:after, .page-header.navbar .top-menu .navbar-nav > li.dropdown-notification .dropdown-menu:before {
+    margin-right: 90px; 
 }
 
-i.offline {
-    color: red;
-}
 
