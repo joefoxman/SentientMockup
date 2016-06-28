@@ -76,6 +76,12 @@ namespace POC.Controllers
         }
 
         [HttpGet]
+        public ActionResult ChatTab2()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult ReviewTab()
         {
             return View();

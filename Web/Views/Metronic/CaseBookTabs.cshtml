@@ -2,7 +2,7 @@
     Layout = "~/Views/Shared/_LayoutMetronicNew.cshtml";
 }
 
-<div class="tabbable tabbable-line tabbable-tabdrop">
+<div class="tabbable tabbable-line tabbable-tabdrop margin-top-neg-15">
     <ul class="nav nav-tabs">
         <li class="active">
             <a href="#tab_case" data-toggle="tab">Case</a>
@@ -37,7 +37,7 @@
             @Html.Partial("DocumentsTab")
         </div>
         <div class="tab-pane" id="tab_chat">
-            @Html.Partial("ChatTab")
+            @Html.Partial("ChatTab2")
         </div>
         <div class="tab-pane" id="tab_review">
             @Html.Partial("ReviewTab")
@@ -51,8 +51,60 @@
     </div>
 </div>
 
+@section styles
+{
+    <link href="~/Content/metronic/global/plugins/typeahead/typeahead.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/metronic/global/plugins/icheck/skins/all.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/metronic/apps/css/inbox.min.css" rel="stylesheet" type="text/css" />
+}
+
 @section scripts
 {
     <script src="~/Content/metronic/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js" type="text/javascript"></script>
+    <script src="~/Content/metronic/global/plugins/icheck/icheck.min.js" type="text/javascript"></script>
+    <script src="~/Content/metronic/global/plugins/autosize/autosize.min.js" type="text/javascript"></script>   
+    
+    <script type="text/javascript">
+        sentientPOC.Chat = (function() {
+
+            var initialize = function () {
+                sentientPOC.common.bindOnce("click", "#active-new-chat", function () {
+                    $("#active-chat-panel").addClass("hidden");
+                    $("#user-panel").removeClass("hidden");
+                });
+
+                sentientPOC.common.bindOnce("click", "#user-new-chat", function () {
+                    $("#user-panel").addClass("hidden");
+                    $("#active-chat-panel").removeClass("hidden");
+                });
+
+                sentientPOC.common.bindOnce("click", ".invite-user", function () {
+                    alert("invite user(s) to join chat");
+                });
+
+                sentientPOC.common.bindOnce("click", ".close-chat", function () {
+                    alert("close the chat room");
+                });
+
+                sentientPOC.common.bindOnce("click", "#send-chat", function () {
+                    alert("send message");
+                });
+
+                sentientPOC.common.bindOnce("click", "#back-to-chats", function () {
+                    $("#chat-panel-right").removeClass("hidden-xs");
+                    $("#chat-panel-left").removeClass("visible-xs").addClass("hidden-xs");
+                });
+            };
+
+            return {
+                initialize: initialize
+            };
+
+        })();
+
+        $(document).ready(function() {
+            sentientPOC.Chat.initialize();
+        });
+    </script> 
 }
 
