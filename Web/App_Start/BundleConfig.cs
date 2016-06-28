@@ -62,15 +62,15 @@ namespace POC
                         "~/Scripts/Custom/notification.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                        "~/Content/bootstrap.css",
-                        "~/css/font-awesome.css",
-                        "~/Content/Tabs.css",
-                        "~/Content/Site.css",
-                        "~/Content/Notification.css",
-                        "~/Content/waitMe.css",
-                        "~/Content/bootstrap-multiselect.css",
-                        "~/Content/toastr.css",
-                        "~/Content/bootstrap-dialog.css",
+                        //"~/Content/bootstrap.css",
+                        //"~/css/font-awesome.css",
+                        //"~/Content/Tabs.css",
+                        //"~/Content/Site.css",
+                        //"~/Content/Notification.css",
+                        //"~/Content/waitMe.css",
+                        //"~/Content/bootstrap-multiselect.css",
+                        //"~/Content/toastr.css",
+                        //"~/Content/bootstrap-dialog.css",
                         "~/Content/dhtmlxscheduler.css",
                         "~/Content/dhtmlxScheduler/dhtmlxscheduler-responsive.css",
                         "~/Content/dhtmlxScheduler/dhtmlxscheduler-responsive-classic.css"));

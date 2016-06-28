@@ -1,8 +1,12 @@
 ﻿@using POC.Helper
 @model POC.Models.CalendarItem
 
+@{
+    Layout = "~/Views/Shared/_LayoutMetronicNew.cshtml";
+}
+
 <div class="row">
-    <div id="scheduler_here" class="dhx_cal_container dhx_scheduler_timeline dhx_scheduler_unit">
+    <div id="scheduler_here" class="dhx_cal_container dhx_scheduler_timeline dhx_scheduler_unit" style="height: 500px;">
         <div class="row">
             <div class="dhx_cal_navline">
                 <div class="dhx_cal_prev_button">&nbsp;</div>
@@ -93,19 +97,25 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    function show_minical() {
-        if (scheduler.isCalendarVisible())
-            scheduler.destroyCalendar();
-        else
-            scheduler.renderCalendar({
-                position: "dhx_minical_icon",
-                date: scheduler._date,
-                navigation: true,
-                handler: function (date, calendar) {
-                    scheduler.setCurrentView(date);
-                    scheduler.destroyCalendar();
-                }
-            });
-    }
-</script>
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function() {
+            sentientPOC.scheduleTabs.initialize();
+        });
+
+        function show_minical() {
+            if (scheduler.isCalendarVisible())
+                scheduler.destroyCalendar();
+            else
+                scheduler.renderCalendar({
+                    position: "dhx_minical_icon",
+                    date: scheduler._date,
+                    navigation: true,
+                    handler: function(date, calendar) {
+                        scheduler.setCurrentView(date);
+                        scheduler.destroyCalendar();
+                    }
+                });
+        }
+    </script>
+}

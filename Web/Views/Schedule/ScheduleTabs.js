@@ -206,95 +206,40 @@
     };
 
     var initScheduleTabs = function() {
-        $(window).resize(function() {
-            var tabs = $("#tabs").tabs();
-            dynamicHeightTab($(tabs));
-            dynamicCalendar(tabs, $("#scheduler_here"));
+        scheduler.clearAll();
+        dynamicHeightTab($(this));
+        sentientPOC.common.hideWait($("body"));
+        initSchedulerPerson();
+        initSchedulerTimeline();
+        scheduler.attachEvent("onBeforeTodayDisplayed", function() {
+            //any custom logic here
+            return true;
         });
-
-        $("#tabs").tabs({
-            beforeActivate: function(event, ui) {
-                sentientPOC.common.showWait($("body"));
-                return true;
-            },
-            create: function(event, ui) {
-                sentientPOC.common.showWait($("body"));
-            },
-            activate: function (event, ui) {
-            },
-            select: function(event, ui) {
-            },
-            load: function (event, ui) {
-                $("#expand-all").on("click", function () {
-                    scheduler.openAllSections();
-                    scheduler.updateView();
-                });
-                $("#collapse-all").on("click", function () {
-                    scheduler.closeAllSections();
-                    scheduler.updateView();
-                });
-                scheduler.clearAll();
-                dynamicHeightTab($(this));
-                sentientPOC.common.hideWait($("body"));
-                var tabName = ui.tab.text().toLowerCase();
-                if (tabName === "calendar") {
-                    initSchedulerPerson();
-                    initSchedulerTimeline();
-                    var tabs = $("#tabs").tabs();
-                    dynamicHeightTab($(tabs));
-                    dynamicCalendar(tabs, $("#scheduler_here"));
-                    //initSchedulerBasic();
-                    //initResponsive($("#scheduler_here"));
-                    scheduler.attachEvent("onBeforeTodayDisplayed", function () {
-                        //any custom logic here
-                        return true;
-                    });
-
-                    scheduler.attachEvent("onBeforeViewChange", function (old_mode, old_date, mode, date) {
-                        //if (old_mode === mode) {
-                        //    return true;
-                        //}
-                        ////any custom logic here
-                        //if (mode === "timeline") {
-                        //    initSchedulerTimeline();
-                        //}
-                        //else if (mode === "unit") {
-                        //    initSchedulerPerson();
-                        //}
-                        //scheduler.updateView();
-                        return true;
-                    });
-
-                    scheduler.attachEvent("onBeforeLightbox", function(id) {
-                        var eventObj = scheduler.getEvent(id);
-                        $("#customLightBoxModal").find("#Title").val(eventObj.text);
-                        $("#customLightBoxModal").find("#StartDateTime").val(eventObj.start_date.toString());
-                        $("#customLightBoxModal").find("#EndDateTime").val(eventObj.end_date.toString());
-                        $("#customLightBoxModal").find("#Status").val(eventObj.status.toString());
-                        var physicianName = scheduler.getSection(eventObj.section_id);
-                        if (physicianName !== undefined && physicianName !== null) {
-                            // get Physician Name
-                            $("#customLightBoxModal").find("#PhysicianName").css("display", "inline-block");
-                            $("#customLightBoxModal").find("#SnpName").css("display", "none");
-                            $("#customLightBoxModal").find(".snpname-label").css("display", "none");
-                            $("#customLightBoxModal").find("#PhysicianName").val(physicianName.label);
-                        } else {
-                            // get SNP Name
-                            $("#customLightBoxModal").find("#PhysicianName").css("display", "none");
-                            $("#customLightBoxModal").find(".physicianname-label").css("display", "none");
-                            $("#customLightBoxModal").find("#SnpName").css("display", "inline-block");
-                            var snpName = eventObj.snp_name;
-                            $("#customLightBoxModal").find("#SnpName").val(snpName);
-                        }
-                        $("#customLightBoxModal").modal("show");
-                        return false;
-                    });
-                    //scheduler.config.multi_day = false;
-                    //scheduler.config.hour_date = "%h:%i %A";
-                    scheduler.updateView();
-                }
+        scheduler.attachEvent("onBeforeLightbox", function(id) {
+            var eventObj = scheduler.getEvent(id);
+            $("#customLightBoxModal").find("#Title").val(eventObj.text);
+            $("#customLightBoxModal").find("#StartDateTime").val(eventObj.start_date.toString());
+            $("#customLightBoxModal").find("#EndDateTime").val(eventObj.end_date.toString());
+            $("#customLightBoxModal").find("#Status").val(eventObj.status.toString());
+            var physicianName = scheduler.getSection(eventObj.section_id);
+            if (physicianName !== undefined && physicianName !== null) {
+                // get Physician Name
+                $("#customLightBoxModal").find("#PhysicianName").css("display", "inline-block");
+                $("#customLightBoxModal").find("#SnpName").css("display", "none");
+                $("#customLightBoxModal").find(".snpname-label").css("display", "none");
+                $("#customLightBoxModal").find("#PhysicianName").val(physicianName.label);
+            } else {
+                // get SNP Name
+                $("#customLightBoxModal").find("#PhysicianName").css("display", "none");
+                $("#customLightBoxModal").find(".physicianname-label").css("display", "none");
+                $("#customLightBoxModal").find("#SnpName").css("display", "inline-block");
+                var snpName = eventObj.snp_name;
+                $("#customLightBoxModal").find("#SnpName").val(snpName);
             }
+            $("#customLightBoxModal").modal("show");
+            return false;
         });
+        scheduler.updateView();
     };
 
     var initialize = function () {

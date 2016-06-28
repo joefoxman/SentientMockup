@@ -15,6 +15,7 @@
     @Styles.Render("~/bundles/metronic-global-mandatory-css")
     @Styles.Render("~/bundles/metronic-global-theme-css")
     @Styles.Render("~/bundles/metronic-layout-theme-css")
+    @Styles.Render("~/Content/css")
     @RenderSection("styles", required: false)
     <link href="~/Content/metronic/layouts/layout/css/custom.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="favicon.ico" />
@@ -51,7 +52,7 @@
                                 <a href="~/Metronic/DashboardClinical">Clinical Dashboard</a>
                             </li>
                             <li>
-                                <a href="~/Metronic/DashboardIT">IT Dashboard</a>
+                                <a href="~/Metronic/DashboardIT">Admin Dashboard</a>
                             </li>
                             <li>
                                 <a href="~/Metronic/DashboardScheduler">Scheduler Dashboard</a>
@@ -65,7 +66,7 @@
                         <a href="#" title="Search Cases">Cases</a>
                     </li>
                     <li class="classic-menu-dropdown">
-                        <a href="#" title="Case Scheduler">Scheduler</a>
+                        <a href="~/schedule/Calendar" title="Case Scheduler">Scheduler</a>
                     </li>
                     <li class="classic-menu-dropdown">
                         <a href="#" title="Reports Dashboard">Reports</a>
@@ -333,7 +334,9 @@
     @Scripts.Render("~/bundles/metronic-core-plugins-js")
     @Scripts.Render("~/bundles/metronic-global-theme-js")
     @Scripts.Render("~/bundles/metronic-layout-theme-js")
-    <script src="~/Scripts/Custom/common.js" type="text/javascript"></script>
+    @Scripts.Render("~/bundles/common")
+    @Scripts.Render("~/bundles/calendar")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
