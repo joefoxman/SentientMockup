@@ -1,0 +1,113 @@
+﻿@using POC.Helper
+@model POC.Models.CalendarItem
+
+<h1>Calendar Here</h1>
+@*<div class="row">
+        <div id="scheduler_here" class="dhx_cal_container dhx_scheduler_timeline dhx_scheduler_unit">
+            <div class="row">
+                <div class="dhx_cal_navline">
+                    <div class="dhx_cal_prev_button">&nbsp;</div>
+                    <div class="dhx_cal_next_button">&nbsp;</div>
+                    <div class="dhx_cal_today_button"></div>
+                    <div class="dhx_cal_date"></div>
+                    <div class="dhx_cal_tab" name="day_tab" style="right: 204px;"></div>
+                    <div class="dhx_cal_tab" name="week_tab" style="right: 140px;"></div>
+                    <div class="dhx_cal_tab" name="month_tab" style="right: 76px;"></div>
+                    <div class="dhx_cal_tab" name="timeline_tab" style="right: 320px;">
+                        <i class="fa fa-user-md" style="font-size: 18px; color: #A21E1E;"></i>
+                    </div>
+                    <div class="dhx_cal_tab" name="unit_tab" style="right: 360px;">
+                        <i class="fa fa-hospital-o" style="font-size: 18px; color: #41719C;"></i>
+                    </div>
+                    <div class="dhx_minical_icon" id="dhx_minical_icon" onclick="show_minical()" style="right: 280px;">&nbsp;</div>
+                </div>
+            </div>
+            <div class="dhx_cal_header row">
+            </div>
+            <div class="dhx_cal_data row">
+            </div>
+            <div class="dhx_minical_popup" style="left: 211px; top: -1000px;"></div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="customLightBoxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-header-info">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Add/Edit Appointment</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row form-horizontal">
+                        <div style="margin-left: -10px;">
+                            <div class="form-group">
+                                @Html.LabelFor(a => a.Status, new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(a => a.Status, new { @class = "form-control" }).DisableIf(() => Model.Disabled)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(a => a.Title, new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(a => a.Title, new { @class = "form-control" }).DisableIf(() => Model.Disabled)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(a => a.Description, new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.TextAreaFor(a => a.Description, new { @class = "form-control" }).DisableIf(() => Model.Disabled)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(a => a.PhysicianName, new { @class = "control-label col-sm-3 physicianname-label" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(a => a.PhysicianName, new { @class = "form-control" }).DisableIf(() => Model.Disabled)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(a => a.SnpName, new { @class = "control-label col-sm-3 snpname-label" })
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(a => a.SnpName, new { @class = "form-control" }).DisableIf(() => Model.Disabled)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(a => a.StartDateTime, new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.EditorFor(a => a.StartDateTime, new { htmlAttributes = new { @class = "form-control" } }).DisableIf(() => Model.Disabled)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(a => a.EndDateTime, new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-9">
+                                    @Html.EditorFor(a => a.EndDateTime, new { htmlAttributes = new { @class = "form-control" } }).DisableIf(() => Model.Disabled)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" id="custom-lightbox-cancel" data-dismiss="modal" data-row="" data-document-id="">Cancel</button>
+                        <a class="btn btn-primary btn-ok pull-left" id="custom-lightbox-ok">Save</a>
+                        <a class="btn btn-danger btn-delete pull-right" id="custom-lightbox-delete">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <script type="text/javascript">
+            function show_minical() {
+                if (scheduler.isCalendarVisible())
+                    scheduler.destroyCalendar();
+                else
+                    scheduler.renderCalendar({
+                        position: "dhx_minical_icon",
+                        date: scheduler._date,
+                        navigation: true,
+                        handler: function (date, calendar) {
+                            scheduler.setCurrentView(date);
+                            scheduler.destroyCalendar();
+                        }
+                    });
+            }
+        </script>*@

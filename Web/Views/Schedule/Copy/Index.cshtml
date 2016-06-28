@@ -1,0 +1,85 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMetronicNew.cshtml";
+}
+
+<div class="tabbable tabbable-custom tabbable-tabdrop">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="/schedule/calendar" id="calendar_tab" data-target="#tabScheduler" data-toggle="tabajax">Schedule</a>
+        </li>
+        <li>
+            <a href="/schedule/confirmation" id="confirmation_tab" data-target="#tabConfirmation" data-toggle="tabajax">Confirmation</a>
+        </li>
+    </ul>
+
+    <div class="tab-content about-linksportlet light portlet-fit full-height-content full-height-content-scrollable bordered">
+        <div class="slimScrollDiv">
+            <div class="full-height-content-body">
+                <div class="tab-pane" id="tabScheduler">
+                </div>
+                <div class="active tab-pane" id="tabConfirmation">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="tab-content about-linksportlet light portlet-fit full-height-content full-height-content-scrollable bordered">
+        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto;">
+            <div class="full-height-content-body" style="overflow: hidden; width: auto; ">
+                <div class="active tab-pane" id="tabConfirmation">
+                </div>
+            </div>
+        </div>
+    </div>*@
+</div>
+@section scripts
+{
+    <script src="~/Content/metronic/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var responsiveTabHeight = function() {
+            var slimScrollDivHeight = 0;
+            $(".slimScrollDiv").each(function () {
+                if ($(this).height() > 0) {
+                    slimScrollDivHeight = $(this).height();
+                    return;
+                };
+            });
+
+            var tabHeight = $(".nav.nav-tabs").height();
+            var pageContentTopPadding = $(".page-content").css("padding-top").replace("px", "");
+            var pageFooterHeight = $(".page-footer").height();
+            var deductHeight = +tabHeight + +pageContentTopPadding + +pageFooterHeight;
+            $(".slimScrollDiv").height(+slimScrollDivHeight - +deductHeight);
+        };
+
+        $(document).ready(function() {
+            //$(window).resize(function() {
+            //    responsiveTabHeight();
+            //});
+
+            //$('a[data-toggle="tabajax"]').on('shown.bs.tab', function(e) {
+            //    responsiveTabHeight();
+            //});
+            //App.addResizeHandler(responsiveTabHeight);
+            loadTab($("#confirmation_tab"));
+            $('[data-toggle="tabajax"]').click(function(e) {
+                loadTab($(this));
+                return false;
+            });
+        });
+
+        function loadTab(tab) {
+            var $this = $(tab),
+                loadurl = $this.attr('href'),
+                targ = $this.attr('data-target');
+
+            $.get(loadurl, function(data) {
+                $(targ).html(data);
+            });
+            $this.tab("show");
+            responsiveTabHeight();
+            App.initSlimScroll();
+        }
+    </script>
+}
+

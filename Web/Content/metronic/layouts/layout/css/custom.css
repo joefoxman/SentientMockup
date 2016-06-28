@@ -15,4 +15,11 @@ span.label.offline {
     margin-right: 90px; 
 }
 
+/*.tab-content {
+    display: table;
+    width: 100%; /* optional */
+}*/
+/*.tab-pane {display: block;}
+.tab-content {overflow: visible;}*/
+
 

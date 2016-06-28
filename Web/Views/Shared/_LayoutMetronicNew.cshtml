@@ -64,7 +64,7 @@
                         <a href="#" title="Search Cases">Cases</a>
                     </li>
                     <li class="classic-menu-dropdown">
-                        <a href="#" title="Case Scheduler">Scheduler</a>
+                        @Html.ActionLink("Schedule", "Index", "Schedule")
                     </li>
                     <li class="classic-menu-dropdown">
                         <a href="#" title="Reports Dashboard">Reports</a>
@@ -326,6 +326,9 @@
     @Scripts.Render("~/bundles/metronic-core-plugins-js")
     @Scripts.Render("~/bundles/metronic-global-theme-js")
     @Scripts.Render("~/bundles/metronic-layout-theme-js")
+    @Scripts.Render("~/bundles/common")
+    @Scripts.Render("~/bundles/calendar")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

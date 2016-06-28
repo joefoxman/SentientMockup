@@ -687,6 +687,14 @@ var App = function() {
                     height = $(this).css('height');
                 }
 
+                // CUSTOM CODE ADDED BY MOM-Start
+                var tabHeight = $(".nav.nav-tabs").height();
+                var pageContentTopPadding = $(".page-content").css("padding-top").replace("px", "");
+                var pageFooterHeight = $(".page-footer").height();
+                var deductHeight = +tabHeight + +pageContentTopPadding + +pageFooterHeight;
+                height = +height.replace("px", "") - +deductHeight;
+                // CUSTOM CODE ADDED BY MOM-End
+
                 $(this).slimScroll({
                     allowPageScroll: true, // allow page scroll when the element scroll is ended
                     size: '7px',
