@@ -16,6 +16,7 @@
     @Styles.Render("~/bundles/metronic-global-theme-css")
     @Styles.Render("~/bundles/metronic-layout-theme-css")
     @RenderSection("styles", required: false)
+    <link href="~/Content/metronic/layouts/layout/css/custom.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-full-width">
@@ -198,7 +199,7 @@
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <img alt="" class="img-circle" src="~/Content/metronic/layouts/layout/img/avatar_small.png" />
+                            <img alt="" class="img-circle" src="~/Content/metronic/layouts/layout/img/avatar1_small.jpg" />
                             <span class="username">@username</span>
                             <i class="fa fa-angle-down"></i>
                         </a>
@@ -318,6 +319,12 @@
         <div class="page-footer-inner">
             2016 &copy; Mind Over Machines.
         </div>
+        <div class="page-footer-inner pull-right">
+            <span class="visible-xs">Size XS</span>
+            <span class="visible-sm">Size SM</span>
+            <span class="visible-md">Size MD</span>
+            <span class="visible-lg">Size LG</span>
+        </div>
         <div class="scroll-to-top">
             <i class="icon-arrow-up"></i>
         </div>
@@ -326,6 +333,7 @@
     @Scripts.Render("~/bundles/metronic-core-plugins-js")
     @Scripts.Render("~/bundles/metronic-global-theme-js")
     @Scripts.Render("~/bundles/metronic-layout-theme-js")
+    <script src="~/Scripts/Custom/common.js" type="text/javascript"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

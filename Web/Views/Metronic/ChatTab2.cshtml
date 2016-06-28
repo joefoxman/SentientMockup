@@ -1,0 +1,295 @@
+﻿<div class="row chat-page">
+    <div class="col-xs-12 col-sm-4 col-lg-3 hidden-xs">
+        <div class="portlet light bordered hidden" id="user-panel">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase">Contacts</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="chat-users">
+                    <div class="user-heading">Who would you like to chat with?</div>
+                    <input type="text" id="typeahead_example_3" name="typeahead_example_3" class="form-control" placeholder="Find someone..." />
+                    <div class="scroller" style="height: 355px;" data-always-visible="1" data-rail-visible1="1">
+                        <div class="chat-user-list">
+                            <ul class="media-list">
+                                <li class="media">
+                                    <div class="media-left media-middle chat-user">
+                                        <img alt="" class="img-circle" src="~/Content/metronic/layouts/layout/img/avatar3_small.jpg" />
+                                        <i class="fa fa-circle online"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <span>Bob Nilson</span>
+                                        <div class="sub-heading">Physician</div>
+                                    </div>
+                                    <div class="media-right media-middle">
+                                        <input type="checkbox" class="icheck" />
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left media-middle chat-user">
+                                        <img alt="" class="img-circle" src="~/Content/metronic/layouts/layout/img/avatar1_small.jpg" />
+                                        <i class="fa fa-circle online"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <span>Nick Larson</span>
+                                        <div class="sub-heading">SNP</div>
+                                    </div>
+                                    <div class="media-right media-middle">
+                                        <input type="checkbox" class="icheck" />
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left media-middle chat-user">
+                                        <img alt="" class="img-circle" src="~/Content/metronic/layouts/layout/img/avatar4_small.jpg" />
+                                        <i class="fa fa-circle offline"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <span>Deon Huber</span>
+                                        <div class="sub-heading">Role A</div>
+                                    </div>
+                                    <div class="media-right media-middle">
+                                        <input type="checkbox" class="icheck" />
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left media-middle chat-user chat-user-online">
+                                        <img alt="" class="img-circle" src="~/Content/metronic/layouts/layout/img/avatar2_small.jpg" />
+                                        <i class="fa fa-circle online"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <span>Ella Wong</span>
+                                        <div class="sub-heading">Role B</div>
+                                    </div>
+                                    <div class="media-right media-middle">
+                                        <input type="checkbox" class="icheck" />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block" id="user-new-chat">
+                        Begin New Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="portlet light bordered" id="active-chat-panel">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase">Active Chats</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-default" id="active-new-chat">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="active-chats">
+                    <div class="scroller" style="height: 400px;" data-always-visible="1" data-rail-visible1="1">
+                        <div class="active-chat-list">
+                            <ul class="media-list">
+                                <li class="media">
+                                    <div>
+                                        <a href="javascript:;" class="room-name">Chat Room 1</a>
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-default btn-xs">
+                                                <i class="fa fa-user-plus"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-danger btn-xs">
+                                                <i class="fa fa-close"></i>
+                                            </a>
+                                        </div>
+                                    </div>                                    
+                                    <div class="sub-heading">
+                                        <i class="fa fa-circle online"></i><span>Bob Nilson</span>
+                                        <i class="fa fa-circle online"></i><span>Nick Larson</span>
+                                        <i class="fa fa-circle offline"></i><span>Deon Huber</span>
+                                        <i class="fa fa-circle online"></i><span>Ella Wong</span>
+                                    </div>
+                                </li>                                
+                                <li class="media">
+                                    <div>
+                                        <a href="javascript:;" class="room-name">Chat Room 2</a>                                        
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-default btn-xs">
+                                                <i class="fa fa-user-plus"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-danger btn-xs">
+                                                <i class="fa fa-close"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <span class="badge badge-info badge-roundless">1 new message</span>
+                                    <div class="sub-heading">
+                                        <i class="fa fa-circle online"></i><span>Bob Nilson</span>
+                                        <i class="fa fa-circle online"></i><span>Nick Larson</span>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <div>
+                                        <a href="javascript:;" class="room-name">Chat Room 3</a>                                        
+                                        <div class="pull-right">
+                                            <a href="javascript:;" class="btn btn-default btn-xs">
+                                                <i class="fa fa-user-plus"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-danger btn-xs">
+                                                <i class="fa fa-close"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <span class="badge badge-info badge-roundless">3 new messages</span>
+                                    <div class="sub-heading">
+                                        <i class="fa fa-circle online"></i><span>Nick Larson</span>
+                                        <i class="fa fa-circle offline"></i><span>Deon Huber</span>
+                                        <i class="fa fa-circle online"></i><span>Ella Wong</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-lg-9">
+        <a href="javascript:;" class="visible-xs margin-bottom-10">
+            <i class="fa fa-arrow-circle-left fa-lg"></i> 
+            <span>Back to Active Chats</span>
+            <span class="badge badge-info chat-message-alert">4 new messages</span>
+        </a>
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase">Chat Room 1</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="scroller" style="height:400px" data-always-visible="1" data-rail-visible1="1">
+                    <ul class="chats">
+                        <li class="out">
+                            <img class="avatar" alt="" src="~/Content/metronic/layouts/layout/img/avatar2.jpg" />
+                            <div class="message">
+                                <span class="arrow"></span>
+                                <div class="message-header">
+                                    <span>Ella Wong</span>
+                                    <span> at </span>
+                                    <span>1:11 PM</span>
+                                </div>
+                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                            </div>
+                        </li>
+                        <li class="out">
+                            <img class="avatar" alt="" src="~/Content/metronic/layouts/layout/img/avatar2.jpg" />
+                            <div class="message">
+                                <span class="arrow"></span>
+                                <div class="message-header">
+                                    <span>Ella Wong</span>
+                                    <span> at </span>
+                                    <span>1:12 PM</span>
+                                </div>
+                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                            </div>
+                        </li>
+                        <li class="in">
+                            <img class="avatar" alt="" src="~/Content/metronic/layouts/layout/img/avatar3.jpg" />
+                            <div class="message">
+                                <span class="arrow"></span>
+                                <div class="message-header">
+                                    <span>Bob Nilson</span>
+                                    <span> at </span>
+                                    <span>1:30 PM</span>
+                                </div>
+                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                            </div>
+                        </li>
+                        <li class="in">
+                            <img class="avatar" alt="" src="~/Content/metronic/layouts/layout/img/avatar3.jpg" />
+                            <div class="message">
+                                <span class="arrow"></span>
+                                <div class="message-header">
+                                    <span>Bob Nilson</span>
+                                    <span> at </span>
+                                    <span>1:32 PM</span>
+                                </div>
+                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                            </div>
+                        </li>
+                        <li class="out">
+                            <img class="avatar" alt="" src="~/Content/metronic/layouts/layout/img/avatar1.jpg" />
+                            <div class="message">
+                                <span class="arrow"></span>
+                                <div class="message-header">
+                                    <span>Nick Larson</span>
+                                    <span> at </span>
+                                    <span>1:33 PM</span>
+                                </div>
+                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                            </div>
+                        </li>
+                        <li class="in">
+                            <img class="avatar" alt="" src="~/Content/metronic/layouts/layout/img/avatar1.jpg" />
+                            <div class="message">
+                                <span class="arrow"></span>
+                                <div class="message-header">
+                                    <span>Nick Larson</span>
+                                    <span> at </span>
+                                    <span>1:35 PM</span>
+                                </div>
+                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                            </div>
+                        </li>
+                        <li class="out">
+                            <img class="avatar" alt="" src="~/Content/metronic/layouts/layout/img/avatar3.jpg" />
+                            <div class="message">
+                                <span class="arrow"></span>
+                                <div class="message-header">
+                                    <span>Bob Nilson</span>
+                                    <span> at </span>
+                                    <span>1:40 PM</span>
+                                </div>
+                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                            </div>
+                        </li>
+                        <li class="in">
+                            <img class="avatar" alt="" src="~/Content/metronic/layouts/layout/img/avatar1.jpg" />
+                            <div class="message">
+                                <span class="arrow"></span>
+                                <div class="message-header">
+                                    <span>Nick Larson</span>
+                                    <span> at </span>
+                                    <span>1:40 PM</span>
+                                </div>
+                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                            </div>
+                        </li>
+                        <li class="out">
+                            <img class="avatar" alt="" src="~/Content/metronic/layouts/layout/img/avatar3.jpg" />
+                            <div class="message">
+                                <span class="arrow"></span>
+                                <div class="message-header">
+                                    <span>Bob Nilson</span>
+                                    <span> at </span>
+                                    <span>1:54 PM</span>
+                                </div>
+                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. sed diam nonummy nibh euismod tincidunt ut laoreet.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="chat-post">
+                    <div class="input-group">
+                        <textarea class="form-control autosizeme" rows="1" placeholder="Type a message here..."></textarea>
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button">
+                                Send
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

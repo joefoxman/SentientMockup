@@ -96,8 +96,7 @@ namespace POC
                 ));
             bundles.Add(new StyleBundle("~/bundles/metronic-layout-theme-css").Include(
                 "~/Content/metronic/layouts/layout/css/layout.css",
-                "~/Content/metronic/layouts/layout/css/themes/darkblue.css",
-                "~/Content/metronic/layouts/layout/css/custom.css"
+                "~/Content/metronic/layouts/layout/css/themes/darkblue.css"                
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/metronic-core-plugins-js").Include(
