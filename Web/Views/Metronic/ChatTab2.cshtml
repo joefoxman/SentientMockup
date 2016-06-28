@@ -1,5 +1,5 @@
 ﻿<div class="row chat-page">
-    <div class="col-xs-12 col-sm-4 col-lg-3 hidden-xs">
+    <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 hidden-xs" id="chat-panel-right">
         <div class="portlet light bordered hidden" id="user-panel">
             <div class="portlet-title">
                 <div class="caption">
@@ -94,10 +94,10 @@
                                     <div>
                                         <a href="javascript:;" class="room-name">Chat Room 1</a>
                                         <div class="pull-right">
-                                            <a href="javascript:;" class="btn btn-default btn-xs">
+                                            <a href="javascript:;" class="btn btn-default btn-xs invite-user">
                                                 <i class="fa fa-user-plus"></i>
                                             </a>
-                                            <a href="javascript:;" class="btn btn-danger btn-xs">
+                                            <a href="javascript:;" class="btn btn-danger btn-xs close-chat">
                                                 <i class="fa fa-close"></i>
                                             </a>
                                         </div>
@@ -113,10 +113,10 @@
                                     <div>
                                         <a href="javascript:;" class="room-name">Chat Room 2</a>                                        
                                         <div class="pull-right">
-                                            <a href="javascript:;" class="btn btn-default btn-xs">
+                                            <a href="javascript:;" class="btn btn-default btn-xs invite-user">
                                                 <i class="fa fa-user-plus"></i>
                                             </a>
-                                            <a href="javascript:;" class="btn btn-danger btn-xs">
+                                            <a href="javascript:;" class="btn btn-danger btn-xs close-chat">
                                                 <i class="fa fa-close"></i>
                                             </a>
                                         </div>
@@ -131,10 +131,10 @@
                                     <div>
                                         <a href="javascript:;" class="room-name">Chat Room 3</a>                                        
                                         <div class="pull-right">
-                                            <a href="javascript:;" class="btn btn-default btn-xs">
+                                            <a href="javascript:;" class="btn btn-default btn-xs invite-user">
                                                 <i class="fa fa-user-plus"></i>
                                             </a>
-                                            <a href="javascript:;" class="btn btn-danger btn-xs">
+                                            <a href="javascript:;" class="btn btn-danger btn-xs close-chat">
                                                 <i class="fa fa-close"></i>
                                             </a>
                                         </div>
@@ -153,12 +153,14 @@
             </div>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-8 col-lg-9">
-        <a href="javascript:;" class="visible-xs margin-bottom-10">
-            <i class="fa fa-arrow-circle-left fa-lg"></i> 
-            <span>Back to Active Chats</span>
+    <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9" id="chat-panel-left">
+        <div class="visible-xs margin-bottom-10">
+            <a id="back-to-chats">
+                <i class="fa fa-arrow-circle-left fa-lg"></i>
+                <span>Active Chats</span>
+            </a>
             <span class="badge badge-info chat-message-alert">4 new messages</span>
-        </a>
+        </div>
         <div class="portlet light bordered">
             <div class="portlet-title">
                 <div class="caption">
@@ -282,7 +284,7 @@
                     <div class="input-group">
                         <textarea class="form-control autosizeme" rows="1" placeholder="Type a message here..."></textarea>
                         <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button">
+                            <button class="btn btn-primary" type="button" id="send-chat">
                                 Send
                             </button>
                         </span>

@@ -77,6 +77,23 @@
                     $("#user-panel").addClass("hidden");
                     $("#active-chat-panel").removeClass("hidden");
                 });
+
+                sentientPOC.common.bindOnce("click", ".invite-user", function () {
+                    alert("invite user(s) to join chat");
+                });
+
+                sentientPOC.common.bindOnce("click", ".close-chat", function () {
+                    alert("close the chat room");
+                });
+
+                sentientPOC.common.bindOnce("click", "#send-chat", function () {
+                    alert("send message");
+                });
+
+                sentientPOC.common.bindOnce("click", "#back-to-chats", function () {
+                    $("#chat-panel-right").removeClass("hidden-xs");
+                    $("#chat-panel-left").removeClass("visible-xs").addClass("hidden-xs");
+                });
             };
 
             return {
