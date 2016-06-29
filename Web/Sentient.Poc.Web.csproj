@@ -5489,7 +5489,6 @@
     <Content Include="Content\metronic\global\plugins\icheck\.gitignore" />
     <Content Include="Content\metronic\global\plugins\icheck\bower.json" />
     <Content Include="Content\metronic\global\plugins\icheck\CHANGELOG.md" />
-    <Content Include="Content\metronic\global\plugins\icheck\demo\css\custom.styl" />
     <Content Include="Content\metronic\global\plugins\icheck\demo\css\montserrat-bold.eot" />
     <Content Include="Content\metronic\global\plugins\icheck\demo\css\montserrat-bold.ttf" />
     <Content Include="Content\metronic\global\plugins\icheck\demo\css\montserrat-bold.woff" />
