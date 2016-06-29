@@ -132,6 +132,10 @@ span.chat-message-alert {
     margin-top: 10px;
 }
 
+.portlet.light.justified {
+    padding: 12px 0 0 0;
+}
+
 /* Media Queries */
 @media(max-width:767px){
     /* Remove the chat messages portal's border and padding when in XS mode. */
