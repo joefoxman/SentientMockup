@@ -1,5 +1,278 @@
-﻿<div class="full-height-content full-height-content-scrollable">
-    <div class="full-height-content-body">
-        Case Tab Content
+﻿<div class="row">
+    <div class="col-lg-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase">Case Information</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label>Case #</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title tabbable-line">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase">Patient Information</span>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#patient_general" data-toggle="tab">General</a>
+                    </li>
+                    <li>
+                        <a href="#patient_history" data-toggle="tab">History</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="patient_general">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-3">
+
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group-sm">
+                                                <label class="control-label">Address 1</label>
+                                                <input type="text" id="address1" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group-sm">
+                                                <label class="control-label">Address 2</label>
+                                                <input type="text" id="address2" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group-sm">
+                                                <label class="control-label">City</label>
+                                                <input type="text" id="city" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group-sm">
+                                                <label class="control-label">State</label>
+                                                <select id="state" class="form-control">
+                                                    <option></option>
+                                                    <option>Alabama</option>
+                                                    <option>Alaska</option>
+                                                    <option>Arizona</option>
+                                                    <option>Arkansas</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group-sm">
+                                                <label class="control-label">Zip</label>
+                                                <input type="text" id="zip" class="form-control mask-number" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group-sm">
+                                        <label class="control-label">Last Name</label>
+                                        <input type="text" id="lastName" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group-sm">
+                                        <label class="control-label">First Name</label>
+                                        <input type="text" id="firstName" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group-sm">
+                                        <label class="control-label">Middle Name</label>
+                                        <input type="text" id="middleName" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group-sm">
+                                        <label class="control-label">Phone #</label>
+                                        <input type="text" id="phoneNumber" class="form-control mask-phone" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group-sm">
+                                        <label class="control-label">SSN</label>
+                                        <input type="text" id="ssn" class="form-control mask-ssn" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group-sm">
+                                        <label class="control-label">Date of Birth</label>
+                                        <input type="text" id="dateOfBirth" class="form-control mask-date2" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group-sm">
+                                        <label class="control-label">Gender</label>
+                                        <select id="gender" class="form-control">
+                                            <option></option>
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                            <option>Unknown</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group-sm">
+                                        <label class="control-label">Race</label>
+                                        <select id="race" class="form-control">
+                                            <option></option>
+                                            <option>White</option>
+                                            <option>Black or African American</option>
+                                            <option>Hispanic or Latino</option>
+                                            <option>American Indian or Alaska Native</option>
+                                            <option>Asian</option>
+                                            <option>Native Hawaiian or Pacific Islander</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group-sm">
+                                        <label class="control-label">Address 1</label>
+                                        <input type="text" id="address1" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group-sm">
+                                        <label class="control-label">Address 2</label>
+                                        <input type="text" id="address2" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group-sm">
+                                        <label class="control-label">City</label>
+                                        <input type="text" id="city" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group-sm">
+                                        <label class="control-label">State</label>
+                                        <select id="state" class="form-control">
+                                            <option></option>
+                                            <option>Alabama</option>
+                                            <option>Alaska</option>
+                                            <option>Arizona</option>
+                                            <option>Arkansas</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group-sm">
+                                        <label class="control-label">Zip</label>
+                                        <input type="text" id="zip" class="form-control mask-number" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="patient_history">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase">Insurance Information</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase">Other Information</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase">Hospital Information</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="form-body">
+                    <div class="well">
+                        <address>
+                            <strong>Mercy Medical Center</strong>
+                            <br />345 St Paul Pl
+                            <br />Baltimore, MD 21202
+                            <br /><abbr title="Phone">P:</abbr> (410) 332-9000
+                        </address>
+                    </div>
+                    <div class="form-group">
+                        <label>Desk Contact</label>
+                        <p class="form-control-static">Sally Wilson</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Scrub Color</label>
+                        <p class="form-control-static">Green</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Door Code</label>
+                        <p class="form-control-static">12345</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Credentials</label>
+                        <p class="form-control-static">Unknown</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Biomed Check</label>
+                        <p class="form-control-static">No</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Room Type</label>
+                        <p class="form-control-static">AMB</p>
+                    </div>
+                    <div class="note note-info">
+                        <h4 class="block">Arrival Note</h4>
+                        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, mattis consectetur purus sit amet eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+                    </div>
+                    <div class="note note-info">
+                        <h4 class="block">Parking Info</h4>
+                        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, mattis consectetur purus sit amet eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

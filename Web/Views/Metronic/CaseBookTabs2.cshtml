@@ -2,33 +2,56 @@
     Layout = "~/Views/Shared/_LayoutMetronicNew.cshtml";
 }
 
-<div class="tabbable tabbable-line tabbable-tabdrop margin-top-neg-15">
-    <ul class="nav nav-tabs">
-        <li class="active">
-            <a href="#tab_case" data-toggle="tab">Case</a>
-        </li>
-        <li>
-            <a href="#tab_procedure" data-toggle="tab">Procedure</a>
-        </li>
-        <li>
-            <a href="#tab_documents" data-toggle="tab">Documents</a>
-        </li>
-        <li>
-            <a href="#tab_chat" data-toggle="tab">Chat</a>
-        </li>
-        <li>
-            <a href="#tab_review" data-toggle="tab">Review</a>
-        </li>
-        <li>
-            <a href="#tab_report" data-toggle="tab">Report</a>
-        </li>
-        <li>
-            <a href="#tab_billing" data-toggle="tab">Billing</a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane active" id="tab_case">
+<div class="row">
+    <div class="col-lg-12">
+        <a href="#tab_case" data-toggle="tab" class="icon-btn">
+            <i class="fa fa-medkit"></i>
+            <div>Case</div>
+        </a>
+        <a href="#tab_patient" data-toggle="tab" class="icon-btn">
+            <i class="fa fa-universal-access"></i>
+            <div>Patient</div>
+        </a>
+        <a href="#tab_patient_2" data-toggle="tab" class="icon-btn">
+            <i class="fa fa-universal-access"></i>
+            <div>Patient 2</div>
+        </a>
+        <a href="#tab_procedure" data-toggle="tab" class="icon-btn">
+            <i class="fa fa-stethoscope"></i>
+            <div>Procedure</div>
+        </a>
+        <a href="#tab_documents" data-toggle="tab" class="icon-btn">
+            <i class="fa fa-archive"></i>
+            <div>Documents</div>
+        </a>
+        <a href="#tab_chat" data-toggle="tab" class="icon-btn">
+            <i class="fa fa-comments-o"></i>
+            <div>Chat</div>
+        </a>
+        <a href="#tab_review" data-toggle="tab" class="icon-btn">
+            <i class="fa fa-eye"></i>
+            <div>Review</div>
+        </a>
+        <a href="#tab_report" data-toggle="tab" class="icon-btn">
+            <i class="fa fa-file-text-o"></i>
+            <div>Report</div>
+        </a>
+        <a href="#tab_billing" data-toggle="tab" class="icon-btn">
+            <i class="fa fa-credit-card"></i>
+            <div>Billing</div>
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 tab-content">
+        <div class="tab-pane" id="tab_case">
             @Html.Partial("CaseTab")
+        </div>
+        <div class="tab-pane active" id="tab_patient">
+            @Html.Partial("PatientTab")
+        </div>
+        <div class="tab-pane" id="tab_patient_2">
+            @Html.Partial("PatientTab2")
         </div>
         <div class="tab-pane" id="tab_procedure">
             @Html.Partial("ProcedureTab")
@@ -62,9 +85,9 @@
 {
     <script src="~/Content/metronic/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js" type="text/javascript"></script>
     <script src="~/Content/metronic/global/plugins/icheck/icheck.min.js" type="text/javascript"></script>
-    <script src="~/Content/metronic/global/plugins/autosize/autosize.min.js" type="text/javascript"></script>  
-    <script src="~/Content/metronic/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js" type="text/javascript"></script> 
-    
+    <script src="~/Content/metronic/global/plugins/autosize/autosize.min.js" type="text/javascript"></script>
+    <script src="~/Content/metronic/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js" type="text/javascript"></script>
+
     <script type="text/javascript">
         sentientPOC.Chat = (function() {
 
@@ -112,7 +135,7 @@
             var handleInputMasks = function () {
                 $(".mask-date").inputmask("d/m/y", {
                     autoUnmask: true
-                }); //direct mask        
+                }); //direct mask
                 $(".mask-date1").inputmask("d/m/y", {
                     "placeholder": "*"
                 }); //change the placeholder
@@ -158,6 +181,11 @@
             sentientPOC.Chat.initialize();
             sentientPOC.Case.initialize();
         });
-    </script> 
+    </script>
 }
+
+
+
+
+
 
