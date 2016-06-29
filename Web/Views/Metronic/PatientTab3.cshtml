@@ -3,23 +3,20 @@
         <div class="portlet light justified">
             <div class="portlet-title tabbable-line">
                 <div class="caption">
-                    <span class="caption-subject uppercase">Case</span>
+                    <span class="caption-subject uppercase">Patient</span>
                 </div>
                 <ul class="nav nav-tabs">
                     <li class="active">
-                        <a href="#tab_case_general" data-toggle="tab">General</a>
+                        <a href="#tab_patient_general" data-toggle="tab">General</a>
                     </li>
                     <li>
-                        <a href="#tab_case_hardware" data-toggle="tab">Hardware</a>
-                    </li>
-                    <li>
-                        <a href="#tab_case_hospital" data-toggle="tab">Hospital</a>
+                        <a href="#tab_patient_notes" data-toggle="tab">Notes</a>
                     </li>
                 </ul>
             </div>
             <div class="portlet-body">
                 <div class="tab-content">
-                    <div class="tab-pane active" id="tab_case_general">
+                    <div class="tab-pane active" id="tab_patient_general">
                         <form action="#">
                             <div class="form-body">
                                 <div class="row">
@@ -43,18 +40,12 @@
                                     </div>
                                     <div class="col-sm-6 col-md-3">
                                         <div class="form-group-sm">
-                                            <label class="control-label">Phone #</label>
-                                            <input id="patient_middle_name" class="form-control mask-phone" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6 col-md-3">
-                                        <div class="form-group-sm">
                                             <label class="control-label">SSN</label>
                                             <input id="patient_ssn" class="form-control mask-ssn" />
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">                                    
                                     <div class="col-sm-6 col-md-3">
                                         <div class="form-group-sm">
                                             <label class="control-label">Date of Birth</label>
@@ -79,18 +70,25 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6 col-md-3">
+                                    <div class="col-lg-12">
+                                        <h5 class="uppercase" style="border-bottom:1px solid #eee; margin-top:20px;">Address &amp; Phone</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
                                         <div class="form-group-sm">
                                             <label class="control-label">Address 1</label>
                                             <input id="patient_address1" class="form-control" />
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-3">
+                                    <div class="col-sm-6">
                                         <div class="form-group-sm">
                                             <label class="control-label">Address 2</label>
                                             <input id="patient_address2" class="form-control" />
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-sm-6 col-md-3">
                                         <div class="form-group-sm">
                                             <label class="control-label">City</label>
@@ -105,99 +103,92 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-sm-6 col-md-3">
                                         <div class="form-group-sm">
                                             <label class="control-label">Zip</label>
                                             <input id="patient_zip" class="form-control mask-number" />
                                         </div>
                                     </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="form-group-sm">
+                                            <label class="control-label">Phone #</label>
+                                            <input id="patient_middle_name" class="form-control mask-phone" />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="row margin-top-15">
+                                <div class="row">
                                     <div class="col-lg-12">
-                                        <button type="submit" class="btn btn-outline green">Save Demographics</button>
-                                        <button type="button" class="btn btn-outline red">Cancel</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane" id="tab_case_hardware">
-                        <form action="#">
-                            <div class="form-body">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="form-group-sm">
-                                            <label class="control-label">Laptop</label>
-                                            <input id="case_hardware_laptop" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group-sm">
-                                            <label class="control-label">Base Unit</label>
-                                            <input id="case_hardware_base_unit" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group-sm">
-                                            <label class="control-label">Amplifier</label>
-                                            <input id="case_hardware_amplifier" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group-sm">
-                                            <label class="control-label">Stim Box</label>
-                                            <input id="case_hardware_stim_box" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group-sm">
-                                            <label class="control-label">Motor Box</label>
-                                            <input id="case_hardware_motor_box" class="form-control" />
-                                        </div>
+                                        <h5 class="uppercase" style="border-bottom:1px solid #eee; margin-top:20px;">Insurance</h5>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
-                                    <div class="col-md-4">
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="form-group-sm">
+                                            <label class="control-label">Primary</label>
+                                            <input id="patient_insurance_primary" class="form-control" placeholder="Type ahead" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="form-group-sm">
+                                            <label class="control-label">Secondary</label>
+                                            <input id="patient_insurance_secondary" class="form-control" placeholder="Type ahead" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="form-group-sm">
+                                            <label class="control-label">Tertiary</label>
+                                            <input id="patient_insurance_tertiary" class="form-control" placeholder="Type ahead" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="form-group-sm">
+                                            <label class="control-label">Guarantor</label>
+                                            <input id="patient_insurance_guarantor" class="form-control" placeholder="Type ahead" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">                                                                        
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="form-group-sm">
+                                            <label>Auto Accident</label>
+                                            <select id="patient_insurance_auto_accident" class="form-control">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="form-group-sm">
+                                            <label class="control-label">Worker's Comp</label>
+                                            <select id="patient_insurance_workers_comp" class="form-control">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
                                         <div class="form-group-sm">
                                             <label class="control-label">Date of Injury</label>
                                             <input id="patient_insurance_doi" class="form-control mask-date2" />
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-sm-6 col-md-3">
                                         <div class="form-group-sm">
                                             <label class="control-label">Pre Auth #</label>
                                             <input id="patient_insurance_pre_auth" class="form-control" />
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row patient-insurance-checkboxes">
-                                    <div class="col-lg-12">
-                                        <div class="form-group-sm">
-                                            <input id="patient_insurance_auto_accident" type="checkbox" class="icheck" />
-                                            <label>Auto Accident</label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group-sm">
-                                            <input id="patient_insurance_workers_comp" type="checkbox" class="icheck" />
-                                            <label class="control-label">Worker's Comp</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div>                            
                                 <div class="row margin-top-15">
                                     <div class="col-lg-12">
-                                        <button type="submit" class="btn btn-outline green">Save Insurance</button>
-                                        <button type="button" class="btn btn-outline red">Cancel</button>
+                                        <span class="pull-right">
+                                            <button type="submit" class="btn btn-outline green">Save</button>
+                                            <button type="button" class="btn btn-outline red">Cancel</button>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </form>
-                    </div>
-                    <div class="tab-pane" id="tab_case_hospital">
+                    </div>                    
+                    <div class="tab-pane" id="tab_patient_notes">
                         <form action="#">
                             <div class="form-group">
                                 <div class="row">
