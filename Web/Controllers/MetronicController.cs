@@ -46,6 +46,12 @@ namespace POC.Controllers
         }
 
         [HttpGet]
+        public ActionResult CaseBookTabs2()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult CaseBookPills()
         {
             return View();
@@ -95,6 +101,18 @@ namespace POC.Controllers
 
         [HttpGet]
         public ActionResult BillingTab()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult PatientTab()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult PatientTab2()
         {
             return View();
         }
