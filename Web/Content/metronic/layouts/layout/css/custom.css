@@ -13,6 +13,14 @@
     margin-right: 90px; 
 }
 
+/* Add smaller top and bottom margins that weren't included with the theme. */
+.margin-top-5 {
+    margin-top: 5px;
+}
+.margin-bottom-5 {
+    margin-bottom: 5px;
+}
+
 /* Add some margin tops and bottoms to reduce margins. */
 .margin-top-neg-10 {
     margin-top: -10px;
@@ -115,11 +123,11 @@ span.chat-message-alert {
     margin-left: 7px;
 }
 
-.patient-notes > .note {
+.patient-notes-list > .note {
     padding: 5px 10px 5px 10px;
     background: #fafafa;
 }
-.patient-notes > .note span {
+.patient-notes-list > .note > .note-header {
     font-size: 13px;
     color: #657b8d;
 }
@@ -136,8 +144,41 @@ span.chat-message-alert {
     padding: 12px 0 0 0;
 }
 
+.form-section-header {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e7ecf1;
+    font-size: 16px;
+    letter-spacing: -1px;  
+    color: #666;
+    font-weight: 400;
+}
+
+.form-group-sm {
+    margin-bottom: 5px;
+}
+.form-group-sm > .control-label {
+    font-size: 13px;
+    margin-bottom: 0px;
+}
+.form-group-sm > .form-control {
+    font-size: 13px;
+}
+
+.btn-form {
+    width: 70px;
+}
+
 /* Media Queries */
-@media(max-width:767px){
+@media (max-width: 480px) {
+    .patient-notes .btn.pull-right {
+        display: block;
+        width: 100%;
+        
+    }
+}
+
+@media(max-width:767px) {
     /* Remove the chat messages portal's border and padding when in XS mode. */
     .chat-page .portlet.light.bordered {
         border: none !important;

@@ -122,5 +122,11 @@ namespace POC.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult PatientTab4()
+        {
+            return View();
+        }
     }
 }

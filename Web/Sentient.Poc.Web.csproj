@@ -6058,6 +6058,7 @@
     <Content Include="Views\Metronic\PatientTab.cshtml" />
     <Content Include="Views\Metronic\PatientTab2.cshtml" />
     <Content Include="Views\Metronic\PatientTab3.cshtml" />
+    <Content Include="Views\Metronic\PatientTab4.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

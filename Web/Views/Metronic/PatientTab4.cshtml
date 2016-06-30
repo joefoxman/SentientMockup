@@ -1,0 +1,228 @@
+﻿<div class="portlet light bordered">
+    <div class="portlet-title tabbable-line">
+        <div class="caption">
+            <span class="caption-subject sbold uppercase">Patient</span>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#patient_tab_general" data-toggle="tab">General</a>
+            </li>
+            <li>
+                <a href="#patient_tab_notes" data-toggle="tab">Notes</a>
+            </li>
+        </ul>
+    </div>    
+    <div class="portlet-body">
+        <div class="tab-content">
+            <div id="patient_tab_general" class="tab-pane active">
+                <form id="patient_form_general" action="#">
+                    <div class="row hidden-lg">
+                        <div class="col-xs-12">
+                            <span class="pull-right margin-bottom-15">
+                                <button type="submit" class="btn btn-outline btn-form green">Save</button>
+                                <button type="button" class="btn btn-outline btn-form red">Cancel</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Last Name</label>
+                            <input id="patient_last_name" class="form-control" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">First Name</label>
+                            <input id="patient_first_name" class="form-control" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Middle Name</label>
+                            <input id="patient_middle_name" class="form-control" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">SSN</label>
+                            <input id="patient_ssn" class="form-control mask-ssn" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Date of Birth</label>
+                            <input id="patient_dob" class="form-control mask-date2" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Gender</label>
+                            <select id="patient_gender" class="form-control">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Race</label>
+                            <select id="patient_race" class="form-control">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <h4 class="form-section-header">Address</h4>
+                    <div class="row">
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Address 1</label>
+                            <input id="patient_address1" class="form-control" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Address 2</label>
+                            <input id="patient_address2" class="form-control" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">City</label>
+                            <input id="patient_city" class="form-control" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">State</label>
+                            <select id="patient_state" class="form-control">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Zip</label>
+                            <input id="patient_zip" class="form-control mask-number" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Primary Phone</label>
+                            <input id="patient_primary_phone" class="form-control mask-phone" />
+                        </div>
+                    </div>
+                    <h4 class="form-section-header">Insurance</h4>
+                    <div class="row">
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Primary</label>
+                            <input id="patient_insurance_primary" class="form-control" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Secondary</label>
+                            <input id="patient_insurance_secondary" class="form-control" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Tertiary</label>
+                            <input id="patient_insurance_tertiary" class="form-control" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Guarantor</label>
+                            <input id="patient_insurance_guarantor" class="form-control" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Auto Accident</label>
+                            <select id="patient_insurance_auto_accident" class="form-control">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Worker's Comp</label>
+                            <select id="patient_insurance_workers_comp" class="form-control">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Date of Injury</label>
+                            <input id="patient_insurance_doi" class="form-control mask-date2" />
+                        </div>
+                        <div class="form-group-sm col-sm-6 col-md-4 col-lg-3">
+                            <label class="control-label">Pre Auth #</label>
+                            <input id="patient_insurance_pre_auth" class="form-control" />
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <span class="pull-right margin-top-15">
+                                <button type="submit" class="btn btn-outline btn-form green">Save</button>
+                                <button type="button" class="btn btn-outline btn-form red">Cancel</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="patient_tab_notes" class="tab-pane patient-notes">
+                <form id="patient_form_notes" action="#">
+                    <textarea id="patient_note" class="form-control" placeholder="Type your note here..."></textarea>
+                    <div class="row margin-top-5 margin-bottom-20">
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-outline blue pull-right">Add New Note</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="patient-notes-list">
+                    <div class="note note-info">
+                        <div class="note-header">
+                            <span class="note-user">Nick Larson</span>
+                            <span class="note-date pull-right">6/29/2016</span>
+                        </div>
+                        <div>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, mattis consectetur purus sit amet eget lacinia odio sem nec elit.</div>
+                    </div>
+                    <div class="note note-info">
+                        <div class="note-header">
+                            <span class="note-user">Bob Nilson</span>
+                            <span class="note-date pull-right">6/29/2016</span>
+                        </div>
+                        <div>Cras mattis consectetur purus sit amet fermentum.</div>
+                    </div>
+                    <div class="note note-info">
+                        <div class="note-header">
+                            <span class="note-user">Nick Larson</span>
+                            <span class="note-date pull-right">6/28/2016</span>
+                        </div>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    </div>
+                    <div class="note note-info">
+                        <div class="note-header">
+                            <span class="note-user">Nick Larson</span>
+                            <span class="note-date pull-right">6/27/2016</span>
+                        </div>
+                        <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
+                    </div>
+                    <div class="note note-info">
+                        <div class="note-header">
+                            <span class="note-user">Ella Wong</span>
+                            <span class="note-date pull-right">3/30/2016</span>
+                        </div>
+                        <div>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</div>
+                    </div>
+                    <div class="note note-info">
+                        <div class="note-header">
+                            <span class="note-user">Ella Wong</span>
+                            <span class="note-date pull-right">3/15/2016</span>
+                        </div>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                    </div>
+                    <div class="note note-info">
+                        <div class="note-header">
+                            <span class="note-user">Nick Larson</span>
+                            <span class="note-date pull-right">3/14/2016</span>
+                        </div>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    </div>
+                    <div class="note note-info">
+                        <div class="note-header">
+                            <span class="note-user">Bob Nilson</span>
+                            <span class="note-date pull-right">3/10/2016</span>
+                        </div>
+                        <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
+                    </div>
+                    <div class="note note-info">
+                        <div class="note-header">
+                            <span class="note-user">Ella Wong</span>
+                            <span class="note-date pull-right">10/20/2015</span>
+                        </div>
+                        <div>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</div>
+                    </div>
+                    <div class="note note-info">
+                        <div class="note-header">
+                            <span class="note-user">Ella Wong</span>
+                            <span class="note-date pull-right">10/19/2015</span>
+                        </div>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button id="show_more_notes" type="button" class="btn btn-outline blue pull-right">Show More Notes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
