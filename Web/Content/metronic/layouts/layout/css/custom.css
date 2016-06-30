@@ -169,6 +169,19 @@ span.chat-message-alert {
     width: 70px;
 }
 
+/*.case-tabs {
+    overflow: hidden;    
+    white-space: nowrap;
+    margin-bottom: 10px;
+}*/
+
+.case-tabs {
+    margin-bottom: 10px;
+}
+.case-tabs > .icon-btn {
+    margin-right: 0;
+}
+
 /* Media Queries */
 @media (max-width: 480px) {
     .patient-notes .btn.pull-right {
@@ -183,6 +196,15 @@ span.chat-message-alert {
     .chat-page .portlet.light.bordered {
         border: none !important;
         padding: 0;
+    }
+
+    .case-tabs > .icon-btn {
+        height: 40px;
+        width: 40px;
+        min-width: unset;
+    }
+    .case-tabs > .icon-btn > div {
+        visibility: collapse;
     }
 }
 

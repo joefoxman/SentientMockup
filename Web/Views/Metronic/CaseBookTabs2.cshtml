@@ -2,60 +2,64 @@
     Layout = "~/Views/Shared/_LayoutMetronicNew.cshtml";
 }
 
-<div class="margin-bottom-10">
-        <a href="#tab_case" data-toggle="tab" class="icon-btn">
-            <i class="fa fa-medkit"></i>
-            <div>Case</div>
-        </a>
-        <a href="#tab_patient" data-toggle="tab" class="icon-btn">
-            <i class="fa fa-universal-access"></i>
-            <div>Patient</div>
-        </a>
-        <a href="#tab_patient_2" data-toggle="tab" class="icon-btn">
-            <i class="fa fa-universal-access"></i>
-            <div>Patient 2</div>
-        </a>
-        <a href="#tab_patient_3" data-toggle="tab" class="icon-btn">
-            <i class="fa fa-universal-access"></i>
-            <div>Patient 3</div>
-        </a>
-        <a href="#tab_procedure" data-toggle="tab" class="icon-btn">
-            <i class="fa fa-stethoscope"></i>
-            <div>Procedure</div>
-        </a>
-        <a href="#tab_documents" data-toggle="tab" class="icon-btn">
-            <i class="fa fa-archive"></i>
-            <div>Documents</div>
-        </a>
-        <a href="#tab_chat" data-toggle="tab" class="icon-btn">
-            <i class="fa fa-comments-o"></i>
-            <div>Chat</div>
-        </a>
-        <a href="#tab_review" data-toggle="tab" class="icon-btn">
-            <i class="fa fa-eye"></i>
-            <div>Review</div>
-        </a>
-        <a href="#tab_report" data-toggle="tab" class="icon-btn">
-            <i class="fa fa-file-text-o"></i>
-            <div>Report</div>
-        </a>
-        <a href="#tab_billing" data-toggle="tab" class="icon-btn">
-            <i class="fa fa-credit-card"></i>
-            <div>Invoice</div>
-        </a>
-    </div>
+<div id="case_tabs" class="case-tabs">
+    <a href="#tab_case" data-toggle="tab" class="icon-btn">
+        <i class="fa fa-medkit"></i>
+        <div>Case</div>
+    </a>
+    @*<a href="#tab_patient" data-toggle="tab" class="icon-btn">
+        <i class="fa fa-universal-access"></i>
+        <div>Patient</div>
+    </a>
+    <a href="#tab_patient_2" data-toggle="tab" class="icon-btn">
+        <i class="fa fa-universal-access"></i>
+        <div>Patient 2</div>
+    </a>*@
+    <a href="#tab_patient_3" data-toggle="tab" class="icon-btn active">
+        <i class="fa fa-universal-access"></i>
+        <div>Patient</div>
+    </a>
+    <a href="#tab_procedure" data-toggle="tab" class="icon-btn">
+        <i class="fa fa-stethoscope"></i>
+        <div>Procedure</div>
+    </a>
+    <a href="#tab_documents" data-toggle="tab" class="icon-btn">
+        <i class="fa fa-archive"></i>
+        <div>Documents</div>
+    </a>
+    <a href="#tab_chat" data-toggle="tab" class="icon-btn">
+        <i class="fa fa-comments-o"></i>
+        <div>Chat</div>
+    </a>
+    <a href="#tab_review" data-toggle="tab" class="icon-btn">
+        <i class="fa fa-eye"></i>
+        <div>Review</div>
+    </a>
+    <a href="#tab_report" data-toggle="tab" class="icon-btn">
+        <i class="fa fa-file-text-o"></i>
+        <div>Report</div>
+    </a>
+    <a href="#tab_billing" data-toggle="tab" class="icon-btn">
+        <i class="fa fa-credit-card"></i>
+        <div>Invoice</div>
+    </a>
+    @*<a href="javascript:;" class="icon-btn">
+        <i class="fa fa-ellipsis-h"></i>
+        <div>More</div>
+    </a>*@
+</div>
 <div class="row">
     <div class="col-lg-12 tab-content">
         <div class="tab-pane" id="tab_case">
             @Html.Partial("CaseTab")
         </div>
-        <div class="tab-pane active" id="tab_patient">
+        @*<div class="tab-pane active" id="tab_patient">
             @Html.Partial("PatientTab")
         </div>
         <div class="tab-pane" id="tab_patient_2">
             @Html.Partial("PatientTab2")
-        </div>
-        <div class="tab-pane" id="tab_patient_3">
+        </div>*@
+        <div class="tab-pane active" id="tab_patient_3">
             @Html.Partial("PatientTab4")
         </div>
         <div class="tab-pane" id="tab_procedure">
@@ -179,6 +183,12 @@
             return {
                 initialize: initialize
             };
+
+        })();
+
+        sentientPOC.CaseBook = (function () {
+
+
 
         })();
 
