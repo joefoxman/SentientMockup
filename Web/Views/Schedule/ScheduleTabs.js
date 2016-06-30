@@ -121,7 +121,11 @@
             { id: 3, text: "Case 3", start_date: "2014-06-30 09:00", end_date: "2014-06-30 10:00", unit_id: "1", snp_name: "SNP Jame Smith", status: "inprogress", color: "rgb(169,209,142)", textColor: "black" },
             { id: 4, text: "Case 4", start_date: "2014-06-30 12:00", end_date: "2014-06-30 13:00", unit_id: "2", snp_name: "SNP John Williams", status: "cancelled", color: "rgb(169,209,142)", textColor: "black" },
             { id: 5, text: "Case 5", start_date: "2014-06-30 13:00", end_date: "2014-06-30 16:00", unit_id: "2", snp_name: "SNP John Williams", status: "complete", color: "rgb(162,30,30)", textColor: "white" },
-            { id: 6, text: "Case 6", start_date: "2014-06-30 12:00", end_date: "2014-06-30 19:00", unit_id: "3", snp_name: "SNP David Miller", status: "tentative", color: "rgb(166,166,166)" }
+            { id: 6, text: "Case 6", start_date: "2014-06-30 12:00", end_date: "2014-06-30 19:00", unit_id: "3", snp_name: "SNP David Miller", status: "tentative", color: "rgb(166,166,166)" },
+            { id: 7, text: "Case 7", start_date: "2014-07-01 12:00", end_date: "2014-07-01 8:00", unit_id: "3", snp_name: "SNP David Miller", status: "scheduled", color: "rgb(65,113,156)" },
+            { id: 8, text: "Case 8", start_date: "2014-07-01 12:00", end_date: "2014-07-01 9:00", unit_id: "2", snp_name: "SNP John Williams", status: "scheduled", color: "rgb(65,113,156)" },
+            { id: 9, text: "Case 9", start_date: "2014-07-01 9:00", end_date: "2014-07-01 12:00", unit_id: "2", snp_name: "SNP John Williams", status: "cancelled", color: "rgb(169,209,142)" },
+            { id: 10, text: "Case 10", start_date: "2014-07-01 8:30", end_date: "2014-07-01 19:00", unit_id: "1", snp_name: "SNP Jame Smith", status: "tentative", color: "rgb(166,166,166)" }
         ], "json");
     };
 
@@ -225,6 +229,7 @@
             if (physicianName !== undefined && physicianName !== null) {
                 // get Physician Name
                 $("#customLightBoxModal").find("#PhysicianName").css("display", "inline-block");
+                $("#customLightBoxModal").find(".physicianname-label").css("display", "inline-block");
                 $("#customLightBoxModal").find("#SnpName").css("display", "none");
                 $("#customLightBoxModal").find(".snpname-label").css("display", "none");
                 $("#customLightBoxModal").find("#PhysicianName").val(physicianName.label);
@@ -233,6 +238,7 @@
                 $("#customLightBoxModal").find("#PhysicianName").css("display", "none");
                 $("#customLightBoxModal").find(".physicianname-label").css("display", "none");
                 $("#customLightBoxModal").find("#SnpName").css("display", "inline-block");
+                $("#customLightBoxModal").find(".snpname-label").css("display", "inline-block");
                 var snpName = eventObj.snp_name;
                 $("#customLightBoxModal").find("#SnpName").val(snpName);
             }
